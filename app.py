@@ -6,27 +6,32 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/index")
 def index():
-    return render_template('index.html')
+    signature = url_for('static', filename='signature.png')
+    return render_template('index.html', signature=signature)
 
 
 @app.route("/about")
 def about():
+    signature = url_for('static', filename='signature.png')
     image_file = url_for('static', filename='me_pic.png')
-    return render_template('about.html', image_file=image_file)
+    return render_template('about.html', image_file=image_file, signature=signature)
 
 
 @app.route("/projects")
 def projects():
-    return render_template('projects.html', title='Projects')
+    signature = url_for('static', filename='signature.png')
+    return render_template('projects.html', title='Projects', signature=signature)
 
 
 @app.route("/blog")
 def blog():
-    return render_template('blog.html', title='Blog')
+    signature = url_for('static', filename='signature.png')
+    return render_template('blog.html', title='Blog', signature=signature)
 
 
 @app.route("/portfolio")
 def portfolio():
+    signature = url_for('static', filename='signature.png')
     blue_ref = url_for('static', filename='blue_ref.png')
     purple_horizon = url_for('static', filename='purple_horizon.png')
     boss = url_for('static', filename='boss.png')
@@ -37,17 +42,19 @@ def portfolio():
     trapcity = url_for('static', filename='trapcity.png')
     tumbleweed = url_for('static', filename='prom.png')
     prom = url_for('static', filename='tumbleweed.png')
-    return render_template('portfolio.html', title='Portfolio', blue_ref=blue_ref, purple_horizon=purple_horizon, boss=boss, dozer=dozer, drop=drop, ninten=ninten, shades=shades, trapcity=trapcity, tumbleweed=tumbleweed, prom=prom)
+    return render_template('portfolio.html', title='Portfolio', blue_ref=blue_ref, purple_horizon=purple_horizon, boss=boss, dozer=dozer, drop=drop, ninten=ninten, shades=shades, trapcity=trapcity, tumbleweed=tumbleweed, prom=prom, signature=signature)
 
 
 @app.route("/projects/googletasksproject")
 def googletasksproject():
-    return render_template('Projects/googletasksproject.html', title='Google Tasks Project')
+    signature = url_for('static', filename='signature.png')
+    return render_template('Projects/googletasksproject.html', title='Google Tasks Project', signature=signature)
 
 
 @app.route("/projects/graphicdesign")
 def graphicdesign():
-    return render_template('Projects/graphic_design.html', title='Graphic Design')
+    signature = url_for('static', filename='signature.png')
+    return render_template('Projects/graphic_design.html', title='Graphic Design', signature=signature)
 
 
 if __name__ == '__main__':
