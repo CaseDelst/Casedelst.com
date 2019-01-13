@@ -76,4 +76,3 @@ Werkzeug==0.14.1
 whitenoise==4.1.2
 widgetsnbextension==3.4.2
 wrapt==1.10.11
-xlwings==0.15.1
