@@ -1,0 +1,84 @@
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: #cccccc;
+  color: #333333;
+  margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #cccccc;
+}
+
+.bg-steel {
+  background-color: #613942;                  /* Controls background on Nav*/
+}
+
+.site-header .navbar-nav .nav-link {          /* Controls wording on Nav*/
+  color: #cccccc;
+}
+
+.display-4{
+  color: #613942;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section{                            /* Controls content pane?*/
+  background: #cccccc;
+  border: 1px solid #dddddd;
+}
+
+.content{
+  flex:1 0 auto;
+}
+
+.jumbotron{
+background: #cccccc ;
+color: #613942;
+/*background-color:none !important;*/
+}
+
+.card {
+  background: #613942;
+  border: 3px solid black;
+
+}
+
+.card-text {
+  color: #cccccc;
+}
+
+.btn {
+  background: #72878a;
+  color: #613942;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #613942;
+  color: #cccccc;
+  text-align: center;
+  align-self: center;
+}
+.mb-1 {
+  color: #613942;
+}
+
+.carousel{
+  width: 900px;
+}
+
+
+
