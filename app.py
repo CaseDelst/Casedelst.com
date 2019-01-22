@@ -26,7 +26,13 @@ def projects():
 @app.route("/blog")
 def blog():
     signature = url_for('static', filename='signature.png')
-    return render_template('blog.html', title='Blog', signature=signature)
+    CruzHacks = url_for('static', filename='CruzHacks.jpg')
+    return render_template('blog.html', title='Blog', signature=signature, CruzHacks=CruzHacks)
+
+
+@app.route("/blog/cruzhacks")
+def cruzhacks():
+    return render_template('cruzhacks.html', title='CruzHacks')
 
 
 @app.route("/portfolio")
