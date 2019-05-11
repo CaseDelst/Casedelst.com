@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <!-- JUMBOTRON -->
+    <div style= "padding-bottom: 5%;"class="jumbotron-fluid">
+        <h1 class="display-4">FitByte</h1>
+        <p class="lead">An app based around the fitbit API made for consolidating the various data that my Charge 3 tracks.</p>
+        <hr class="my-4">
+        <p style="padding: 15px; ">
+            
+            With a growing interest in Data Science and number manipulation, I thought that a perfect application of my interest was to analyze my own every day life.
+            A fitbit seemed like the perfect way to mesh two of my passions, being fitness and computer science, and I could not pass up the opportunity
+            to learn more Python and get a deeper look into the everyday life of a college student's basic health statistics. 
+            
+            <h3 class="mb-1">The Problem</h3>
+                <ol>
+                    <li>Create a Python script to consolidate data stored on server</li>
+                    <li>Make it easy to use, available to anyone with a fitbit</li>
+                    <li>Create an analytics script with the intention of contrasting data from different categories/days using Pandas and MatPlotLib</li>
+                </ol> 
+        
+            <h3 class="mb-1">The Solution (Work in progress)</h3>
+                At this stage in it's development, I am completely done with the storage functionality of the app, which gives you a multitude of information,
+                and 7 csv files a day with 1min interval data (1sec for heartrate). I plan on making a GUI for user input and interface, giving the user the option 
+                of data they want to grab, and how they wish to store it. 
+            
+            <br><br> 
+        
+            <h3 class="mb-1">The Build Process</h3>
+                I made this script with a variety of plugins, including the Fitbit API plugin, Pandas, Oauth2, and a few other utilities that made life easier.  
+                My goal in this project initially was to create a data storage app that could take a date, and would automatically store the key data points that you were
+                interested in.  I found that fitbit offered a variety of data on a very fine level, ranging from 1sec (heartrate) to 15 minutes in precision.  The app functions 
+                on a basic authentication and URL call system, using a script called <a href="https://github.com/orcasgit/python-fitbit/blob/master/gather_keys_oauth2.py">gather_keys_oauth2.python</a>
+                made by a Github user named "brad".  This script was invaluable in letting me create this app, as my Oauth2 knowledge is nonexistant.  Using the keygrabber, I can retrieve the authentication
+                keys from fitbit, and use those for my actual JSON calls using the fitbit API.  The data is returned in a very nice Dictionary format, and learning to traverse those was fun and interesting in python.  
+                Once I had the data for one specific category, I had to figure out a way to save them to a CSV in a structured way.  For this, I used the amazing package Pandas, which could not
+                have made it easier to do.  The to_csv function is a life saver, and for the most part worked flawlessly. 
+
+            <br><br>
+
+            <h3 class="mb-1">What I learned</h3>
+                My confidence with Python has been slowly growing with each little project that I do with it.  I ran into some trouble initially with the Oauth2 package, as some of the dependencies
+                are outdated, and I had to roll back some of the installs to a specific version to get them to work.  This was the only real roadblock I hit in my time on this project
+                thankfully.  The most useful thing I gained from this project was more confidence in data manipulation and dictionary navigation, and consequently using the DataFrame functionality from 
+                the Pandas package.  My interest in this progress leads me to believe that I may be interested in a future of Data Science as a subpath in Computer Science, as I still have no real idea
+                what my subpath would be yet.  
+
+            <br><br>
+
+            <h3 class="mb-1">Thanks For Reading!</h3>
+
+            
+        </p>
+        
+      
+    </div>
+
+{% endblock content %}

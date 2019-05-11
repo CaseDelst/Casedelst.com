@@ -29,12 +29,17 @@ def projects():
 def blog():
     signature = url_for('static', filename='signature.png')
     CruzHacks = url_for('static', filename='CruzHacks.jpg')
-    return render_template('blog.html', title='Blog', signature=signature, CruzHacks=CruzHacks)
+    FitByte   = url_for('static', filename='fitbit.png')
+    return render_template('blog.html', title='Blog', signature=signature, CruzHacks=CruzHacks, FitByte=FitByte)
 
 
 @app.route("/blog/cruzhacks")
 def cruzhacks():
     return render_template('cruzhacks.html', title='CruzHacks')
+
+@app.route("/blog/fitbyte")
+def fitbyte():
+    return render_template('fitbyte.html', title='FitByte')
 
 
 @app.route("/portfolio")

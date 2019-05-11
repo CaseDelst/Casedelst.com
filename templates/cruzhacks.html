@@ -2,35 +2,36 @@
 {% block content %}
 
     <!-- JUMBOTRON -->
-    <div class="jumbotron-fluid">
+    <div style="padding-bottom: 5%;"class="jumbotron-fluid">
       <h1 class="display-4">CruzHacks 2019</h1>
       <p class="lead">A 36 hour Hackathon hosted by UCSC, where myself and 4 other students created a bus-tracking web app.</p>
       <hr class="my-4">
-      <p style="padding:35px">
+      <p style="padding:15px">
           The 700-person hackathon officially started at 8pm on the 18th, kicking off the <b>50-hour</b> push I had no clue was in store.<br><br>
 
-          My team was comprised of 5 people that I met on a popular social media app, Reddit.  All Santa Cruz students, we immediately hit it off and came up with an idea that we could all get behind and spend a weekend on.
-          That idea was to recreate a popular website used (and disliked) by many Santa Cruz students, which is <a href="http://slugroute.com">Slug Route</a>.
-          This website would contain a complete UI rework, live bus tracking, a population counter for each bus stop based on user input, an active database storing bus data,
-          speed/rotation/distance of the busses, and an ETA system that would push how long the bus would take to the user.  We had no clue how much work this would really be,
-          and how long it would take, but we knew it would be a fun challenge for a first Hackathon.<br><br>
+         My team was comprised of 5 people that I met on a popular social media app, Reddit.  All Santa Cruz students, we immediately hit it off and came up with an idea that we could all get behind and spend a weekend on.
+         That idea was to recreate a popular website used by many Santa Cruz students: <a href="http://slugroute.com">Slug Route</a>.  We aimed to add more functionality and make it a more enjoyable experience in general.  
+         This website would contain a complete UI rework, live bus tracking, a population counter for each bus stop based on user input, an active database storing bus data,
+         speed/rotation/distance of the busses, and an ETA system that would push how long the bus would take to the user.  We had no clue how much work this would really be,
+         and how long it would take, but we knew it would be a fun challenge for our first Hackathon.<br><br>
 
-          We decided to use React for the frontend (which one of our teammates was heavily experienced in), a JavaScript based language and Go for the backend
-          (a C based language that another teammate was experienced in who did a good job teaching the rest of us), as well as Firebase for our database, and Google Cloud Service for our  server needs.<br><br>
+         We decided to use React for the frontend (which one of our teammates was heavily experienced in), a JavaScript based language and Go for the backend
+         (a C based language that another teammate was experienced in, who also took the responsibility of teaching the rest of us), as well as Firebase for our database, and Google Cloud Service for our server needs.<br><br>
 
-          A few hours in, and we decided that we would need to spend the ENTIRE weekend on this project, day and night,  to push the implementations that we wanted to.A few challenged we ran into were
-          the limited amount of Google Maps API calls that we had to work with.  By default, the free version of the API limits the amount of calls to 25,000 per day.  Sounds like a lot, I know,
-          but when using the Google Routes API to get routing information calls the API 32 times per reload, those calls run out pretty fast.  To circumvent this issue, we dropped the routing feature,
-          and decided to calculate this ourselves, leading to some pretty interesting and technical geospatial problems.  Another problem was getting the busses to display during our demo on a weekend.
-          This was not a problem on our apps side, but rather the fact that the busses don't run on weekends made it difficult to locate where they were.  Luckily, we realized this early on Friday, and
-          had to push to get a server up to store the results of as many pings of bus data before they stopped running at 11pm.  We crammed out a quick Go script, and the firebase database, and started
-          pinging the busses.  We ended up with about 40 minutes of bus data, which was plenty for our purposes.  The next step was to create a server that would mimic the 3-second refresh rate of the bus
-          server, and make it callable by React (our frontend).  We successfully completed our bare-bones project in the allotted time, and we plan on implementing more features and eventually pushing it
-          to the web! Hopefully you will be able to see it soon.  When we do eventually post it, there will be a link in my Github, and a section in my "Projects" page.<br><br>
+         A few hours in, and we decided that we would need to spend the ENTIRE weekend on this project, day and night, to push the implementations that we wanted to.  A few challenges we ran into were
+         the limited amount of Google Maps API calls that we were allowed before it started costing money.  By default, the free version of the API limits the amount of calls to 25,000 per day.  Sounds like a lot, I know,
+         but when using the Google Routes API to get routing information calls the API 32 times per reload, those calls run out pretty fast.  To circumvent this issue, we dropped the routing feature,
+         and decided to calculate this ourselves, leading to some pretty interesting and technical geospatial problems.  Another problem was getting the busses to display during our demo on a weekend.
+         This was not a problem on our apps side, but rather the fact that the busses don't run on weekends made it difficult to locate where they were.  Luckily, we realized this early on Friday, and
+         had to push to get a server up to store the results of as many pings of bus data before they stopped running at 11pm.  We crammed out a quick Go script, and the firebase database, and started
+         pinging the busses.  We ended up with about 40 minutes of bus location data, which was plenty for our purposes.  The next step was to create a server that would mimic the 3-second refresh rate of the bus
+         server, and make it callable by React (our frontend).  We successfully completed our bare-bones project in the allotted time, and we plan on implementing more features and eventually pushing it
+         to the web! Hopefully you will be able to see it soon.  When we do eventually post it, there will be a link in my Github, and a section in my "Projects" page.<br><br>
 
-          This was basically the first time that I had been awake for 50 hours, and immediately after it ended I went to sleep at 3pm and woke up at 8am the next day.<br><br>
+         This was basically the first time that I had been awake for 50 hours, and immediately after it ended I went to sleep at 3pm and woke up at 8am the next day.<br><br>
 
-          You can find this project in my GitHub, with eventual screenshots and a link to Bus++!</p>
+         You can find this project in my GitHub, with eventual screenshots and a link to Bus++!
+
       <p class="lead">
       </p>
     </div>
