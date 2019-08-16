@@ -1,6 +1,7 @@
-# flask-website
+# **Personal Website**
+
 Casedelst.com
 
-Created using Python, Flask, HTML, CSS, (and Bootstrap) as a dynamic website, using python as an executable called "app.py". I plan to add more functionality in the future, and learn more about dynamic interfaces.  
+A custom personal website made with Flask and hosted on Heroku.  At the moment it is very bare, but as I continue to learn more I will be adding interesting new features!
 
-Hosted on Heroku
+Check it out, and thanks for stopping by!
