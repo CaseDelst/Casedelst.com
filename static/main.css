@@ -11,6 +11,12 @@ h1, h2, h3, h4, h5, h6 {
   color: #cccccc;
 }
 
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
 .bg-steel {
   background-color: #613942;                  /* Controls background on Nav*/
 }

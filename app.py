@@ -35,11 +35,13 @@ def blog():
 
 @app.route("/blog/cruzhacks")
 def cruzhacks():
-    return render_template('cruzhacks.html', title='CruzHacks')
+    signature = url_for('static', filename='signature.png')
+    return render_template('cruzhacks.html', title='CruzHacks', signature=signature)
 
 @app.route("/blog/fitbyte")
 def fitbyte():
-    return render_template('fitbyte.html', title='FitByte')
+    signature = url_for('static', filename='signature.png')
+    return render_template('fitbyte.html', title='FitByte', signature=signature)
 
 
 @app.route("/portfolio")
