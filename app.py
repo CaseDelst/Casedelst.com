@@ -1,7 +1,8 @@
-#NOTE TO SELF: To push to heroku: git push heroku master
+#NOTE TO SELF: To push to heroku: "heroku login" then "git push heroku master"
 
-from flask import Flask, render_template, url_for
-
+from flask import Flask, render_template, url_for, jsonify, request
+import dataManager 
+import pandas as pd
 app = Flask(__name__)
 
 
@@ -71,6 +72,25 @@ def graphicdesign():
     signature = url_for('static', filename='signature.png')
     return render_template('Projects/graphic_design.html', title='Graphic Design', signature=signature)
 
+@app.route("/location/endpoint", methods=['POST'])
+def locationendpoint():
+
+    data = request.get_json()
+
+    locations = data['locations']
+
+    #Store every value sent by the endpoint to the main CSV file 'history.csv'
+    for entry in locations:
+        dataManager.storeCSVLine(entry)
+    
+    dataManager.createKMLFiles()
+
+
+    return jsonify(data)
+
+
+#@app.route("/location/endpoint")
+#def location():
 
 if __name__ == '__main__':
     app.run(debug=True)

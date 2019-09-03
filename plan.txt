@@ -1,0 +1,21 @@
+Heres the plan... 
+
+Goal: 
+    - I want to be able to display my location, heartrate, and health data on my website
+    - I want it to update semi-frequently, at least in 30 minute intervals
+
+Steps: 
+    - Create the endpoint on website using flask
+    - Parse the JSON package and create a storage method
+        - This includes rolling files to limit file size
+        - Create a archival process to a local machine after the "month file" is full
+    - Display the location data on a map using a google maps api of some kind, probably using javascript
+    - Make the map interactive to use a specific range of data
+    - Deploy it to the web
+
+Tasks: 
+
+Make KML translator from CSV
+    - Translate to Unix time, Zulu time
+    - Make 4 individual year/month/week/day files
+Make Summary File from KML File
