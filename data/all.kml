@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="9">
+        <Style id="32">
+            <LineStyle id="33">
+                <color>ff0000ff</color>
+                <colorMode>normal</colorMode>
+                <width>5</width>
+            </LineStyle>
+        </Style>
+        <name>All Time Summary</name>
+        <Placemark id="11">
+            <name>2015-10-01 08:00:00</name>
+            <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates&lt;/th&gt;
+&lt;th&gt;Altitude&lt;/th&gt;
+&lt;th&gt;Speed&lt;/th&gt;
+&lt;th&gt;Phone Battery&lt;/th&gt;
+&lt;th&gt;Heartrate&lt;/th&gt;
+&lt;th&gt;Steps&lt;/th&gt;
+&lt;th&gt;Calories&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;-32.36395877083348,17.634487852715736&lt;/th&gt;
+&lt;th&gt;98.79725099411415&lt;/th&gt;
+&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+            <Point id="10">
+                <coordinates>-32.36395877083348,17.634487852715736,98</coordinates>
+                <altitudeMode>relativetoground</altitudeMode>
+            </Point>
+        </Placemark>
+        <Placemark id="13">
+            <name>2015-10-01 08:00:00</name>
+            <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates&lt;/th&gt;
+&lt;th&gt;Altitude&lt;/th&gt;
+&lt;th&gt;Speed&lt;/th&gt;
+&lt;th&gt;Phone Battery&lt;/th&gt;
+&lt;th&gt;Heartrate&lt;/th&gt;
+&lt;th&gt;Steps&lt;/th&gt;
+&lt;th&gt;Calories&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;-56.18362774490271,25.00144991961164&lt;/th&gt;
+&lt;th&gt;64.31980717208377&lt;/th&gt;
+&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+            <Point id="12">
+                <coordinates>-56.18362774490271,25.00144991961164,64</coordinates>
+                <altitudeMode>relativetoground</altitudeMode>
+            </Point>
+        </Placemark>
+        <Placemark id="15">
+            <name>2015-10-01 08:00:00</name>
+            <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates&lt;/th&gt;
+&lt;th&gt;Altitude&lt;/th&gt;
+&lt;th&gt;Speed&lt;/th&gt;
+&lt;th&gt;Phone Battery&lt;/th&gt;
+&lt;th&gt;Heartrate&lt;/th&gt;
+&lt;th&gt;Steps&lt;/th&gt;
+&lt;th&gt;Calories&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;-64.5417868944977,5.551680168485545&lt;/th&gt;
+&lt;th&gt;87.78534016901916&lt;/th&gt;
+&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+            <Point id="14">
+                <coordinates>-64.5417868944977,5.551680168485545,87</coordinates>
+                <altitudeMode>relativetoground</altitudeMode>
+            </Point>
+        </Placemark>
+        <Placemark id="17">
+            <name>2015-10-01 08:00:00</name>
+            <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates&lt;/th&gt;
+&lt;th&gt;Altitude&lt;/th&gt;
+&lt;th&gt;Speed&lt;/th&gt;
+&lt;th&gt;Phone Battery&lt;/th&gt;
+&lt;th&gt;Heartrate&lt;/th&gt;
+&lt;th&gt;Steps&lt;/th&gt;
+&lt;th&gt;Calories&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;-6.558838078359099,12.281860197190712&lt;/th&gt;
+&lt;th&gt;47.8302491788907&lt;/th&gt;
+&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+            <Point id="16">
+                <coordinates>-6.558838078359099,12.281860197190712,47</coordinates>
+                <altitudeMode>relativetoground</altitudeMode>
+            </Point>
+        </Placemark>
+        <Placemark id="19">
+            <name>2015-10-01 08:00:00</name>
+            <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates&lt;/th&gt;
+&lt;th&gt;Altitude&lt;/th&gt;
+&lt;th&gt;Speed&lt;/th&gt;
+&lt;th&gt;Phone Battery&lt;/th&gt;
+&lt;th&gt;Heartrate&lt;/th&gt;
+&lt;th&gt;Steps&lt;/th&gt;
+&lt;th&gt;Calories&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;-74.54822471452675,28.718519744757742&lt;/th&gt;
+&lt;th&gt;72.60236286284818&lt;/th&gt;
+&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+            <Point id="18">
+                <coordinates>-74.54822471452675,28.718519744757742,72</coordinates>
+                <altitudeMode>relativetoground</altitudeMode>
+            </Point>
+        </Placemark>
+        <Placemark id="31">
+            <name>All Time Path</name>
+            <description>My travels since I've been tracking them</description>
+            <styleUrl>#32</styleUrl>
+            <LineString id="30">
+                <coordinates>-32.36395877083348,17.634487852715736,98 -56.18362774490271,25.00144991961164,64 -64.5417868944977,5.551680168485545,87 -6.558838078359099,12.281860197190712,47 -74.54822471452675,28.718519744757742,72</coordinates>
+                <extrude>1</extrude>
+                <altitudeMode>absolute</altitudeMode>
+            </LineString>
+        </Placemark>
+    </Document>
+</kml>
