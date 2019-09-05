@@ -19,5 +19,3 @@ Make KML translator from CSV
     - Translate to Unix time, Zulu time
     - Make 4 individual year/month/week/day files
 Make Summary File from KML File
-
-AIzaSyCOQEB_dF4i00JdauJcZjmG8AesxDcOXcs
