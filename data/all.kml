@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
-    <Document id="9">
-        <Style id="54">
-            <LineStyle id="55">
+    <Document id="13">
+        <Style id="427">
+            <LineStyle id="428">
                 <color>ff0000ff</color>
                 <colorMode>normal</colorMode>
                 <width>5</width>
             </LineStyle>
         </Style>
         <name>All Time Summary</name>
-        <Placemark id="11">
-            <name>2015-10-01 08:00:00</name>
-            <description>&lt;table&gt;
+        <Folder id="14">
+            <name>Data Points</name>
+            <Placemark id="22">
+                <name>2019-08-29 17:07:28</name>
+                <description>&lt;table&gt;
 &lt;tr&gt;
 &lt;th&gt;Coordinates:&lt;/th&gt;
-&lt;th&gt;-32.36395877083348,17.634487852715736&lt;/th&gt;
+&lt;th&gt;4.362170689402544,52.009887727914915&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Altitude:&lt;/th&gt;
-&lt;th&gt;98.79725099411415&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Speed:&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;3&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Phone Battery:&lt;/th&gt;
-&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;0.25999999046325684&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Heartrate:&lt;/th&gt;
@@ -42,29 +44,29 @@
 &lt;/tr&gt;
 &lt;/table&gt;
 </description>
-            <Point id="10">
-                <coordinates>-32.36395877083348,17.634487852715736,98</coordinates>
-                <altitudeMode>relativeToGround</altitudeMode>
-            </Point>
-        </Placemark>
-        <Placemark id="13">
-            <name>2015-10-01 08:00:00</name>
-            <description>&lt;table&gt;
+                <Point id="21">
+                    <coordinates>4.362170689402544,52.009887727914915,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="30">
+                <name>2019-08-29 17:07:48</name>
+                <description>&lt;table&gt;
 &lt;tr&gt;
 &lt;th&gt;Coordinates:&lt;/th&gt;
-&lt;th&gt;-56.18362774490271,25.00144991961164&lt;/th&gt;
+&lt;th&gt;4.361525894454435,52.01034114716072&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Altitude:&lt;/th&gt;
-&lt;th&gt;64.31980717208377&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Speed:&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Phone Battery:&lt;/th&gt;
-&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;0.2700000107288361&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Heartrate:&lt;/th&gt;
@@ -80,29 +82,29 @@
 &lt;/tr&gt;
 &lt;/table&gt;
 </description>
-            <Point id="12">
-                <coordinates>-56.18362774490271,25.00144991961164,64</coordinates>
-                <altitudeMode>relativeToGround</altitudeMode>
-            </Point>
-        </Placemark>
-        <Placemark id="15">
-            <name>2015-10-01 08:00:00</name>
-            <description>&lt;table&gt;
+                <Point id="29">
+                    <coordinates>4.361525894454435,52.01034114716072,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="38">
+                <name>2019-08-29 17:08:14</name>
+                <description>&lt;table&gt;
 &lt;tr&gt;
 &lt;th&gt;Coordinates:&lt;/th&gt;
-&lt;th&gt;-64.5417868944977,5.551680168485545&lt;/th&gt;
+&lt;th&gt;4.361232127998361,52.01046711304412&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Altitude:&lt;/th&gt;
-&lt;th&gt;87.78534016901916&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Speed:&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Phone Battery:&lt;/th&gt;
-&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;0.2800000011920929&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Heartrate:&lt;/th&gt;
@@ -118,29 +120,29 @@
 &lt;/tr&gt;
 &lt;/table&gt;
 </description>
-            <Point id="14">
-                <coordinates>-64.5417868944977,5.551680168485545,87</coordinates>
-                <altitudeMode>relativeToGround</altitudeMode>
-            </Point>
-        </Placemark>
-        <Placemark id="17">
-            <name>2015-10-01 08:00:00</name>
-            <description>&lt;table&gt;
+                <Point id="37">
+                    <coordinates>4.361232127998361,52.01046711304412,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="46">
+                <name>2019-08-29 17:08:39</name>
+                <description>&lt;table&gt;
 &lt;tr&gt;
 &lt;th&gt;Coordinates:&lt;/th&gt;
-&lt;th&gt;-6.558838078359099,12.281860197190712&lt;/th&gt;
+&lt;th&gt;4.361545611176976,52.010287195492545&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Altitude:&lt;/th&gt;
-&lt;th&gt;47.8302491788907&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Speed:&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;2&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Phone Battery:&lt;/th&gt;
-&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;0.2899999916553497&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Heartrate:&lt;/th&gt;
@@ -156,29 +158,29 @@
 &lt;/tr&gt;
 &lt;/table&gt;
 </description>
-            <Point id="16">
-                <coordinates>-6.558838078359099,12.281860197190712,47</coordinates>
-                <altitudeMode>relativeToGround</altitudeMode>
-            </Point>
-        </Placemark>
-        <Placemark id="19">
-            <name>2015-10-01 08:00:00</name>
-            <description>&lt;table&gt;
+                <Point id="45">
+                    <coordinates>4.361545611176976,52.010287195492545,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="54">
+                <name>2019-08-29 17:09:20</name>
+                <description>&lt;table&gt;
 &lt;tr&gt;
 &lt;th&gt;Coordinates:&lt;/th&gt;
-&lt;th&gt;-74.54822471452675,28.718519744757742&lt;/th&gt;
+&lt;th&gt;4.361335476864466,52.010396160233775&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Altitude:&lt;/th&gt;
-&lt;th&gt;72.60236286284818&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Speed:&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Phone Battery:&lt;/th&gt;
-&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;0.30000001192092896&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Heartrate:&lt;/th&gt;
@@ -194,29 +196,29 @@
 &lt;/tr&gt;
 &lt;/table&gt;
 </description>
-            <Point id="18">
-                <coordinates>-74.54822471452675,28.718519744757742,72</coordinates>
-                <altitudeMode>relativeToGround</altitudeMode>
-            </Point>
-        </Placemark>
-        <Placemark id="21">
-            <name>2015-10-01 08:00:00</name>
-            <description>&lt;table&gt;
+                <Point id="53">
+                    <coordinates>4.361335476864466,52.010396160233775,1</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="62">
+                <name>2019-08-29 17:11:44</name>
+                <description>&lt;table&gt;
 &lt;tr&gt;
 &lt;th&gt;Coordinates:&lt;/th&gt;
-&lt;th&gt;-2.603626676583264,27.93394907038512&lt;/th&gt;
+&lt;th&gt;4.36137235723842,52.01038849079237&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Altitude:&lt;/th&gt;
-&lt;th&gt;56.66924613309378&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Speed:&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Phone Battery:&lt;/th&gt;
-&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;0.33000001311302185&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Heartrate:&lt;/th&gt;
@@ -232,29 +234,29 @@
 &lt;/tr&gt;
 &lt;/table&gt;
 </description>
-            <Point id="20">
-                <coordinates>-2.603626676583264,27.93394907038512,56</coordinates>
-                <altitudeMode>relativeToGround</altitudeMode>
-            </Point>
-        </Placemark>
-        <Placemark id="23">
-            <name>2015-10-01 08:00:00</name>
-            <description>&lt;table&gt;
+                <Point id="61">
+                    <coordinates>4.36137235723842,52.01038849079237,1</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="70">
+                <name>2019-08-29 17:26:19</name>
+                <description>&lt;table&gt;
 &lt;tr&gt;
 &lt;th&gt;Coordinates:&lt;/th&gt;
-&lt;th&gt;-113.77741741471566,1.788516323939554&lt;/th&gt;
+&lt;th&gt;4.361157026145944,52.0103972917907&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Altitude:&lt;/th&gt;
-&lt;th&gt;45.40748028022244&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Speed:&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Phone Battery:&lt;/th&gt;
-&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;0.4000000059604645&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Heartrate:&lt;/th&gt;
@@ -270,29 +272,29 @@
 &lt;/tr&gt;
 &lt;/table&gt;
 </description>
-            <Point id="22">
-                <coordinates>-113.77741741471566,1.788516323939554,45</coordinates>
-                <altitudeMode>relativeToGround</altitudeMode>
-            </Point>
-        </Placemark>
-        <Placemark id="25">
-            <name>2015-10-01 08:00:00</name>
-            <description>&lt;table&gt;
+                <Point id="69">
+                    <coordinates>4.361157026145944,52.0103972917907,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="78">
+                <name>2019-08-29 17:26:53</name>
+                <description>&lt;table&gt;
 &lt;tr&gt;
 &lt;th&gt;Coordinates:&lt;/th&gt;
-&lt;th&gt;-88.34296979574495,35.76731961840317&lt;/th&gt;
+&lt;th&gt;4.3612015340517845,52.01047570449487&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Altitude:&lt;/th&gt;
-&lt;th&gt;20.928777721476187&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Speed:&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Phone Battery:&lt;/th&gt;
-&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;0.36000001430511475&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Heartrate:&lt;/th&gt;
@@ -308,29 +310,29 @@
 &lt;/tr&gt;
 &lt;/table&gt;
 </description>
-            <Point id="24">
-                <coordinates>-88.34296979574495,35.76731961840317,20</coordinates>
-                <altitudeMode>relativeToGround</altitudeMode>
-            </Point>
-        </Placemark>
-        <Placemark id="27">
-            <name>2015-10-01 08:00:00</name>
-            <description>&lt;table&gt;
+                <Point id="77">
+                    <coordinates>4.3612015340517845,52.01047570449487,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="86">
+                <name>2019-08-29 17:27:33</name>
+                <description>&lt;table&gt;
 &lt;tr&gt;
 &lt;th&gt;Coordinates:&lt;/th&gt;
-&lt;th&gt;-88.43612016254755,29.164191636604745&lt;/th&gt;
+&lt;th&gt;4.3611741252284135,52.010428430560985&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Altitude:&lt;/th&gt;
-&lt;th&gt;18.2122461300417&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Speed:&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Phone Battery:&lt;/th&gt;
-&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;0.3499999940395355&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Heartrate:&lt;/th&gt;
@@ -346,29 +348,29 @@
 &lt;/tr&gt;
 &lt;/table&gt;
 </description>
-            <Point id="26">
-                <coordinates>-88.43612016254755,29.164191636604745,18</coordinates>
-                <altitudeMode>relativeToGround</altitudeMode>
-            </Point>
-        </Placemark>
-        <Placemark id="29">
-            <name>2015-10-01 08:00:00</name>
-            <description>&lt;table&gt;
+                <Point id="85">
+                    <coordinates>4.3611741252284135,52.010428430560985,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="94">
+                <name>2019-08-29 17:28:08</name>
+                <description>&lt;table&gt;
 &lt;tr&gt;
 &lt;th&gt;Coordinates:&lt;/th&gt;
-&lt;th&gt;-41.21969996837518,36.64375060861616&lt;/th&gt;
+&lt;th&gt;4.361285939816722,52.01034473725782&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Altitude:&lt;/th&gt;
-&lt;th&gt;71.97568368781837&lt;/th&gt;
+&lt;th&gt;-1&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Speed:&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Phone Battery:&lt;/th&gt;
-&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;0.3499999940395355&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Heartrate:&lt;/th&gt;
@@ -384,29 +386,29 @@
 &lt;/tr&gt;
 &lt;/table&gt;
 </description>
-            <Point id="28">
-                <coordinates>-41.21969996837518,36.64375060861616,71</coordinates>
-                <altitudeMode>relativeToGround</altitudeMode>
-            </Point>
-        </Placemark>
-        <Placemark id="31">
-            <name>2015-10-01 08:00:00</name>
-            <description>&lt;table&gt;
+                <Point id="93">
+                    <coordinates>4.361285939816722,52.01034473725782,-1</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="102">
+                <name>2019-08-29 17:28:53</name>
+                <description>&lt;table&gt;
 &lt;tr&gt;
 &lt;th&gt;Coordinates:&lt;/th&gt;
-&lt;th&gt;-37.10032541991905,26.377006491678333&lt;/th&gt;
+&lt;th&gt;4.3613667413632955,52.01047515967117&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Altitude:&lt;/th&gt;
-&lt;th&gt;85.5817288632994&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Speed:&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;2&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Phone Battery:&lt;/th&gt;
-&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;0.3499999940395355&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Heartrate:&lt;/th&gt;
@@ -422,29 +424,29 @@
 &lt;/tr&gt;
 &lt;/table&gt;
 </description>
-            <Point id="30">
-                <coordinates>-37.10032541991905,26.377006491678333,85</coordinates>
-                <altitudeMode>relativeToGround</altitudeMode>
-            </Point>
-        </Placemark>
-        <Placemark id="33">
-            <name>2015-10-01 08:00:00</name>
-            <description>&lt;table&gt;
+                <Point id="101">
+                    <coordinates>4.3613667413632955,52.01047515967117,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="110">
+                <name>2019-08-29 17:30:22</name>
+                <description>&lt;table&gt;
 &lt;tr&gt;
 &lt;th&gt;Coordinates:&lt;/th&gt;
-&lt;th&gt;-103.38475196745361,20.762146531645595&lt;/th&gt;
+&lt;th&gt;4.361492469910869,52.010244196329275&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Altitude:&lt;/th&gt;
-&lt;th&gt;2.3086049341669694&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Speed:&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Phone Battery:&lt;/th&gt;
-&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;0.3499999940395355&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Heartrate:&lt;/th&gt;
@@ -460,29 +462,29 @@
 &lt;/tr&gt;
 &lt;/table&gt;
 </description>
-            <Point id="32">
-                <coordinates>-103.38475196745361,20.762146531645595,2</coordinates>
-                <altitudeMode>relativeToGround</altitudeMode>
-            </Point>
-        </Placemark>
-        <Placemark id="35">
-            <name>2015-10-01 08:00:00</name>
-            <description>&lt;table&gt;
+                <Point id="109">
+                    <coordinates>4.361492469910869,52.010244196329275,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="118">
+                <name>2019-08-29 17:31:55</name>
+                <description>&lt;table&gt;
 &lt;tr&gt;
 &lt;th&gt;Coordinates:&lt;/th&gt;
-&lt;th&gt;-64.9763094068484,34.8362539406461&lt;/th&gt;
+&lt;th&gt;4.3614521529566135,52.01031250884012&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Altitude:&lt;/th&gt;
-&lt;th&gt;35.59856422367922&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Speed:&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Phone Battery:&lt;/th&gt;
-&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;0.3499999940395355&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Heartrate:&lt;/th&gt;
@@ -498,29 +500,29 @@
 &lt;/tr&gt;
 &lt;/table&gt;
 </description>
-            <Point id="34">
-                <coordinates>-64.9763094068484,34.8362539406461,35</coordinates>
-                <altitudeMode>relativeToGround</altitudeMode>
-            </Point>
-        </Placemark>
-        <Placemark id="37">
-            <name>2015-10-01 08:00:00</name>
-            <description>&lt;table&gt;
+                <Point id="117">
+                    <coordinates>4.3614521529566135,52.01031250884012,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="126">
+                <name>2019-08-29 17:32:16</name>
+                <description>&lt;table&gt;
 &lt;tr&gt;
 &lt;th&gt;Coordinates:&lt;/th&gt;
-&lt;th&gt;-106.50184398025036,17.653933869674955&lt;/th&gt;
+&lt;th&gt;4.361753398556599,52.0103457430862&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Altitude:&lt;/th&gt;
-&lt;th&gt;62.0159025878533&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Speed:&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;3&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Phone Battery:&lt;/th&gt;
-&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;0.3499999940395355&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Heartrate:&lt;/th&gt;
@@ -536,29 +538,29 @@
 &lt;/tr&gt;
 &lt;/table&gt;
 </description>
-            <Point id="36">
-                <coordinates>-106.50184398025036,17.653933869674955,62</coordinates>
-                <altitudeMode>relativeToGround</altitudeMode>
-            </Point>
-        </Placemark>
-        <Placemark id="39">
-            <name>2015-10-01 08:00:00</name>
-            <description>&lt;table&gt;
+                <Point id="125">
+                    <coordinates>4.361753398556599,52.0103457430862,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="134">
+                <name>2019-08-29 17:33:31</name>
+                <description>&lt;table&gt;
 &lt;tr&gt;
 &lt;th&gt;Coordinates:&lt;/th&gt;
-&lt;th&gt;-47.44222144811776,2.537457299788962&lt;/th&gt;
+&lt;th&gt;4.361373614523896,52.01040957127885&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Altitude:&lt;/th&gt;
-&lt;th&gt;79.68963212481984&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Speed:&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Phone Battery:&lt;/th&gt;
-&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;0.3899999856948853&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Heartrate:&lt;/th&gt;
@@ -574,29 +576,29 @@
 &lt;/tr&gt;
 &lt;/table&gt;
 </description>
-            <Point id="38">
-                <coordinates>-47.44222144811776,2.537457299788962,79</coordinates>
-                <altitudeMode>relativeToGround</altitudeMode>
-            </Point>
-        </Placemark>
-        <Placemark id="41">
-            <name>2015-10-01 08:00:00</name>
-            <description>&lt;table&gt;
+                <Point id="133">
+                    <coordinates>4.361373614523896,52.01040957127885,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="142">
+                <name>2019-08-29 17:34:24</name>
+                <description>&lt;table&gt;
 &lt;tr&gt;
 &lt;th&gt;Coordinates:&lt;/th&gt;
-&lt;th&gt;-44.15735551751616,7.0293152057120345&lt;/th&gt;
+&lt;th&gt;4.3614607024978485,52.01038207863645&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Altitude:&lt;/th&gt;
-&lt;th&gt;47.525066788265626&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Speed:&lt;/th&gt;
-&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Phone Battery:&lt;/th&gt;
-&lt;th&gt;0.89&lt;/th&gt;
+&lt;th&gt;0.4099999964237213&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;th&gt;Heartrate:&lt;/th&gt;
@@ -612,17 +614,1310 @@
 &lt;/tr&gt;
 &lt;/table&gt;
 </description>
-            <Point id="40">
-                <coordinates>-44.15735551751616,7.0293152057120345,47</coordinates>
-                <altitudeMode>relativeToGround</altitudeMode>
-            </Point>
-        </Placemark>
-        <Placemark id="53">
+                <Point id="141">
+                    <coordinates>4.3614607024978485,52.01038207863645,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="150">
+                <name>2019-08-29 18:21:49</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.361383169893512,52.01046912470088&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;0.8100000023841858&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="149">
+                    <coordinates>4.361383169893512,52.01046912470088,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="158">
+                <name>2019-08-29 18:30:06</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.3615726009051885,52.01033078138904&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;0.8500000238418579&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="157">
+                    <coordinates>4.3615726009051885,52.01033078138904,1</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="166">
+                <name>2019-08-29 20:13:47</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.361501057349131,52.00979125196107&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;-1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="165">
+                    <coordinates>4.361501057349131,52.00979125196107,-1</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="174">
+                <name>2019-08-29 20:14:12</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.361385852102527,52.0098940842338&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="173">
+                    <coordinates>4.361385852102527,52.0098940842338,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="182">
+                <name>2019-08-29 20:14:33</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.3615914601873245,52.010135524954656&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="181">
+                    <coordinates>4.3615914601873245,52.010135524954656,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="190">
+                <name>2019-08-29 20:14:56</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.361511735729456,52.010288491105804&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="189">
+                    <coordinates>4.361511735729456,52.010288491105804,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="198">
+                <name>2019-08-29 20:15:16</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.36144529960008,52.00970164023148&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="197">
+                    <coordinates>4.36144529960008,52.00970164023148,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="206">
+                <name>2019-08-29 20:15:50</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.361335107172365,52.01045567719822&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="205">
+                    <coordinates>4.361335107172365,52.01045567719822,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="214">
+                <name>2019-08-29 20:16:13</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.361137244854459,52.010327763903895&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="213">
+                    <coordinates>4.361137244854459,52.010327763903895,1</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="222">
+                <name>2019-08-29 20:16:44</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.36075033620406,52.01056513940171&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="221">
+                    <coordinates>4.36075033620406,52.01056513940171,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="230">
+                <name>2019-08-29 20:18:20</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.361525744289861,52.01034677086394&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;-2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;-1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="229">
+                    <coordinates>4.361525744289861,52.01034677086394,-2</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="238">
+                <name>2019-08-29 20:19:36</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.361442010853776,52.010247632909575&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;3&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="237">
+                    <coordinates>4.361442010853776,52.010247632909575,3</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="246">
+                <name>2019-08-29 20:19:57</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.361091563482174,52.00999554717169&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="245">
+                    <coordinates>4.361091563482174,52.00999554717169,2</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="254">
+                <name>2019-08-29 20:20:18</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.360701888803728,52.01018250552193&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="253">
+                    <coordinates>4.360701888803728,52.01018250552193,1</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="262">
+                <name>2019-08-29 20:20:40</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.36052804813195,52.01052348134295&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="261">
+                    <coordinates>4.36052804813195,52.01052348134295,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="270">
+                <name>2019-08-29 20:21:04</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.360295701776035,52.01078319461272&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="269">
+                    <coordinates>4.360295701776035,52.01078319461272,1</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="278">
+                <name>2019-08-29 20:21:27</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.360042149205096,52.01099555012957&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="277">
+                    <coordinates>4.360042149205096,52.01099555012957,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="286">
+                <name>2019-08-29 20:21:47</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.359892029319293,52.01123673939333&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="285">
+                    <coordinates>4.359892029319293,52.01123673939333,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="294">
+                <name>2019-08-29 20:22:07</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.3596306815784045,52.011420051615694&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;-1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="293">
+                    <coordinates>4.3596306815784045,52.011420051615694,-1</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="302">
+                <name>2019-08-29 20:22:27</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.3594860937486954,52.01163450260834&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;-1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="301">
+                    <coordinates>4.3594860937486954,52.01163450260834,-1</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="310">
+                <name>2019-08-29 20:22:49</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.359735706825144,52.01180138630048&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;-2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="309">
+                    <coordinates>4.359735706825144,52.01180138630048,-2</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="318">
+                <name>2019-08-29 20:23:10</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.359816089276559,52.01207459443436&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;-2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="317">
+                    <coordinates>4.359816089276559,52.01207459443436,-2</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="326">
+                <name>2019-08-29 20:23:38</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.360124878589399,52.01223665853218&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;-3&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="325">
+                    <coordinates>4.360124878589399,52.01223665853218,-3</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="334">
+                <name>2019-08-29 20:23:59</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.360367869962342,52.01241058302299&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;-3&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="333">
+                    <coordinates>4.360367869962342,52.01241058302299,-3</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="342">
+                <name>2019-08-29 20:24:19</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.360717562962659,52.01249519833551&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;-2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="341">
+                    <coordinates>4.360717562962659,52.01249519833551,-2</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="350">
+                <name>2019-08-29 20:24:43</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.360914453868159,52.01265747198091&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;-2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="349">
+                    <coordinates>4.360914453868159,52.01265747198091,-2</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="358">
+                <name>2019-08-29 20:25:13</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.361180663112887,52.01285113585369&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;-2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;-1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="357">
+                    <coordinates>4.361180663112887,52.01285113585369,-2</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="366">
+                <name>2019-08-29 20:26:31</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.360790653158315,52.01271995906905&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="365">
+                    <coordinates>4.360790653158315,52.01271995906905,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="374">
+                <name>2019-08-29 20:31:46</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.360735500235446,52.012818991255024&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;-1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="373">
+                    <coordinates>4.360735500235446,52.012818991255024,-1</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="382">
+                <name>2019-08-29 20:49:58</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.360671797771342,52.01292221439258&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;1.0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="381">
+                    <coordinates>4.360671797771342,52.01292221439258,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="390">
+                <name>2019-08-29 20:56:04</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.360619075600393,52.01289220717923&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;0.9900000095367432&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="389">
+                    <coordinates>4.360619075600393,52.01289220717923,0</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="398">
+                <name>2019-08-29 20:56:30</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.360578758646138,52.01293834955619&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;0.9900000095367432&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="397">
+                    <coordinates>4.360578758646138,52.01293834955619,1</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="406">
+                <name>2019-08-29 20:57:09</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.360655453060158,52.01290834234283&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;0.9900000095367432&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="405">
+                    <coordinates>4.360655453060158,52.01290834234283,1</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+            <Placemark id="414">
+                <name>2019-08-29 20:58:36</name>
+                <description>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;Coordinates:&lt;/th&gt;
+&lt;th&gt;4.360796436671503,52.012812704827645&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Altitude:&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Speed:&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Phone Battery:&lt;/th&gt;
+&lt;th&gt;0.9900000095367432&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Heartrate:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Steps:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Calories:&lt;/th&gt;
+&lt;th&gt;nan&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+                <Point id="413">
+                    <coordinates>4.360796436671503,52.012812704827645,1</coordinates>
+                    <altitudeMode>relativeToGround</altitudeMode>
+                </Point>
+            </Placemark>
+        </Folder>
+        <Placemark id="426">
             <name>All Time Path</name>
             <description>My travels since I've been tracking them</description>
-            <styleUrl>#54</styleUrl>
-            <LineString id="52">
-                <coordinates>-32.36395877083348,17.634487852715736,98 -56.18362774490271,25.00144991961164,64 -64.5417868944977,5.551680168485545,87 -6.558838078359099,12.281860197190712,47 -74.54822471452675,28.718519744757742,72 -2.603626676583264,27.93394907038512,56 -113.77741741471566,1.788516323939554,45 -88.34296979574495,35.76731961840317,20 -88.43612016254755,29.164191636604745,18 -41.21969996837518,36.64375060861616,71 -37.10032541991905,26.377006491678333,85 -103.38475196745361,20.762146531645595,2 -64.9763094068484,34.8362539406461,35 -106.50184398025036,17.653933869674955,62 -47.44222144811776,2.537457299788962,79 -44.15735551751616,7.0293152057120345,47</coordinates>
+            <styleUrl>#427</styleUrl>
+            <LineString id="425">
+                <coordinates>4.362170689402544,52.009887727914915,0 4.361525894454435,52.01034114716072,0 4.361232127998361,52.01046711304412,0 4.361545611176976,52.010287195492545,0 4.361335476864466,52.010396160233775,1 4.36137235723842,52.01038849079237,1 4.361157026145944,52.0103972917907,0 4.3612015340517845,52.01047570449487,0 4.3611741252284135,52.010428430560985,0 4.361285939816722,52.01034473725782,-1 4.3613667413632955,52.01047515967117,0 4.361492469910869,52.010244196329275,0 4.3614521529566135,52.01031250884012,0 4.361753398556599,52.0103457430862,0 4.361373614523896,52.01040957127885,0 4.3614607024978485,52.01038207863645,0 4.361383169893512,52.01046912470088,0 4.3615726009051885,52.01033078138904,1 4.361501057349131,52.00979125196107,-1 4.361385852102527,52.0098940842338,0 4.3615914601873245,52.010135524954656,0 4.361511735729456,52.010288491105804,0 4.36144529960008,52.00970164023148,0 4.361335107172365,52.01045567719822,0 4.361137244854459,52.010327763903895,1 4.36075033620406,52.01056513940171,0 4.361525744289861,52.01034677086394,-2 4.361442010853776,52.010247632909575,3 4.361091563482174,52.00999554717169,2 4.360701888803728,52.01018250552193,1 4.36052804813195,52.01052348134295,0 4.360295701776035,52.01078319461272,1 4.360042149205096,52.01099555012957,0 4.359892029319293,52.01123673939333,0 4.3596306815784045,52.011420051615694,-1 4.3594860937486954,52.01163450260834,-1 4.359735706825144,52.01180138630048,-2 4.359816089276559,52.01207459443436,-2 4.360124878589399,52.01223665853218,-3 4.360367869962342,52.01241058302299,-3 4.360717562962659,52.01249519833551,-2 4.360914453868159,52.01265747198091,-2 4.361180663112887,52.01285113585369,-2 4.360790653158315,52.01271995906905,0 4.360735500235446,52.012818991255024,-1 4.360671797771342,52.01292221439258,0 4.360619075600393,52.01289220717923,0 4.360578758646138,52.01293834955619,1 4.360655453060158,52.01290834234283,1 4.360796436671503,52.012812704827645,1</coordinates>
                 <extrude>1</extrude>
                 <altitudeMode>relativeToGround</altitudeMode>
             </LineString>
