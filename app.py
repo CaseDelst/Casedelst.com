@@ -1,9 +1,9 @@
 #NOTE TO SELF: To push to heroku: "heroku login" then "git push heroku master"
 
-from flask import Flask, render_template, url_for, jsonify, request, send_file
+from flask import Flask, render_template, url_for, jsonify, request, send_from_directory
 import dataManager 
 import pandas as pd
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 
 
 @app.route("/")
@@ -12,10 +12,9 @@ def index():
     signature = url_for('static', filename='signature.png')
     return render_template('index.html', signature=signature)
 
-@app.route("/getthefuckingfile")
-def getthefuckingfile():
-    kmlFile = url_for('data', filename='all.kml')
-    return send_file(kmlFile, attachment_filename='all.k')
+@app.route("/data/<path:path>")
+def send_kml(path):
+    return send_from_directory('data', path)
 
 @app.route("/about")
 def about():
