@@ -99,8 +99,9 @@ def createKMLFiles():
     file = pd.read_csv('.\data\history.csv')
     
     #Line String takes an array of tuples: [(lat, long), (lat, long)]
-    for index, row in file.head().iterrows():
-
+    
+    for index, row in file.iterrows():
+        print(index)
         #Get both the unix time and time string
         timeString = str(datetime.fromtimestamp(float(row['timestamp']))) 
         timeVal = float(row['timestamp'])
