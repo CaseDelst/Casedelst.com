@@ -87,6 +87,7 @@ def locationendpoint():
 #@app.route("/location/endpoint")
 #def location():
 
+#Add a header that says to always refresh a page
 @app.after_request
 def add_header(r):
     """
