@@ -63,21 +63,9 @@ def portfolio():
     prom = url_for('static', filename='tumbleweed.png')
     return render_template('portfolio.html', title='Portfolio', blue_ref=blue_ref, purple_horizon=purple_horizon, boss=boss, dozer=dozer, drop=drop, ninten=ninten, shades=shades, trapcity=trapcity, tumbleweed=tumbleweed, prom=prom, signature=signature)
 
-
-@app.route("/projects/googletasksproject")
-def googletasksproject():
-    signature = url_for('static', filename='signature.png')
-    return render_template('Projects/googletasksproject.html', title='Google Tasks Project', signature=signature)
-
-
-@app.route("/projects/graphicdesign")
-def graphicdesign():
-    signature = url_for('static', filename='signature.png')
-    return render_template('Projects/graphic_design.html', title='Graphic Design', signature=signature)
-#
-#@app.route("/location")
-#def location():
-#   
+@app.route("/location")
+def location():
+   return render_template('location.html', title='Location History')
 
 @app.route("/location/endpoint", methods=['POST'])
 def locationendpoint():

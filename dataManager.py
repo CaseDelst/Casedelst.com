@@ -118,21 +118,31 @@ def createKMLFiles():
 
         pointDescription = table(
                                 tr(
-                                    th('Coordinates'),
-                                    th('Altitude'),
-                                    th('Speed'),
-                                    th('Phone Battery'),
-                                    th('Heartrate'),
-                                    th('Steps'),
-                                    th('Calories')
+                                    th('Coordinates:'),
+                                    th(str(row['coordinates'])),
                                 ),
                                 tr(
-                                    th(str(row['coordinates'])),
-                                    th(str(row['altitude'])),
-                                    th(str(row['speed'])),
-                                    th(str(row['battery_level'])),
-                                    th(str(row['heartrate'])),
-                                    th(str(row['steps'])),
+                                    th('Altitude:'),
+                                    th(str(row['altitude']))
+                                ),
+                                tr(
+                                    th('Speed:'),
+                                    th(str(row['speed']))
+                                ),
+                                tr(
+                                    th('Phone Battery:'),
+                                    th(str(row['battery_level']))
+                                ),
+                                tr(
+                                    th('Heartrate:'),
+                                    th(str(row['heartrate']))
+                                ),
+                                tr(
+                                    th('Steps:'),
+                                    th(str(row['steps']))
+                                ),
+                                tr(
+                                    th('Calories:'),
                                     th(str(row['calories']))
                                 )
                             )
@@ -143,22 +153,22 @@ def createKMLFiles():
 
         #Add all points that fit into each category into the respective summary KML file
         if time.time() - timeVal <= day:
-            dayCoorArr.append((lat, long, int(row['altitude'])))
+            dayCoorArr.append((long, lat, int(row['altitude'])))
             dayKML.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativeToGround")
 
         if time.time() - timeVal <= week:
-            weekCoorArr.append((lat, long, int(row['altitude'])))
+            weekCoorArr.append((long, lat, int(row['altitude'])))
             weekKML.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativeToGround")
 
         if time.time() - timeVal <= month:
-            monthCoorArr.append((lat, long, int(row['altitude'])))
+            monthCoorArr.append((long, lat, int(row['altitude'])))
             monthKML.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativeToGround")
 
         if time.time() - timeVal <= year:
-            yearCoorArr.append((lat, long, int(row['altitude'])))
+            yearCoorArr.append((long, lat, int(row['altitude'])))
             yearKML.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativeToGround")
         
-        allCoorArr.append((lat, long, int(row['altitude'])))
+        allCoorArr.append((long, lat, int(row['altitude'])))
         allKML.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativeToGround")
         #end row looping
     
