@@ -34,7 +34,7 @@
 </description>
             <Point id="10">
                 <coordinates>-32.36395877083348,17.634487852715736,98</coordinates>
-                <altitudeMode>relativetoground</altitudeMode>
+                <altitudeMode>relativeToGround</altitudeMode>
             </Point>
         </Placemark>
         <Placemark id="13">
@@ -62,7 +62,7 @@
 </description>
             <Point id="12">
                 <coordinates>-56.18362774490271,25.00144991961164,64</coordinates>
-                <altitudeMode>relativetoground</altitudeMode>
+                <altitudeMode>relativeToGround</altitudeMode>
             </Point>
         </Placemark>
         <Placemark id="15">
@@ -90,7 +90,7 @@
 </description>
             <Point id="14">
                 <coordinates>-64.5417868944977,5.551680168485545,87</coordinates>
-                <altitudeMode>relativetoground</altitudeMode>
+                <altitudeMode>relativeToGround</altitudeMode>
             </Point>
         </Placemark>
         <Placemark id="17">
@@ -118,7 +118,7 @@
 </description>
             <Point id="16">
                 <coordinates>-6.558838078359099,12.281860197190712,47</coordinates>
-                <altitudeMode>relativetoground</altitudeMode>
+                <altitudeMode>relativeToGround</altitudeMode>
             </Point>
         </Placemark>
         <Placemark id="19">
@@ -146,7 +146,7 @@
 </description>
             <Point id="18">
                 <coordinates>-74.54822471452675,28.718519744757742,72</coordinates>
-                <altitudeMode>relativetoground</altitudeMode>
+                <altitudeMode>relativeToGround</altitudeMode>
             </Point>
         </Placemark>
         <Placemark id="31">
@@ -154,9 +154,9 @@
             <description>My travels since I've been tracking them</description>
             <styleUrl>#32</styleUrl>
             <LineString id="30">
-                <coordinates>-32.36395877083348,17.634487852715736,98 -56.18362774490271,25.00144991961164,64 -64.5417868944977,5.551680168485545,87 -6.558838078359099,12.281860197190712,47 -74.54822471452675,28.718519744757742,72</coordinates>
+                <coordinates>17.634487852715736,-32.36395877083348,98 25.00144991961164,-56.18362774490271,64 5.551680168485545,-64.5417868944977,87 12.281860197190712,-6.558838078359099,47 28.718519744757742,-74.54822471452675,72</coordinates>
                 <extrude>1</extrude>
-                <altitudeMode>absolute</altitudeMode>
+                <altitudeMode>relativeToGround</altitudeMode>
             </LineString>
         </Placemark>
     </Document>

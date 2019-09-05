@@ -2,7 +2,7 @@ import pandas as pd
 from datetime import datetime
 import time
 import simplekml
-from xml.sax.saxutils import unescape
+import geojson
 import lxml.etree
 import lxml.builder
 
@@ -143,29 +143,30 @@ def createKMLFiles():
 
         #Add all points that fit into each category into the respective summary KML file
         if time.time() - timeVal <= day:
-            dayCoorArr.append((long, lat, int(row['altitude'])))
-            dayKML.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativetoground")
+            dayCoorArr.append((lat, long, int(row['altitude'])))
+            dayKML.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativeToGround")
 
         if time.time() - timeVal <= week:
-            weekCoorArr.append((long, lat, int(row['altitude'])))
-            weekKML.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativetoground")
+            weekCoorArr.append((lat, long, int(row['altitude'])))
+            weekKML.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativeToGround")
 
         if time.time() - timeVal <= month:
-            monthCoorArr.append((long, lat, int(row['altitude'])))
-            monthKML.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativetoground")
+            monthCoorArr.append((lat, long, int(row['altitude'])))
+            monthKML.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativeToGround")
 
         if time.time() - timeVal <= year:
-            yearCoorArr.append((long, lat, int(row['altitude'])))
-            yearKML.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativetoground")
+            yearCoorArr.append((lat, long, int(row['altitude'])))
+            yearKML.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativeToGround")
         
-        allCoorArr.append((long, lat, int(row['altitude'])))
-        allKML.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativetoground")
+        allCoorArr.append((lat, long, int(row['altitude'])))
+        allKML.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativeToGround")
         #end row looping
     
     dayLine = dayKML.newlinestring(name="Day Path", 
                          description="My travels of the current day", 
                          coords=dayCoorArr, 
-                         altitudemode="relativeToGround")
+                         altitudemode="relativeToGround",
+                         extrude="1")
     dayLine.style.linestyle.color = 'ff0000ff'
     dayLine.style.linestyle.width = 5
 
@@ -173,21 +174,24 @@ def createKMLFiles():
     weekLine = weekKML.newlinestring(name="Week Path", 
                           description="My travels of the current week", 
                           coords=weekCoorArr, 
-                          altitudemode="relativeToGround")
+                          altitudemode="relativeToGround",
+                         extrude="1")
     dayLine.style.linestyle.color = 'ff0000ff'
     dayLine.style.linestyle.width = 5
 
     monthLine = monthKML.newlinestring(name="Month Path", 
                            description="My travels of the current month", 
                            coords=monthCoorArr, 
-                           altitudemode="relativeToGround")
+                           altitudemode="relativeToGround",
+                         extrude="1")
     dayLine.style.linestyle.color = 'ff0000ff'
     dayLine.style.linestyle.width = 5
 
     yearLine = yearKML.newlinestring(name="Year Path", 
                           description="My travels of the current year", 
                           coords=yearCoorArr, 
-                          altitudemode="relativeToGround")
+                          altitudemode="relativeToGround",
+                         extrude="1")
     dayLine.style.linestyle.color = 'ff0000ff'
     dayLine.style.linestyle.width = 5
     
@@ -221,3 +225,4 @@ def convertTimestamps(time, timeFormat):
         return 'Time Zone Currently Not Supported by dataManager.py:convertTimestamps():59'
 
 #Calculate Local Time
+

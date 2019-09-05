@@ -1,6 +1,6 @@
 #NOTE TO SELF: To push to heroku: "heroku login" then "git push heroku master"
 
-from flask import Flask, render_template, url_for, jsonify, request
+from flask import Flask, render_template, url_for, jsonify, request, send_file
 import dataManager 
 import pandas as pd
 app = Flask(__name__)
@@ -12,6 +12,10 @@ def index():
     signature = url_for('static', filename='signature.png')
     return render_template('index.html', signature=signature)
 
+@app.route("/getthefuckingfile")
+def getthefuckingfile():
+    kmlFile = url_for('data', filename='all.kml')
+    return send_file(kmlFile, attachment_filename='all.k')
 
 @app.route("/about")
 def about():
@@ -71,6 +75,10 @@ def googletasksproject():
 def graphicdesign():
     signature = url_for('static', filename='signature.png')
     return render_template('Projects/graphic_design.html', title='Graphic Design', signature=signature)
+#
+#@app.route("/location")
+#def location():
+#   
 
 @app.route("/location/endpoint", methods=['POST'])
 def locationendpoint():

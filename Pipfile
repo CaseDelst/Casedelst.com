@@ -9,6 +9,9 @@ verify_ssl = true
 flask = "*"
 gunicorn = "*"
 pandas = "*"
+simplekml = "*"
+lxml = "*"
+geojson = "*"
 
 [requires]
 python_version = "3.7"
