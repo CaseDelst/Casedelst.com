@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="462">
+        <Style id="1222">
+            <LineStyle id="1223">
+                <color>ff0000ff</color>
+                <colorMode>normal</colorMode>
+                <width>5</width>
+            </LineStyle>
+        </Style>
+        <name>Day Summary</name>
+        <Folder id="463">
+            <name>Data Points</name>
+        </Folder>
+        <Placemark id="1221">
+            <name>Day Path</name>
+            <description>My travels of the current day</description>
+            <styleUrl>#1222</styleUrl>
+            <LineString id="1220">
+                <coordinates>0.0, 0.0, 0.0</coordinates>
+                <extrude>1</extrude>
+                <altitudeMode>relativeToGround</altitudeMode>
+            </LineString>
+        </Placemark>
+    </Document>
+</kml>
