@@ -6,6 +6,7 @@ import geojson
 import geopy.distance
 import lxml.etree
 import lxml.builder
+import tqdm
 
 #Store the CSV Data from the POST submit
 def storeCSV(locations):
@@ -17,11 +18,17 @@ def storeCSV(locations):
     averageCounter = 0
     stationaryBool = False
 
+    latestTime = 0
+
+    #Loads current csv into file
+    file = pd.read_csv('.\data\history.csv')
+
     #Loop through values of array inside locations (dictionaries)
-    for entry in locations:
+    for entry in tqdm.tqdm(locations):
 
         #Store all relevant pieces of information that I want
         data_type = entry['geometry'].get('type')
+        
         coordinates = str(entry['geometry']['coordinates'][0]) + ',' + str(entry['geometry']['coordinates'][1])
         
         try: #Motion doesn't always have properties in it
@@ -30,19 +37,19 @@ def storeCSV(locations):
             motion = 'None' #if there are no properties, assign None
         
         speed = entry['properties'].get('speed')
-        if speed is None: speed = -1
+        if speed is None or speed == 'None': speed = -1
         
         battery_level = entry['properties'].get('battery_level')
-        if battery_level is None: battery_level = -1
+        if battery_level is None or battery_level == 'None': battery_level = -1
         
         altitude = entry['properties'].get('altitude')
-        if altitude is None: altitude = -1000
+        if altitude is None or altitude == 'None': altitude = -1000
         
         battery_state = entry['properties'].get('battery_state')
-        if battery_state is None: battery_state = ''
+        if battery_state is None or battery_state == 'None': battery_state = ''
         
         accuracy = str(entry['properties'].get('horizontal_accuracy')) + ',' + str(entry['properties'].get('vertical_accuracy'))
-        if accuracy is None: accuracy = '0,0'
+        if accuracy is None or accuracy == 'None': accuracy = '0,0'
         
         timeVal = entry['properties'].get('timestamp')
 
@@ -54,6 +61,12 @@ def storeCSV(locations):
         #Gets the timestamp and timezone from method
         timeVal, timezone = convertTimestamps(timeVal, 'ISO8601')
         
+        #If it is a duplicate point, skip it
+        if latestTime >= timeVal:
+            continue
+
+        latestTime = timeVal
+
         #Sets property
         wifi = entry['properties'].get('wifi')
         if wifi is None: wifi = ''
@@ -61,9 +74,6 @@ def storeCSV(locations):
         #Creates an array of all the important values in the correct order
         temp = [timeVal, coordinates, altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi, timezone]   #Placeholders for heartrate, steps, calories
         
-        #Loads current csv into file
-        file = pd.read_csv('.\data\history.csv')
-
         #Counts rows
         rowCount = file.shape[0]
 
@@ -74,10 +84,9 @@ def storeCSV(locations):
 
             #Gets the val in the accuracy column, splits the horiz and vert accuracy, selects the first, and casts it as int
             accuracyList = firstRow['accuracy'].split(',')
-            oldAccuracy = int(accuracyList[0])
+            try: oldAccuracy = int(accuracyList[0])
+            except: oldAccuracy = -1
 
-            
-            
             #Makes list and casts it to float
             firstRowCoor = firstRow['coordinates'].split(',')
             firstRowCoor = [float(i) for i in firstRowCoor]
@@ -85,8 +94,9 @@ def storeCSV(locations):
             #Makes list and casts it to float
             currentRowCoor = temp[1].split(',')
             currentRowCoor = [float(i) for i in currentRowCoor]
-            currentAccuracy = int(temp[-3].split(',')[0])
-            currentMotion = entry['properties'].get('motion')
+            try: currentAccuracy = int(temp[-3].split(',')[0])
+            except: currentAccuracy = -1
+            currentMotion = str(entry['properties'].get('motion'))
             
             #If the motion typoe is stationary or [] set the bool to True
             stationaryBool = False
@@ -126,33 +136,30 @@ def storeCSV(locations):
                 file.loc[rowCount] = [timeResult, str(latResult) + ',' + str(longResult), altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi, timezone]
                 rowCount += 1
 
-            
-            # if motion type is nan or stationary
-            # sum, increment counter
-            # as soon as it's not, divide sum by counter and add point reset counter and sum
-            # when incrementing, continue after increment
 
             #If the distance between point 1 and 3 is less than the accuracy, replace the middle point with the new point
             if totalDistance <= oldAccuracy or currentAccuracy >= 30:
-                #print("replacing val with distance of: " + str(totalDistance) + '\nAccuracy of: ' + str(accuracy) + '\n')
                 file.loc[rowCount - 1] = temp
             
             #Else add the new val to the end of the table
             else:
-                #print("Adding to end: " + str(totalDistance) + '\nAccuracy of: ' + str(accuracy) + '\n')
                 file.loc[rowCount] = temp
         
-        #If the size is less than 2
+        #If the size is less than 2, so we can't do 3 point analysis
         else:
             
             #If there is wifi, and I am stationary, throw away the point
             if temp[-2] and stationaryBool:
                 continue
+
+            #Get accuracy
             currentAccuracy = int(temp[-3].split(',')[0])
+            
+            #If my accuracy is lower than 11, add the point to the table
             if currentAccuracy <= 11: file.loc[rowCount] = temp
         
-        #X = Longtitude, Y = Latitude
-        file.to_csv('.\data\history.csv', index=False)
+    #Write to file after all done
+    file.to_csv('.\data\history.csv', index=False)
 
 #Make the KML Files based on the most recent data recieved <=-=>
 def createKMLFiles():

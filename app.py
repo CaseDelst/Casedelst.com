@@ -91,7 +91,7 @@ def locationendpoint():
     dataManager.createKMLFiles()
     print('\n\nCreated KML Files')
 
-    return jsonify(data)
+    return jsonify({"result":"ok"})
 
 
 #@app.route("/location/endpoint")
