@@ -10,6 +10,12 @@ import lxml.builder
 #Store the CSV Data from the POST submit
 def storeCSV(locations):
 
+    #Initialize values for stationary averaging
+    timeAverage = 0
+    latAverageSum = 0
+    longAverageSum = 0
+    averageCounter = 0
+
     #Loop through values of array inside locations (dictionaries)
     for entry in locations:
 
@@ -79,7 +85,12 @@ def storeCSV(locations):
             currentRowCoor = temp[1].split(',')
             currentRowCoor = [float(i) for i in currentRowCoor]
             currentAccuracy = int(temp[-3].split(',')[0])
-            currentMotion = 
+            currentMotion = entry['properties'].get('motion')
+            
+            #If the motion typoe is stationary or [] set the bool to True
+            stationaryBool = False
+            if not currentMotion or currentMotion[0] == 'stationary':
+                stationaryBool = True
 
             #Get coordinates from previous lists Formatted in Lat,Long
             coords0 = (firstRowCoor[0], firstRowCoor[1])
@@ -88,10 +99,33 @@ def storeCSV(locations):
             #Calculate lists from created lists
             totalDistance = geopy.distance.distance(coords0, coords1).meters
 
+            #If the accuracy is too bad -> next point 
             if currentAccuracy >= 11:
                 continue
 
-            if 
+            #If the motion is [] or stationary sum
+            if stationaryBool:
+                timeAverage += temp[0]
+                latAverageSum += coords1[0]
+                longAverageSum += coords1[1]
+                averageCounter += 1
+                continue
+            
+            #If the motion is anything other than stationary or empty
+            if not stationaryBool and averageCounter != 0:
+                timeResult = timeAverage / averageCounter
+                latResult = latAverageSum / averageCounter
+                longResult = longAverageSum / averageCounter
+                
+                averageCounter = 0
+                timeAverage = 0
+                latAverageSum = 0
+                longAverageSum = 0
+
+                file.loc[rowCount] = [timeResult, str(latResult) + ',' + str(longResult), altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi, timezone]
+                rowCount += 1
+
+            
             # if motion type is nan or stationary
             # sum, increment counter
             # as soon as it's not, divide sum by counter and add point reset counter and sum
@@ -109,7 +143,7 @@ def storeCSV(locations):
         
         #If the size is less than 2
         else:
-            if
+            
             currentAccuracy = int(temp[-3].split(',')[0])
             if currentAccuracy <= 11: file.loc[rowCount] = temp
         
