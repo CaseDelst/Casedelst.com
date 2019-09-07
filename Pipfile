@@ -12,6 +12,7 @@ pandas = "*"
 simplekml = "*"
 lxml = "*"
 geojson = "*"
+geopy = "*"
 
 [requires]
 python_version = "3.7"
