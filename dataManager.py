@@ -15,6 +15,7 @@ def storeCSV(locations):
     latAverageSum = 0
     longAverageSum = 0
     averageCounter = 0
+    stationaryBool = False
 
     #Loop through values of array inside locations (dictionaries)
     for entry in locations:
@@ -100,7 +101,7 @@ def storeCSV(locations):
             totalDistance = geopy.distance.distance(coords0, coords1).meters
 
             #If the accuracy is too bad -> next point 
-            if currentAccuracy >= 11:
+            if currentAccuracy >= 11 or (temp[-2] and stationaryBool):
                 continue
 
             #If the motion is [] or stationary sum
@@ -144,6 +145,9 @@ def storeCSV(locations):
         #If the size is less than 2
         else:
             
+            #If there is wifi, and I am stationary, throw away the point
+            if temp[-2] and stationaryBool:
+                continue
             currentAccuracy = int(temp[-3].split(',')[0])
             if currentAccuracy <= 11: file.loc[rowCount] = temp
         
