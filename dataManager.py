@@ -16,14 +16,20 @@ def storeCSV(locations):
     latAverageSum = 0
     longAverageSum = 0
     averageCounter = 0
+    
     stationaryBool = False
+    drivingBool = False
+    bikingBool = False
+    walkingBool = False
 
     latestTime = 0
 
     #Loads current csv into file
     file = pd.read_csv('.\data\history.csv')
+    if file.shape[0] >= 1: latestTime = int(file.loc[file.shape[0]]['timestamp'])
 
     #Loop through values of array inside locations (dictionaries)
+    print('Entering New Data Loop')
     for entry in tqdm.tqdm(locations):
 
         #Store all relevant pieces of information that I want
@@ -103,6 +109,18 @@ def storeCSV(locations):
             if not currentMotion or currentMotion[0] == 'stationary':
                 stationaryBool = True
 
+            drivingBool = False
+            if 'driving' in currentMotion:
+                drivingBool = True
+
+            bikingBool = False
+            if 'cycling' in currentMotion:
+                bikingBool = True
+
+            walkingBool = False
+            if 'walking' in currentMotion:
+                walkingBool = True
+            
             #Get coordinates from previous lists Formatted in Lat,Long
             coords0 = (firstRowCoor[0], firstRowCoor[1])
             coords1 = (currentRowCoor[0], currentRowCoor[1])
@@ -135,7 +153,17 @@ def storeCSV(locations):
 
                 file.loc[rowCount] = [timeResult, str(latResult) + ',' + str(longResult), altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi, timezone]
                 rowCount += 1
+            
+            #If I am driving, artificially emulate poor accuracy to limit point overlap 
+            if drivingBool:
+                oldAccuracy += 500
 
+            #If I am biking, artificially emulate poor accuracy to limit high point density
+            if bikingBool:
+                oldAccuracy += 200
+
+            if walkingBool:
+                oldAccuracy += 20
 
             #If the distance between point 1 and 3 is less than the accuracy, replace the middle point with the new point
             if totalDistance <= oldAccuracy or currentAccuracy >= 30:
@@ -204,8 +232,9 @@ def createKMLFiles():
     file = pd.read_csv('.\data\history.csv')
     
     #Line String takes an array of tuples: [(lat, long), (lat, long)]
-    for index, row in file.iterrows():
-        print(index)
+    print('Entering KML File Loop')
+    for index, row in tqdm.tqdm(file.iterrows()):
+        #print(index)
         #Get both the unix time and time string
         timeString = str(datetime.fromtimestamp(float(row['timestamp']))) 
         timeVal = float(row['timestamp'])
@@ -312,11 +341,11 @@ def createKMLFiles():
     allLine.style.linestyle.color = 'ff0000ff'
     allLine.style.linestyle.width = 5
 
-    dayKML.save('./data/day.kml')
-    weekKML.save('./data/week.kml')
-    monthKML.save('./data/month.kml')
-    yearKML.save('./data/year.kml')
-    allKML.save('./data/all.kml')
+    dayKML.savekmz('./data/day.kmz')
+    weekKML.savekmz('./data/week.kmz')
+    monthKML.savekmz('./data/month.kmz')
+    yearKML.savekmz('./data/year.kmz')
+    allKML.savekmz('./data/all.kmz')
 
 #Converts the timestamp from whatever format into unix
 #IN: Time, String of Format
