@@ -1,21 +1,29 @@
 Heres the plan... 
 
 Goal: 
-    - I want to be able to display my location, heartrate, and health data on my website
+    - I want to be able to display my location
     - I want it to update semi-frequently, at least in 30 minute intervals
 
 Steps: 
-    - Create the endpoint on website using flask
-    - Parse the JSON package and create a storage method
+    - --> DONE <-- Create the endpoint on website using flask 
+    - --> DONE <-- Parse the JSON package and create a storage method 
         - This includes rolling files to limit file size
         - Create a archival process to a local machine after the "month file" is full
-    - Display the location data on a map using a google maps api of some kind, probably using javascript
+    - --> DONE <-- Display the location data on a map using a google maps api of some kind, probably using javascript
     - Make the map interactive to use a specific range of data
-    - Deploy it to the web
+    - --> DONE <-- Deploy it to the web
 
 Tasks: 
 
-Make KML translator from CSV
+ --> DONE <-- Make KML translator from CSV
     - Translate to Unix time, Zulu time
     - Make 4 individual year/month/week/day files
-Make Summary File from KML File
+==> NOT NEEDED <== Make Summary File from KML File
+
+
+Iterations of point selection algorythm:
+
+    1. Take every 20th point and make it a line
+    2. If the distance between point 1 and 3 is less than point 1's reported accuracy, throw away point 2
+    3. If the point has an accuracy of greater than 10, throw it out, along with technique two
+        - Great results
