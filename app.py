@@ -71,9 +71,25 @@ def portfolio():
     prom = url_for('static', filename='tumbleweed.png')
     return render_template('portfolio.html', title='Portfolio', blue_ref=blue_ref, purple_horizon=purple_horizon, boss=boss, dozer=dozer, drop=drop, ninten=ninten, shades=shades, trapcity=trapcity, tumbleweed=tumbleweed, prom=prom, signature=signature)
 
-@app.route("/location")
-def location():
-   return render_template('location.html', title='Location History')
+@app.route("/location/all")
+def locationAll():
+   return render_template('locationAll.html', title='All Time Location')
+
+@app.route("/location/year")
+def locationYear():
+   return render_template('locationYear.html', title='Year Location')
+
+@app.route("/location/month")
+def locationMonth():
+   return render_template('locationMonth.html', title='Month Location')
+
+@app.route("/location/week")
+def locationWeek():
+   return render_template('locationWeek.html', title='Week Location')
+
+@app.route("/location/day")
+def locationDay():
+   return render_template('locationDay.html', title='Day Location')
 
 @app.route("/location/endpoint", methods=['POST'])
 def locationendpoint():

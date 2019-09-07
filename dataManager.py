@@ -244,7 +244,7 @@ def createKMLFiles():
                                 ),
                                 tr(
                                     th('Phone Battery:'),
-                                    th(str(row['battery_level']))
+                                    th(str(round(float(row['battery_level']), 2)))
                                 )
                             )
 
