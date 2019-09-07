@@ -3,8 +3,16 @@
 from flask import Flask, render_template, url_for, jsonify, request, send_from_directory
 import dataManager 
 import pandas as pd
+import socket
 app = Flask(__name__, static_url_path='')
 
+#Setup a tool to let me see the local IP
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.connect(("8.8.8.8", 80))
+
+#Prints the IP address I need to connect to
+print(' * IP: ' + str(s.getsockname()[0]) + ':' + str(5000) + '') 
+s.close()
 
 @app.route("/")
 @app.route("/index")
@@ -69,17 +77,21 @@ def location():
 
 @app.route("/location/endpoint", methods=['POST'])
 def locationendpoint():
-
+    print('Retrieving Data From Phone\n\n')
     data = request.get_json()
-
+    dataHeader = request.headers
+    print(dataHeader)
     locations = data['locations']
+    i = 0
 
+    
     #Store every value sent by the endpoint to the main CSV file 'history.csv'
     for entry in locations:
+        #print(entry)
         dataManager.storeCSVLine(entry)
-    
+     
     dataManager.createKMLFiles()
-
+    print('\n\nCreated KML Files')
 
     return jsonify(data)
 
