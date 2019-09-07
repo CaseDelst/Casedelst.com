@@ -86,9 +86,7 @@ def locationendpoint():
 
     
     #Store every value sent by the endpoint to the main CSV file 'history.csv'
-    for entry in locations:
-        #print(entry)
-        dataManager.storeCSVLine(entry)
+    dataManager.storeCSV(locations)
      
     dataManager.createKMLFiles()
     print('\n\nCreated KML Files')
