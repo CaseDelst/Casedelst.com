@@ -13,6 +13,7 @@ simplekml = "*"
 lxml = "*"
 geojson = "*"
 geopy = "*"
+tqdm = "*"
 
 [requires]
 python_version = "3.7"
