@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="4">
+        <name>Week Summary</name>
+        <Folder id="5">
+            <name>Data Points</name>
+        </Folder>
+        <Placemark id="59674">
+            <name>Week Path</name>
+            <description>My travels of the current week</description>
+            <LineString id="59673">
+                <coordinates>0.0, 0.0, 0.0</coordinates>
+                <extrude>1</extrude>
+                <altitudeMode>relativeToGround</altitudeMode>
+            </LineString>
+        </Placemark>
+    </Document>
+</kml>
