@@ -1,4 +1,4 @@
 .vscode
-data
+data/historyBackup.csv
 test.py
 test.kml

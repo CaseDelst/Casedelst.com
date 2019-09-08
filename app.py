@@ -71,26 +71,37 @@ def portfolio():
     prom = url_for('static', filename='tumbleweed.png')
     return render_template('portfolio.html', title='Portfolio', blue_ref=blue_ref, purple_horizon=purple_horizon, boss=boss, dozer=dozer, drop=drop, ninten=ninten, shades=shades, trapcity=trapcity, tumbleweed=tumbleweed, prom=prom, signature=signature)
 
+#Main location webpage
+@app.route("/location")
+def location():
+    signature = url_for('static', filename='signature.png')
+    return render_template('location.html', title='Location', signature=signature)
+
 @app.route("/location/all")
 def locationAll():
-   return render_template('locationAll.html', title='All Time Location')
+    return render_template('location_all.html', title='All Time Location')
 
 @app.route("/location/year")
 def locationYear():
-   return render_template('locationYear.html', title='Year Location')
+    return render_template('location_year.html', title='Year Location')
 
 @app.route("/location/month")
 def locationMonth():
-   return render_template('locationMonth.html', title='Month Location')
+    return render_template('location_month.html', title='Month Location')
 
 @app.route("/location/week")
 def locationWeek():
-   return render_template('locationWeek.html', title='Week Location')
+    return render_template('location_week.html', title='Week Location')
 
 @app.route("/location/day")
 def locationDay():
-   return render_template('locationDay.html', title='Day Location')
+    return render_template('location_day.html', title='Day Location')
 
+@app.route("/location/test")
+def locationTest():
+    return render_template('location_test.html', title='Test Location')
+
+#Reciever for Location Data
 @app.route("/location/endpoint", methods=['POST'])
 def locationendpoint():
     print('Retrieving Data From Phone\n\n')
@@ -100,15 +111,17 @@ def locationendpoint():
     locations = data['locations']
     i = 0
 
-    
-    #Store every value sent by the endpoint to the main CSV file 'history.csv'
+    #Store every value sent by the endpoint to the main CSV file 'history.csv', and makes a shortened history csv
     dataManager.storeCSV(locations)
-     
+    print('Stored CSV Data')
+
+    return jsonify({"result":"ok"})
+
+@app.route("/location/refresh")
+def kmlrefresh():
     dataManager.createKMLFiles()
-    print('\n\nCreated KML Files')
-
-    return jsonify({"result":"bad"})
-
+    signature = url_for('static', filename='signature.png')
+    return render_template('location.html', title='Location', signature=signature)
 
 #@app.route("/location/endpoint")
 #def location():

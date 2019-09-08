@@ -25,8 +25,12 @@ def storeCSV(locations):
     latestTime = 0
 
     #Loads current csv into file
-    file = pd.read_csv('.\data\history.csv')
-    if file.shape[0] >= 1: latestTime = int(file.loc[file.shape[0]]['timestamp'])
+    file = pd.read_csv('.\\data\\history.csv')
+    archiveFile = pd.read_csv('.\\data\\raw_history.csv')
+    
+    if file.shape[0] >= 1: 
+       
+        latestTime = int(file['timestamp'].iloc[file.shape[0] - 1])
 
     #Loop through values of array inside locations (dictionaries)
     print('Entering New Data Loop')
@@ -57,15 +61,15 @@ def storeCSV(locations):
         accuracy = str(entry['properties'].get('horizontal_accuracy')) + ',' + str(entry['properties'].get('vertical_accuracy'))
         if accuracy is None or accuracy == 'None': accuracy = '0,0'
         
-        timeVal = entry['properties'].get('timestamp')
+        timeDate = entry['properties'].get('timestamp')
 
         #Convert UTC time to timestamp
         #print(timeVal)
-        dt = datetime.strptime(timeVal[:-1], "%Y-%m-%dT%H:%M:%S")
-        timezone = timeVal[-1:]
+        dt = datetime.strptime(timeDate[:-1], "%Y-%m-%dT%H:%M:%S")
+        timezone = timeDate[-1:]
         
         #Gets the timestamp and timezone from method
-        timeVal, timezone = convertTimestamps(timeVal, 'ISO8601')
+        timeVal, timezone = convertTimestamps(timeDate, 'ISO8601')
         
         #If it is a duplicate point, skip it
         if latestTime >= timeVal:
@@ -80,8 +84,21 @@ def storeCSV(locations):
         #Creates an array of all the important values in the correct order
         temp = [timeVal, coordinates, altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi, timezone]   #Placeholders for heartrate, steps, calories
         
+        tempArchive = [timeDate, coordinates, altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi]
+        
         #Counts rows
         rowCount = file.shape[0]
+        archRowCount = archiveFile.shape[0]
+
+        #Sets up archiving based on previous and current timestamp
+        archiveTimeDate = archiveFile['timestamp'].iloc[-1]
+        dt = datetime.strptime(archiveTimeDate[:-1], "%Y-%m-%dT%H:%M:%S")
+        archiveTimeVal, timezone = convertTimestamps(archiveTimeDate, 'ISO8601')
+
+        #Only store the data if it is the first val, or if the timestamp is chronologically after the previous
+        if archiveFile.shape[0] == 0 or int(archiveTimeVal) < int(timeVal):
+            archiveFile.loc[archRowCount] = tempArchive
+
 
         if file.shape[0] >= 2:
             
@@ -187,7 +204,8 @@ def storeCSV(locations):
             if currentAccuracy <= 11: file.loc[rowCount] = temp
         
     #Write to file after all done
-    file.to_csv('.\data\history.csv', index=False)
+    file.to_csv('.\\data\\history.csv', index=False)
+    archiveFile.to_csv('.\\data\\raw_history.csv', index=False)
 
 #Make the KML Files based on the most recent data recieved <=-=>
 def createKMLFiles():
@@ -341,11 +359,11 @@ def createKMLFiles():
     allLine.style.linestyle.color = 'ff0000ff'
     allLine.style.linestyle.width = 5
 
-    dayKML.savekmz('./data/day.kmz')
-    weekKML.savekmz('./data/week.kmz')
-    monthKML.savekmz('./data/month.kmz')
-    yearKML.savekmz('./data/year.kmz')
-    allKML.savekmz('./data/all.kmz')
+    dayKML.save('./data/day.kml')
+    weekKML.save('./data/week.kml')
+    monthKML.save('./data/month.kml')
+    yearKML.save('./data/year.kml')
+    allKML.save('./data/all.kml')
 
 #Converts the timestamp from whatever format into unix
 #IN: Time, String of Format
