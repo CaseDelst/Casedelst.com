@@ -203,8 +203,8 @@ def storeCSV(locations):
             if currentAccuracy <= 11: file.loc[rowCount] = temp
         
     #Write to file after all done
-    file.to_csv('.\\data\\history.csv', index=False)
-    archiveFile.to_csv('.\\data\\raw_history.csv', index=False)
+    file.to_csv('./data/history.csv', index=False)
+    archiveFile.to_csv('./data/raw_history.csv', index=False)
 
 #Make the KML Files based on the most recent data recieved <=-=>
 def createKMLFiles():
