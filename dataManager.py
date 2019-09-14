@@ -211,9 +211,9 @@ def createKMLFiles():
 
     #Define styles to be used
     style2 = simplekml.Style() #creates shared style for all points
-    style2.iconstyle.color = 'ff32cd32' #lime green
-    style2.iconstyle.icon.href ='http://maps.google.com/mapfiles/kml/shapes/target.png' #can change to any desired icon URL
-    style2.iconstyle.scale = 1
+    style2.labelstyle.color = simplekml.Color.grey
+    style2.labelstyle.scale = .75  # Text half as big
+
 
     #Define a new KML creator, and summary array
     dayKML = simplekml.Kml()
@@ -263,8 +263,8 @@ def createKMLFiles():
         timeVal = float(row['timestamp'])
 
         #Get the longtitude and latitude from csv row
-        long = row['coordinates'].split(',')[0]
-        lat = row['coordinates'].split(',')[1]
+        long = str(round(float(row['coordinates'].split(',')[0]), 7))
+        lat = str(round(float(row['coordinates'].split(',')[1]), 7))
        
         #Makes the XML Table
         E = lxml.builder.ElementMaker()
@@ -307,24 +307,20 @@ def createKMLFiles():
             dayCoorArr.append((long, lat, int(row['altitude'])))
             pnt = dayFol.newpoint(name=timeString, 
                             #description=pointDescription, 
-                            coords=[(long, lat, int(row['altitude']))], 
-                            altitudemode="relativeToGround")
-            
+                            coords=[(long, lat, int(row['altitude']))])
             pnt.style = style2
 
         if time.time() - timeVal <= week:
             weekCoorArr.append((long, lat, int(row['altitude'])))
             pnt = weekFol.newpoint(name=timeString, 
                              #description=pointDescription, 
-                             coords=[(long, lat, int(row['altitude']))], 
-                             altitudemode="relativeToGround")
+                             coords=[(long, lat, int(row['altitude']))])
 
         if time.time() - timeVal <= month:
             monthCoorArr.append((long, lat, int(row['altitude'])))
             pnt = monthFol.newpoint(name=timeString, 
                               #description=pointDescription, 
-                              coords=[(long, lat, int(row['altitude']))], 
-                              altitudemode="relativeToGround")
+                              coords=[(long, lat, int(row['altitude']))])
             
             pnt.style = style2
 
@@ -332,24 +328,21 @@ def createKMLFiles():
             yearCoorArr.append((long, lat, int(row['altitude'])))
             pnt = yearFol.newpoint(name=timeString, 
                              #description=pointDescription, 
-                             coords=[(long, lat, int(row['altitude']))], 
-                             altitudemode="relativeToGround")
+                             coords=[(long, lat, int(row['altitude']))])
             
             pnt.style = style2
         
         allCoorArr.append((long, lat, int(row['altitude'])))
         pnt = allFol.newpoint(name=timeString, 
                         #description=pointDescription, 
-                        coords=[(long, lat, int(row['altitude']))], 
-                        altitudemode="relativeToGround")
+                        coords=[(long, lat, int(row['altitude']))])
 
         pnt.style = style2
         #end row looping
     
     dayLine = dayKML.newlinestring(name="Day Path", 
                                    description="My travels of the current day", 
-                                   coords=dayCoorArr, 
-                                   altitudemode="relativeToGround",
+                                   coords=dayCoorArr,
                                    extrude="1")
     dayLine.style.linestyle.color = 'ff0000ff'
     dayLine.style.linestyle.width = 5
@@ -357,32 +350,28 @@ def createKMLFiles():
     
     weekLine = weekKML.newlinestring(name="Week Path", 
                                      description="My travels of the current week", 
-                                     coords=weekCoorArr, 
-                                     altitudemode="relativeToGround",
+                                     coords=weekCoorArr,
                                      extrude="1")
     dayLine.style.linestyle.color = 'ff0000ff'
     dayLine.style.linestyle.width = 5
 
     monthLine = monthKML.newlinestring(name="Month Path", 
                                        description="My travels of the current month", 
-                                       coords=monthCoorArr, 
-                                       altitudemode="relativeToGround",
+                                       coords=monthCoorArr,
                                        extrude="1")
     dayLine.style.linestyle.color = 'ff0000ff'
     dayLine.style.linestyle.width = 5
 
     yearLine = yearKML.newlinestring(name="Year Path", 
                                      description="My travels of the current year", 
-                                     coords=yearCoorArr, 
-                                     altitudemode="relativeToGround",
+                                     coords=yearCoorArr,
                                      extrude="1")
     dayLine.style.linestyle.color = 'ff0000ff'
     dayLine.style.linestyle.width = 5
     
     allLine = allKML.newlinestring(name="All Time Path", 
                                    description="My travels since I've been tracking them", 
-                                   coords=allCoorArr, 
-                                   altitudemode="relativeToGround",
+                                   coords=allCoorArr,
                                    extrude="1")
     allLine.style.linestyle.color = 'ff0000ff'
     allLine.style.linestyle.width = 5

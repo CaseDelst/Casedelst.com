@@ -1,2588 +1,1824 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
-    <Document id="4">
-        <Style id="71372">
-            <LineStyle id="71373">
+    <Document id="6">
+        <Style id="71240">
+            <LineStyle id="71241">
                 <color>ff0000ff</color>
                 <colorMode>normal</colorMode>
                 <width>5</width>
             </LineStyle>
         </Style>
         <name>Day Summary</name>
-        <Folder id="5">
+        <Folder id="7">
             <Style id="0">
-                <IconStyle id="1">
-                    <color>ff32cd32</color>
+                
+                <LabelStyle id="2">
+                    <color>ff808080</color>
                     <colorMode>normal</colorMode>
-                    <scale>1</scale>
-                    <heading>0</heading>
-                    <Icon id="2">
-                        <href>http://maps.google.com/mapfiles/kml/shapes/target.png</href>
-                    </Icon>
-                </IconStyle>
+                    <scale>0.75</scale>
+                </LabelStyle>
+                <BalloonStyle>
+                    <bgColor>ff90ee90</bgColor>
+                    <textColor>ffff0000</textColor>
+                    <text>These are trees and this text is blue with a green background.</text>
+                    <displayMode>default</displayMode>
+                </BalloonStyle>
             </Style>
             <name>Data Points</name>
-            <Placemark id="68181">
-                <name>2019-09-13 02:16:09</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68180">
-                    <coordinates>-122.05569852154893,36.975766634603005,83</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68191">
-                <name>2019-09-13 02:16:10</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68190">
-                    <coordinates>-122.05568293120903,36.97570008229182,82</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68201">
-                <name>2019-09-13 02:16:11</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68200">
-                    <coordinates>-122.05567890789551,36.97558939926044,82</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68211">
-                <name>2019-09-13 02:16:12</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68210">
-                    <coordinates>-122.0556918160264,36.97552234403507,82</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68221">
-                <name>2019-09-13 02:16:13</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68220">
-                    <coordinates>-122.05566868197364,36.975446110625725,81</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68231">
-                <name>2019-09-13 02:16:14</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68230">
-                    <coordinates>-122.05565334309084,36.97538613810853,80</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68241">
-                <name>2019-09-13 02:16:15</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68240">
-                    <coordinates>-122.05566574830753,36.97532365102039,80</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68251">
-                <name>2019-09-13 02:16:16</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68250">
-                    <coordinates>-122.05566524539334,36.97525961328016,80</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68261">
-                <name>2019-09-13 02:16:17</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68260">
-                    <coordinates>-122.05567739915294,36.975202490610044,79</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68271">
-                <name>2019-09-13 02:16:18</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68270">
-                    <coordinates>-122.05569751572055,36.97513598020838,78</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68281">
-                <name>2019-09-13 02:16:19</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68280">
-                    <coordinates>-122.05571872193558,36.9750728644775,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68291">
-                <name>2019-09-13 02:17:46</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68290">
-                    <coordinates>-122.05451281769096,36.972133203278176,72</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68301">
-                <name>2019-09-13 02:18:07</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68300">
-                    <coordinates>-122.05438843008322,36.972013763186496,72</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68311">
-                <name>2019-09-13 02:18:43</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68310">
-                    <coordinates>-122.05444978561444,36.972005465102356,72</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68321">
-                <name>2019-09-13 02:19:04</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68320">
-                    <coordinates>-122.05429279256803,36.97171121839152,72</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68331">
-                <name>2019-09-13 02:20:48</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68330">
-                    <coordinates>-122.05435213644249,36.97189038157181,72</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68341">
-                <name>2019-09-13 02:22:53</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68340">
-                    <coordinates>-122.05441986222012,36.97188660971538,72</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68351">
-                <name>2019-09-13 02:24:38</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68350">
-                    <coordinates>-122.05444609757704,36.971968333271306,71</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68361">
-                <name>2019-09-13 02:26:07</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68360">
-                    <coordinates>-122.05436076980276,36.97189394388066,71</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68371">
-                <name>2019-09-13 02:31:06</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68370">
-                    <coordinates>-122.05442790884716,36.971958233077984,71</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68381">
-                <name>2019-09-13 02:35:14</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68380">
-                    <coordinates>-122.05450032849056,36.972002028522056,71</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68391">
-                <name>2019-09-13 02:37:29</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68390">
-                    <coordinates>-122.0543135796879,36.97202285755144,71</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68401">
-                <name>2019-09-13 02:38:07</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68400">
-                    <coordinates>-122.05434249725384,36.97192981842623,71</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68411">
-                <name>2019-09-13 02:39:00</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68410">
-                    <coordinates>-122.05442891467554,36.97195332966463,71</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68421">
-                <name>2019-09-13 02:41:07</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68420">
-                    <coordinates>-122.05437032517237,36.97194281037615,71</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68431">
-                <name>2019-09-13 02:41:18</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68430">
-                    <coordinates>-122.05428977508289,36.97189394388066,71</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68441">
-                <name>2019-09-13 02:42:19</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68440">
-                    <coordinates>-122.05449395824415,36.971938787062626,71</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68451">
-                <name>2019-09-13 02:54:01</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68450">
-                    <coordinates>-122.054411647955,36.971891848404866,70</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68461">
-                <name>2019-09-13 02:54:03</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68460">
-                    <coordinates>-122.05441449780209,36.971865152043264,70</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68471">
-                <name>2019-09-13 02:54:11</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68470">
-                    <coordinates>-122.05460342589957,36.971865864505034,70</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68481">
-                <name>2019-09-13 02:54:33</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68480">
-                    <coordinates>-122.05460954468889,36.971819303032916,70</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68491">
-                <name>2019-09-13 02:55:15</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68490">
-                    <coordinates>-122.05451499682111,36.9720100751491,70</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68501">
-                <name>2019-09-13 02:55:39</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68500">
-                    <coordinates>-122.05430318612797,36.97197130884693,69</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68511">
-                <name>2019-09-13 02:56:55</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68510">
-                    <coordinates>-122.0544015896712,36.971935560029905,69</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68521">
-                <name>2019-09-13 03:01:49</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68520">
-                    <coordinates>-122.05451675702078,36.971950144541424,69</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68531">
-                <name>2019-09-13 03:08:50</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68530">
-                    <coordinates>-122.05454290855867,36.971900649403196,68</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68541">
-                <name>2019-09-13 03:09:23</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68540">
-                    <coordinates>-122.05443142924649,36.97202252227531,68</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68551">
-                <name>2019-09-13 03:09:46</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68550">
-                    <coordinates>-122.05446277756435,36.97195031217949,68</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68561">
-                <name>2019-09-13 03:10:47</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68560">
-                    <coordinates>-122.05446604650659,36.97189163885729,68</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68571">
-                <name>2019-09-13 03:11:02</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68570">
-                    <coordinates>-122.05463376838905,36.971923322451275,68</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68581">
-                <name>2019-09-13 03:11:15</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68580">
-                    <coordinates>-122.0545416512732,36.97191904768066,68</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68591">
-                <name>2019-09-13 03:11:23</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68590">
-                    <coordinates>-122.05444542702479,36.97196493860052,68</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68601">
-                <name>2019-09-13 03:11:35</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68600">
-                    <coordinates>-122.05440125439507,36.97199146732406,68</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68611">
-                <name>2019-09-13 03:12:05</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68610">
-                    <coordinates>-122.05434668820543,36.97188631634877,68</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68621">
-                <name>2019-09-13 03:12:07</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68620">
-                    <coordinates>-122.0543222968672,36.971836905029576,68</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68631">
-                <name>2019-09-13 03:12:16</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68630">
-                    <coordinates>-122.05436789442045,36.97190890557782,68</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68641">
-                <name>2019-09-13 03:12:17</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68640">
-                    <coordinates>-122.05440393660409,36.97192512456046,68</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68651">
-                <name>2019-09-13 03:12:28</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68650">
-                    <coordinates>-122.05430771235568,36.97191640738116,68</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68661">
-                <name>2019-09-13 03:12:30</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68660">
-                    <coordinates>-122.05424065713031,36.971914102357786,68</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68671">
-                <name>2019-09-13 03:13:13</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68670">
-                    <coordinates>-122.05466696072561,36.97203237101154,68</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68681">
-                <name>2019-09-13 03:13:19</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68680">
-                    <coordinates>-122.05459680419607,36.972000226412874,68</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68691">
-                <name>2019-09-13 03:13:27</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68690">
-                    <coordinates>-122.05449873592896,36.97196376513408,68</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68701">
-                <name>2019-09-13 03:13:55</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68700">
-                    <coordinates>-122.0544481092338,36.97189717091338,68</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68711">
-                <name>2019-09-13 03:15:58</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68710">
-                    <coordinates>-122.05438046727521,36.97188187394009,67</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68721">
-                <name>2019-09-13 03:16:57</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68720">
-                    <coordinates>-122.05444341536803,36.97199783757047,67</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68731">
-                <name>2019-09-13 03:18:58</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68730">
-                    <coordinates>-122.05438474204583,36.97201988197581,67</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68741">
-                <name>2019-09-13 03:22:04</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68740">
-                    <coordinates>-122.05443654220743,36.97194327138082,67</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68751">
-                <name>2019-09-13 03:23:46</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68750">
-                    <coordinates>-122.05410000879509,36.971950940822225,67</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68761">
-                <name>2019-09-13 03:24:00</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68760">
-                    <coordinates>-122.05405105848057,36.971893985790174,67</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68771">
-                <name>2019-09-13 03:24:55</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68770">
-                    <coordinates>-122.05442304734332,36.971874958869975,67</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68781">
-                <name>2019-09-13 03:25:14</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68780">
-                    <coordinates>-122.05437703069491,36.971934763749104,67</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68791">
-                <name>2019-09-13 03:25:54</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68790">
-                    <coordinates>-122.05428030353231,36.97189046539084,67</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68801">
-                <name>2019-09-13 03:26:03</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68800">
-                    <coordinates>-122.05434618529124,36.97193975098149,67</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68811">
-                <name>2019-09-13 03:27:14</name>
-                <styleUrl>#0</styleUrl>
-                <Point id="68810">
-                    <coordinates>-122.05442799266619,36.97197751145528,67</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
-                </Point>
-            </Placemark>
-            <Placemark id="68821">
+            <Placemark id="68689">
                 <name>2019-09-13 03:29:50</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="68820">
-                    <coordinates>-122.05440033238573,36.971943858114045,66</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68688">
+                    <coordinates>-122.0544003,36.9719439,66</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="68831">
+            <Placemark id="68699">
                 <name>2019-09-13 03:31:04</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="68830">
-                    <coordinates>-122.05449756246252,36.971984342706364,66</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68698">
+                    <coordinates>-122.0544976,36.9719843,66</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="68841">
+            <Placemark id="68709">
                 <name>2019-09-13 03:31:22</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="68840">
-                    <coordinates>-122.05445531767053,36.97192462164627,66</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68708">
+                    <coordinates>-122.0544553,36.9719246,66</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="68851">
+            <Placemark id="68719">
                 <name>2019-09-13 03:34:14</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="68850">
-                    <coordinates>-122.05441516835434,36.97193271018283,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68718">
+                    <coordinates>-122.0544152,36.9719327,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="68861">
+            <Placemark id="68729">
                 <name>2019-09-13 03:35:38</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="68860">
-                    <coordinates>-122.05458942812128,36.97210956833975,75</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68728">
+                    <coordinates>-122.0545894,36.9721096,75</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="68871">
+            <Placemark id="68739">
                 <name>2019-09-13 03:35:45</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="68870">
-                    <coordinates>-122.05449714336736,36.972076501731735,75</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68738">
+                    <coordinates>-122.0544971,36.9720765,75</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="68881">
+            <Placemark id="68749">
                 <name>2019-09-13 03:36:14</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="68880">
-                    <coordinates>-122.05443947587354,36.97200290862189,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68748">
+                    <coordinates>-122.0544395,36.9720029,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="68891">
+            <Placemark id="68759">
                 <name>2019-09-13 03:36:47</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="68890">
-                    <coordinates>-122.05435012478573,36.97195513177381,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68758">
+                    <coordinates>-122.0543501,36.9719551,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="68901">
+            <Placemark id="68769">
                 <name>2019-09-13 03:36:51</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="68900">
-                    <coordinates>-122.05444165516836,36.97194461248533,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68768">
+                    <coordinates>-122.0544417,36.9719446,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="68911">
+            <Placemark id="68779">
                 <name>2019-09-13 03:37:05</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="68910">
-                    <coordinates>-122.05437141481978,36.97182202715145,78</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68778">
+                    <coordinates>-122.0543714,36.971822,78</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="68921">
+            <Placemark id="68789">
                 <name>2019-09-13 03:37:14</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="68920">
-                    <coordinates>-122.05433822248322,36.971845831756454,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68788">
+                    <coordinates>-122.0543382,36.9718458,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="68931">
+            <Placemark id="68799">
                 <name>2019-09-13 03:37:40</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="68930">
-                    <coordinates>-122.05443654220743,36.97193082425461,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68798">
+                    <coordinates>-122.0544365,36.9719308,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="68941">
+            <Placemark id="68809">
                 <name>2019-09-13 03:38:09</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="68940">
-                    <coordinates>-122.05442137096269,36.97190932467298,78</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68808">
+                    <coordinates>-122.0544214,36.9719093,78</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="68951">
+            <Placemark id="68819">
                 <name>2019-09-13 03:38:24</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="68950">
-                    <coordinates>-122.05437325883848,36.9718528306456,78</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68818">
+                    <coordinates>-122.0543733,36.9718528,78</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="68961">
+            <Placemark id="68829">
                 <name>2019-09-13 03:39:19</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="68960">
-                    <coordinates>-122.05434962187154,36.971931117621224,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68828">
+                    <coordinates>-122.0543496,36.9719311,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="68971">
+            <Placemark id="68839">
                 <name>2019-09-13 03:39:27</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="68970">
-                    <coordinates>-122.05427678313298,36.971988575567465,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68838">
+                    <coordinates>-122.0542768,36.9719886,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="68981">
+            <Placemark id="68849">
                 <name>2019-09-13 03:40:50</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="68980">
-                    <coordinates>-122.05442028131527,36.97185630913542,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68848">
+                    <coordinates>-122.0544203,36.9718563,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="68991">
+            <Placemark id="68859">
                 <name>2019-09-13 03:41:26</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="68990">
-                    <coordinates>-122.05453092243714,36.97192256807999,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68858">
+                    <coordinates>-122.0545309,36.9719226,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69001">
+            <Placemark id="68869">
                 <name>2019-09-13 03:42:12</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69000">
-                    <coordinates>-122.05455481086118,36.97205873209701,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68868">
+                    <coordinates>-122.0545548,36.9720587,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69011">
+            <Placemark id="68879">
                 <name>2019-09-13 03:42:31</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69010">
-                    <coordinates>-122.05436487693531,36.97191443763391,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68878">
+                    <coordinates>-122.0543649,36.9719144,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69021">
+            <Placemark id="68889">
                 <name>2019-09-13 03:42:39</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69020">
-                    <coordinates>-122.05436152417404,36.971919173409205,75</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68888">
+                    <coordinates>-122.0543615,36.9719192,75</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69031">
+            <Placemark id="68899">
                 <name>2019-09-13 03:47:58</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69030">
-                    <coordinates>-122.05433009203715,36.97192344817982,74</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68898">
+                    <coordinates>-122.0543301,36.9719234,74</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69041">
+            <Placemark id="68909">
                 <name>2019-09-13 03:48:11</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69040">
-                    <coordinates>-122.05427317891461,36.97183443236814,75</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68908">
+                    <coordinates>-122.0542732,36.9718344,75</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69051">
+            <Placemark id="68919">
                 <name>2019-09-13 03:48:31</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69050">
-                    <coordinates>-122.05436269764049,36.971882837858956,75</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68918">
+                    <coordinates>-122.0543627,36.9718828,75</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69061">
+            <Placemark id="68929">
                 <name>2019-09-13 04:08:27</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69060">
-                    <coordinates>-122.05447476368589,36.97190668437348,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68928">
+                    <coordinates>-122.0544748,36.9719067,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69071">
+            <Placemark id="68939">
                 <name>2019-09-13 04:09:47</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69070">
-                    <coordinates>-122.0543754381333,36.97196573488132,73</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68938">
+                    <coordinates>-122.0543754,36.9719657,73</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69081">
+            <Placemark id="68949">
                 <name>2019-09-13 04:14:47</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69080">
-                    <coordinates>-122.05434040177805,36.97192730385528,74</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68948">
+                    <coordinates>-122.0543404,36.9719273,74</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69091">
+            <Placemark id="68959">
                 <name>2019-09-13 04:15:35</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69090">
-                    <coordinates>-122.0546621830408,36.97181377097682,71</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68958">
+                    <coordinates>-122.0546622,36.9718138,71</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69101">
+            <Placemark id="68969">
                 <name>2019-09-13 04:16:06</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69100">
-                    <coordinates>-122.05458615917904,36.971835689653616,72</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68968">
+                    <coordinates>-122.0545862,36.9718357,72</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69111">
+            <Placemark id="68979">
                 <name>2019-09-13 04:16:25</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69110">
-                    <coordinates>-122.054527904952,36.971899350208204,74</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68978">
+                    <coordinates>-122.0545279,36.9718994,74</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69121">
+            <Placemark id="68989">
                 <name>2019-09-13 04:17:36</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69120">
-                    <coordinates>-122.05439010646386,36.971995155361455,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68988">
+                    <coordinates>-122.0543901,36.9719952,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69131">
+            <Placemark id="68999">
                 <name>2019-09-13 04:20:33</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69130">
-                    <coordinates>-122.05435615975601,36.97191728748099,74</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="68998">
+                    <coordinates>-122.0543562,36.9719173,74</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69141">
+            <Placemark id="69009">
                 <name>2019-09-13 04:25:49</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69140">
-                    <coordinates>-122.0544396435116,36.97196636352406,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69008">
+                    <coordinates>-122.0544396,36.9719664,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69151">
+            <Placemark id="69019">
                 <name>2019-09-13 04:27:49</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69150">
-                    <coordinates>-122.05446721997303,36.97204804517047,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69018">
+                    <coordinates>-122.0544672,36.972048,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69161">
+            <Placemark id="69029">
                 <name>2019-09-13 04:28:35</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69160">
-                    <coordinates>-122.05431433405919,36.97190416980253,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69028">
+                    <coordinates>-122.0543143,36.9719042,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69171">
+            <Placemark id="69039">
                 <name>2019-09-13 04:30:33</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69170">
-                    <coordinates>-122.05445691023213,36.97190169714109,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69038">
+                    <coordinates>-122.0544569,36.9719017,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69181">
+            <Placemark id="69049">
                 <name>2019-09-13 04:30:49</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69180">
-                    <coordinates>-122.05443813476903,36.97196363940553,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69048">
+                    <coordinates>-122.0544381,36.9719636,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69191">
+            <Placemark id="69059">
                 <name>2019-09-13 04:33:53</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69190">
-                    <coordinates>-122.05439639289123,36.97204242929534,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69058">
+                    <coordinates>-122.0543964,36.9720424,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69201">
+            <Placemark id="69069">
                 <name>2019-09-13 04:35:07</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69200">
-                    <coordinates>-122.05436998989624,36.972147622180145,73</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69068">
+                    <coordinates>-122.05437,36.9721476,73</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69211">
+            <Placemark id="69079">
                 <name>2019-09-13 04:35:10</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69210">
-                    <coordinates>-122.05438055109424,36.97217897049801,73</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69078">
+                    <coordinates>-122.0543806,36.972179,73</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69221">
+            <Placemark id="69089">
                 <name>2019-09-13 04:35:13</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69220">
-                    <coordinates>-122.05434015032095,36.972191543352764,74</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69088">
+                    <coordinates>-122.0543402,36.9721915,74</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69231">
+            <Placemark id="69099">
                 <name>2019-09-13 04:35:14</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69230">
-                    <coordinates>-122.05428482976002,36.97220189500318,74</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69098">
+                    <coordinates>-122.0542848,36.9722019,74</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69241">
+            <Placemark id="69109">
                 <name>2019-09-13 04:35:15</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69240">
-                    <coordinates>-122.05422255221946,36.972211366553765,75</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69108">
+                    <coordinates>-122.0542226,36.9722114,75</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69251">
+            <Placemark id="69119">
                 <name>2019-09-13 04:35:16</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69250">
-                    <coordinates>-122.05416220251662,36.97221811398582,75</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69118">
+                    <coordinates>-122.0541622,36.9722181,75</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69261">
+            <Placemark id="69129">
                 <name>2019-09-13 04:35:17</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69260">
-                    <coordinates>-122.05410512175602,36.97222406513707,75</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69128">
+                    <coordinates>-122.0541051,36.9722241,75</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69271">
+            <Placemark id="69139">
                 <name>2019-09-13 04:35:18</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69270">
-                    <coordinates>-122.05405944038374,36.9722278369935,75</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69138">
+                    <coordinates>-122.0540594,36.9722278,75</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69281">
+            <Placemark id="69149">
                 <name>2019-09-13 04:35:19</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69280">
-                    <coordinates>-122.05402222473366,36.9722318183975,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69148">
+                    <coordinates>-122.0540222,36.9722318,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69291">
+            <Placemark id="69159">
                 <name>2019-09-13 04:41:12</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69290">
-                    <coordinates>-122.05441768599137,36.97216651601018,79</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69158">
+                    <coordinates>-122.0544177,36.9721665,79</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69301">
+            <Placemark id="69169">
                 <name>2019-09-13 04:42:41</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69300">
-                    <coordinates>-122.05440075148088,36.972026126493674,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69168">
+                    <coordinates>-122.0544008,36.9720261,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69311">
+            <Placemark id="69179">
                 <name>2019-09-13 04:44:14</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69310">
-                    <coordinates>-122.05441952694399,36.97195685006396,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69178">
+                    <coordinates>-122.0544195,36.9719569,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69321">
+            <Placemark id="69189">
                 <name>2019-09-13 04:44:17</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69320">
-                    <coordinates>-122.0545194392298,36.97191586255745,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69188">
+                    <coordinates>-122.0545194,36.9719159,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69331">
+            <Placemark id="69199">
                 <name>2019-09-13 04:48:39</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69330">
-                    <coordinates>-122.05464935872895,36.97202310900853,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69198">
+                    <coordinates>-122.0546494,36.9720231,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69341">
+            <Placemark id="69209">
                 <name>2019-09-13 04:48:49</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69340">
-                    <coordinates>-122.0545601752792,36.971980696578484,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69208">
+                    <coordinates>-122.0545602,36.9719807,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69351">
+            <Placemark id="69219">
                 <name>2019-09-13 04:49:45</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69350">
-                    <coordinates>-122.05446504067821,36.97195810734944,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69218">
+                    <coordinates>-122.054465,36.9719581,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69361">
+            <Placemark id="69229">
                 <name>2019-09-13 04:53:41</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69360">
-                    <coordinates>-122.05456855718238,36.97198082230703,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69228">
+                    <coordinates>-122.0545686,36.9719808,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69371">
+            <Placemark id="69239">
                 <name>2019-09-13 04:56:38</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69370">
-                    <coordinates>-122.05447820026619,36.97193572766797,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69238">
+                    <coordinates>-122.0544782,36.9719357,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69381">
+            <Placemark id="69249">
                 <name>2019-09-13 05:06:28</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69380">
-                    <coordinates>-122.05455665487987,36.97199947204159,79</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69248">
+                    <coordinates>-122.0545567,36.9719995,79</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69391">
+            <Placemark id="69259">
                 <name>2019-09-13 05:08:51</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69390">
-                    <coordinates>-122.05448071483714,36.97204930245594,79</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69258">
+                    <coordinates>-122.0544807,36.9720493,79</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69401">
+            <Placemark id="69269">
                 <name>2019-09-13 05:08:55</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69400">
-                    <coordinates>-122.05445699405116,36.97205169129835,79</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69268">
+                    <coordinates>-122.054457,36.9720517,79</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69411">
+            <Placemark id="69279">
                 <name>2019-09-13 05:11:23</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69410">
-                    <coordinates>-122.05452379781944,36.97199804711805,80</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69278">
+                    <coordinates>-122.0545238,36.971998,80</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69421">
+            <Placemark id="69289">
                 <name>2019-09-13 05:14:13</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69420">
-                    <coordinates>-122.05453570012195,36.97192202325628,80</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69288">
+                    <coordinates>-122.0545357,36.971922,80</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69431">
+            <Placemark id="69299">
                 <name>2019-09-13 05:16:11</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69430">
-                    <coordinates>-122.0546037611757,36.971982414868634,81</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69298">
+                    <coordinates>-122.0546038,36.9719824,81</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69441">
+            <Placemark id="69309">
                 <name>2019-09-13 05:18:51</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69440">
-                    <coordinates>-122.0545538050328,36.971935560029905,79</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69308">
+                    <coordinates>-122.0545538,36.9719356,79</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69451">
+            <Placemark id="69319">
                 <name>2019-09-13 05:20:32</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69450">
-                    <coordinates>-122.05443385999841,36.97197851728366,81</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69318">
+                    <coordinates>-122.0544339,36.9719785,81</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69461">
+            <Placemark id="69329">
                 <name>2019-09-13 05:21:07</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69460">
-                    <coordinates>-122.05442355025751,36.97190442125962,81</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69328">
+                    <coordinates>-122.0544236,36.9719044,81</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69471">
+            <Placemark id="69339">
                 <name>2019-09-13 05:21:57</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69470">
-                    <coordinates>-122.05444819305283,36.971958945539754,80</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69338">
+                    <coordinates>-122.0544482,36.9719589,80</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69481">
+            <Placemark id="69349">
                 <name>2019-09-13 05:21:59</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69480">
-                    <coordinates>-122.05450820747954,36.97201564911471,80</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69348">
+                    <coordinates>-122.0545082,36.9720156,80</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69491">
+            <Placemark id="69359">
                 <name>2019-09-13 05:22:18</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69490">
-                    <coordinates>-122.05449337151093,36.97192742958383,78</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69358">
+                    <coordinates>-122.0544934,36.9719274,78</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69501">
+            <Placemark id="69369">
                 <name>2019-09-13 05:22:23</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69500">
-                    <coordinates>-122.05441835347754,36.971920179237586,78</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69368">
+                    <coordinates>-122.0544184,36.9719202,78</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69511">
+            <Placemark id="69379">
                 <name>2019-09-13 05:24:24</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69510">
-                    <coordinates>-122.05450627964181,36.97186427194343,80</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69378">
+                    <coordinates>-122.0545063,36.9718643,80</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69521">
+            <Placemark id="69389">
                 <name>2019-09-13 05:24:55</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69520">
-                    <coordinates>-122.05441458162112,36.9719072711067,81</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69388">
+                    <coordinates>-122.0544146,36.9719073,81</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69531">
+            <Placemark id="69399">
                 <name>2019-09-13 05:25:01</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69530">
-                    <coordinates>-122.05435867432696,36.97184767577515,81</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69398">
+                    <coordinates>-122.0543587,36.9718477,81</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69541">
+            <Placemark id="69409">
                 <name>2019-09-13 05:25:03</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69540">
-                    <coordinates>-122.05439253721578,36.97178640406297,81</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69408">
+                    <coordinates>-122.0543925,36.9717864,81</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69551">
+            <Placemark id="69419">
                 <name>2019-09-13 05:25:08</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69550">
-                    <coordinates>-122.05444886360509,36.9718478015037,80</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69418">
+                    <coordinates>-122.0544489,36.9718478,80</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69561">
+            <Placemark id="69429">
                 <name>2019-09-13 05:25:15</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69560">
-                    <coordinates>-122.05448255885584,36.971911671605866,79</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69428">
+                    <coordinates>-122.0544826,36.9719117,79</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69571">
+            <Placemark id="69439">
                 <name>2019-09-13 05:25:43</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69570">
-                    <coordinates>-122.0545551461373,36.97185505184994,79</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69438">
+                    <coordinates>-122.0545551,36.9718551,79</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69581">
+            <Placemark id="69449">
                 <name>2019-09-13 05:26:37</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69580">
-                    <coordinates>-122.05448163684649,36.97194503158049,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69448">
+                    <coordinates>-122.0544816,36.971945,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69591">
+            <Placemark id="69459">
                 <name>2019-09-13 05:26:52</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69590">
-                    <coordinates>-122.05440561298472,36.971886190620225,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69458">
+                    <coordinates>-122.0544056,36.9718862,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69601">
+            <Placemark id="69469">
                 <name>2019-09-13 05:27:40</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69600">
-                    <coordinates>-122.0545191877727,36.97187508459852,78</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69468">
+                    <coordinates>-122.0545192,36.9718751,78</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69611">
+            <Placemark id="69479">
                 <name>2019-09-13 05:27:56</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69610">
-                    <coordinates>-122.05442673538072,36.971882963587504,78</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69478">
+                    <coordinates>-122.0544267,36.971883,78</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69621">
+            <Placemark id="69489">
                 <name>2019-09-13 05:28:19</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69620">
-                    <coordinates>-122.05434123996837,36.97183430663959,78</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69488">
+                    <coordinates>-122.0543412,36.9718343,78</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69631">
+            <Placemark id="69499">
                 <name>2019-09-13 05:28:43</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69630">
-                    <coordinates>-122.05442539427621,36.97182575709836,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69498">
+                    <coordinates>-122.0544254,36.9718258,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69641">
+            <Placemark id="69509">
                 <name>2019-09-13 05:29:26</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69640">
-                    <coordinates>-122.05445028852863,36.97192537601755,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69508">
+                    <coordinates>-122.0544503,36.9719254,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69651">
+            <Placemark id="69519">
                 <name>2019-09-13 05:32:01</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69650">
-                    <coordinates>-122.05457149084849,36.971934135106366,78</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69518">
+                    <coordinates>-122.0545715,36.9719341,78</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69661">
+            <Placemark id="69529">
                 <name>2019-09-13 05:32:08</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69660">
-                    <coordinates>-122.05457367014331,36.971849855069976,78</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69528">
+                    <coordinates>-122.0545737,36.9718499,78</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69671">
+            <Placemark id="69539">
                 <name>2019-09-13 05:32:30</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69670">
-                    <coordinates>-122.05447828408522,36.97187487505094,78</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69538">
+                    <coordinates>-122.0544783,36.9718749,78</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69681">
+            <Placemark id="69549">
                 <name>2019-09-13 05:33:02</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69680">
-                    <coordinates>-122.05448700126452,36.97192692666964,78</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69548">
+                    <coordinates>-122.054487,36.9719269,78</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69691">
+            <Placemark id="69559">
                 <name>2019-09-13 05:33:27</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69690">
-                    <coordinates>-122.05440469097537,36.97187919173108,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69558">
+                    <coordinates>-122.0544047,36.9718792,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69701">
+            <Placemark id="69569">
                 <name>2019-09-13 05:33:48</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69700">
-                    <coordinates>-122.05443721275968,36.97180228776948,78</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69568">
+                    <coordinates>-122.0544372,36.9718023,78</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69711">
+            <Placemark id="69579">
                 <name>2019-09-13 05:34:46</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69710">
-                    <coordinates>-122.05451097350759,36.971857063506704,78</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69578">
+                    <coordinates>-122.054511,36.9718571,78</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69721">
+            <Placemark id="69589">
                 <name>2019-09-13 05:38:58</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69720">
-                    <coordinates>-122.05450393270893,36.97199339516179,79</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69588">
+                    <coordinates>-122.0545039,36.9719934,79</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69731">
+            <Placemark id="69599">
                 <name>2019-09-13 05:40:12</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69730">
-                    <coordinates>-122.05446445394499,36.97202365383224,78</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69598">
+                    <coordinates>-122.0544645,36.9720237,78</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69741">
+            <Placemark id="69609">
                 <name>2019-09-13 05:48:29</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69740">
-                    <coordinates>-122.05450594436569,36.97198539044426,79</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69608">
+                    <coordinates>-122.0545059,36.9719854,79</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69751">
+            <Placemark id="69619">
                 <name>2019-09-13 06:42:18</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69750">
-                    <coordinates>-122.05461147252662,36.97200735103057,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69618">
+                    <coordinates>-122.0546115,36.9720074,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69761">
+            <Placemark id="69629">
                 <name>2019-09-13 07:05:18</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69760">
-                    <coordinates>-122.054631002361,36.97192843541221,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69628">
+                    <coordinates>-122.054631,36.9719284,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69771">
+            <Placemark id="69639">
                 <name>2019-09-13 07:05:29</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69770">
-                    <coordinates>-122.05455950472695,36.97198287587331,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69638">
+                    <coordinates>-122.0545595,36.9719829,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69781">
+            <Placemark id="69649">
                 <name>2019-09-13 07:38:45</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69780">
-                    <coordinates>-122.05450410034699,36.971974116784494,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69648">
+                    <coordinates>-122.0545041,36.9719741,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69791">
+            <Placemark id="69659">
                 <name>2019-09-13 07:41:06</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69790">
-                    <coordinates>-122.05434467654867,36.97210801768766,80</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69658">
+                    <coordinates>-122.0543447,36.972108,80</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69801">
+            <Placemark id="69669">
                 <name>2019-09-13 07:41:09</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69800">
-                    <coordinates>-122.05440276313765,36.9720724365087,80</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69668">
+                    <coordinates>-122.0544028,36.9720724,80</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69811">
+            <Placemark id="69679">
                 <name>2019-09-13 07:41:11</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69810">
-                    <coordinates>-122.05447023745818,36.9720100751491,80</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69678">
+                    <coordinates>-122.0544702,36.9720101,80</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69821">
+            <Placemark id="69689">
                 <name>2019-09-13 07:43:12</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69820">
-                    <coordinates>-122.05446629796369,36.971920179237586,80</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69688">
+                    <coordinates>-122.0544663,36.9719202,80</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69831">
+            <Placemark id="69699">
                 <name>2019-09-13 07:45:01</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69830">
-                    <coordinates>-122.05444458883447,36.971997586113375,80</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69698">
+                    <coordinates>-122.0544446,36.9719976,80</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69841">
+            <Placemark id="69709">
                 <name>2019-09-13 08:32:29</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69840">
-                    <coordinates>-122.05445045616669,36.97200957223491,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69708">
+                    <coordinates>-122.0544505,36.9720096,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69851">
+            <Placemark id="69719">
                 <name>2019-09-13 18:54:36</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69850">
-                    <coordinates>-122.05443788331193,36.97192030496613,82</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69718">
+                    <coordinates>-122.0544379,36.9719203,82</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69861">
+            <Placemark id="69729">
                 <name>2019-09-13 19:14:14</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69860">
-                    <coordinates>-122.05453217972261,36.971954796497684,80</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69728">
+                    <coordinates>-122.0545322,36.9719548,80</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69871">
+            <Placemark id="69739">
                 <name>2019-09-13 19:31:59</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69870">
-                    <coordinates>-122.05441801820142,36.97188078429268,81</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69738">
+                    <coordinates>-122.054418,36.9718808,81</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69881">
+            <Placemark id="69749">
                 <name>2019-09-13 19:32:10</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69880">
-                    <coordinates>-122.05444794159574,36.97192902214543,81</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69748">
+                    <coordinates>-122.0544479,36.971929,81</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69891">
+            <Placemark id="69759">
                 <name>2019-09-13 19:32:16</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69890">
-                    <coordinates>-122.054398404548,36.97198136713074,81</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69758">
+                    <coordinates>-122.0543984,36.9719814,81</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69901">
+            <Placemark id="69769">
                 <name>2019-09-13 19:34:05</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69900">
-                    <coordinates>-122.0545051899944,36.971967034076314,81</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69768">
+                    <coordinates>-122.0545052,36.971967,81</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69911">
+            <Placemark id="69779">
                 <name>2019-09-13 19:36:06</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69910">
-                    <coordinates>-122.05444458883447,36.9719072711067,81</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69778">
+                    <coordinates>-122.0544446,36.9719073,81</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69921">
+            <Placemark id="69789">
                 <name>2019-09-13 19:44:33</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69920">
-                    <coordinates>-122.05450460326118,36.971976631355446,81</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69788">
+                    <coordinates>-122.0545046,36.9719766,81</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69931">
+            <Placemark id="69799">
                 <name>2019-09-13 19:45:38</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69930">
-                    <coordinates>-122.05437795270426,36.97212620641754,81</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69798">
+                    <coordinates>-122.054378,36.9721262,81</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69941">
+            <Placemark id="69809">
                 <name>2019-09-13 19:47:02</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69940">
-                    <coordinates>-122.05445934098405,36.97202562357948,84</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69808">
+                    <coordinates>-122.0544593,36.9720256,84</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69951">
+            <Placemark id="69819">
                 <name>2019-09-13 19:48:13</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69950">
-                    <coordinates>-122.05438172456068,36.972145903889995,81</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69818">
+                    <coordinates>-122.0543817,36.9721459,81</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69961">
+            <Placemark id="69829">
                 <name>2019-09-13 19:50:20</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69960">
-                    <coordinates>-122.05026732763565,36.96925611508952,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69828">
+                    <coordinates>-122.0502673,36.9692561,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69971">
+            <Placemark id="69839">
                 <name>2019-09-13 19:51:31</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69970">
-                    <coordinates>-122.04755202985112,36.96538364217891,49</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69838">
+                    <coordinates>-122.047552,36.9653836,49</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69981">
+            <Placemark id="69849">
                 <name>2019-09-13 19:55:08</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69980">
-                    <coordinates>-122.04457397584062,36.96180841888949,28</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69848">
+                    <coordinates>-122.044574,36.9618084,28</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="69991">
+            <Placemark id="69859">
                 <name>2019-09-13 19:55:26</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="69990">
-                    <coordinates>-122.04484789643627,36.961807748337236,28</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69858">
+                    <coordinates>-122.0448479,36.9618077,28</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70001">
+            <Placemark id="69869">
                 <name>2019-09-13 19:55:52</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70000">
-                    <coordinates>-122.04496800910871,36.96163399148449,28</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69868">
+                    <coordinates>-122.044968,36.961634,28</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70011">
+            <Placemark id="69879">
                 <name>2019-09-13 20:30:16</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70010">
-                    <coordinates>-122.04465997416716,36.96173474196061,17</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69878">
+                    <coordinates>-122.04466,36.9617347,17</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70021">
+            <Placemark id="69889">
                 <name>2019-09-13 20:31:38</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70020">
-                    <coordinates>-122.04440969053846,36.96183004419967,23</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69888">
+                    <coordinates>-122.0444097,36.96183,23</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70031">
+            <Placemark id="69899">
                 <name>2019-09-13 20:34:18</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70030">
-                    <coordinates>-122.04772050147318,36.965493655391626,46</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69898">
+                    <coordinates>-122.0477205,36.9654937,46</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70041">
+            <Placemark id="69909">
                 <name>2019-09-13 20:35:30</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70040">
-                    <coordinates>-122.05039368617852,36.9695049874725,69</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69908">
+                    <coordinates>-122.0503937,36.969505,69</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70051">
+            <Placemark id="69919">
                 <name>2019-09-13 20:36:48</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70050">
-                    <coordinates>-122.05396763942012,36.972994204231206,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69918">
+                    <coordinates>-122.0539676,36.9729942,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70061">
+            <Placemark id="69929">
                 <name>2019-09-13 20:39:04</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70060">
-                    <coordinates>-122.05571829404111,36.97584714030331,85</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69928">
+                    <coordinates>-122.0557183,36.9758471,85</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70071">
+            <Placemark id="69939">
                 <name>2019-09-13 20:39:39</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70070">
-                    <coordinates>-122.05547899950487,36.97596277113722,86</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69938">
+                    <coordinates>-122.055479,36.9759628,86</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70081">
+            <Placemark id="69949">
                 <name>2019-09-13 20:41:55</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70080">
-                    <coordinates>-122.05543558124644,36.97604969147311,86</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69948">
+                    <coordinates>-122.0554356,36.9760497,86</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70091">
+            <Placemark id="69959">
                 <name>2019-09-13 20:42:02</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70090">
-                    <coordinates>-122.05552786600036,36.97600476447211,86</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69958">
+                    <coordinates>-122.0555279,36.9760048,86</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70101">
+            <Placemark id="69969">
                 <name>2019-09-13 20:43:51</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70100">
-                    <coordinates>-122.05558075580937,36.976054972072106,86</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69968">
+                    <coordinates>-122.0555808,36.976055,86</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70111">
+            <Placemark id="69979">
                 <name>2019-09-13 20:44:24</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70110">
-                    <coordinates>-122.05559969891054,36.97601050607578,86</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69978">
+                    <coordinates>-122.0555997,36.9760105,86</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70121">
+            <Placemark id="69989">
                 <name>2019-09-13 21:38:17</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70120">
-                    <coordinates>-122.05556516546947,36.975928405334216,95</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69988">
+                    <coordinates>-122.0555652,36.9759284,95</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70131">
+            <Placemark id="69999">
                 <name>2019-09-13 21:43:56</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70130">
-                    <coordinates>-122.0557105914895,36.97596578862236,92</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="69998">
+                    <coordinates>-122.0557106,36.9759658,92</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70141">
+            <Placemark id="70009">
                 <name>2019-09-13 21:44:05</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70140">
-                    <coordinates>-122.05570288013858,36.97597878057228,92</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70008">
+                    <coordinates>-122.0557029,36.9759788,92</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70151">
+            <Placemark id="70019">
                 <name>2019-09-13 21:44:07</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70150">
-                    <coordinates>-122.05570572998566,36.976032508571606,92</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70018">
+                    <coordinates>-122.0557057,36.9760325,92</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70161">
+            <Placemark id="70029">
                 <name>2019-09-13 21:44:08</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70160">
-                    <coordinates>-122.05571821902139,36.97609801314489,93</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70028">
+                    <coordinates>-122.0557182,36.976098,93</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70171">
+            <Placemark id="70039">
                 <name>2019-09-13 21:44:09</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70170">
-                    <coordinates>-122.0557245892678,36.976175797206324,94</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70038">
+                    <coordinates>-122.0557246,36.9761758,94</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70181">
+            <Placemark id="70049">
                 <name>2019-09-13 21:44:10</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70180">
-                    <coordinates>-122.05571277078433,36.97625735312418,94</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70048">
+                    <coordinates>-122.0557128,36.9762574,94</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70191">
+            <Placemark id="70059">
                 <name>2019-09-13 21:44:11</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70190">
-                    <coordinates>-122.05569977883441,36.97633308361934,95</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70058">
+                    <coordinates>-122.0556998,36.9763331,95</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70201">
+            <Placemark id="70069">
                 <name>2019-09-13 21:44:12</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70200">
-                    <coordinates>-122.05567153182072,36.97641396898494,95</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70068">
+                    <coordinates>-122.0556715,36.976414,95</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70211">
+            <Placemark id="70079">
                 <name>2019-09-13 21:44:14</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70210">
-                    <coordinates>-122.05564521264476,36.9765008055018,95</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70078">
+                    <coordinates>-122.0556452,36.9765008,95</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70221">
+            <Placemark id="70089">
                 <name>2019-09-13 21:44:16</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70220">
-                    <coordinates>-122.05556927260203,36.97654187682734,95</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70088">
+                    <coordinates>-122.0555693,36.9765419,95</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70231">
+            <Placemark id="70099">
                 <name>2019-09-13 21:44:18</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70230">
-                    <coordinates>-122.05546022404177,36.97655486877726,95</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70098">
+                    <coordinates>-122.0554602,36.9765549,95</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70241">
+            <Placemark id="70109">
                 <name>2019-09-13 21:44:19</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70240">
-                    <coordinates>-122.05539735976798,36.97655935309545,95</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70108">
+                    <coordinates>-122.0553974,36.9765594,95</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70251">
+            <Placemark id="70119">
                 <name>2019-09-13 21:46:40</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70250">
-                    <coordinates>-122.05454257328255,36.972019546699684,80</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70118">
+                    <coordinates>-122.0545426,36.9720195,80</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70261">
+            <Placemark id="70129">
                 <name>2019-09-13 21:47:36</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70260">
-                    <coordinates>-122.0544570778702,36.971957520616215,81</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70128">
+                    <coordinates>-122.0544571,36.9719575,81</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70271">
+            <Placemark id="70139">
                 <name>2019-09-13 22:10:00</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70270">
-                    <coordinates>-122.05452991660876,36.97189444679485,82</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70138">
+                    <coordinates>-122.0545299,36.9718944,82</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70281">
+            <Placemark id="70149">
                 <name>2019-09-13 22:27:36</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70280">
-                    <coordinates>-122.05446981836302,36.971963178400856,84</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70148">
+                    <coordinates>-122.0544698,36.9719632,84</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70291">
+            <Placemark id="70159">
                 <name>2019-09-13 22:30:44</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70290">
-                    <coordinates>-122.05457199376268,36.97193048897849,84</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70158">
+                    <coordinates>-122.054572,36.9719305,84</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70301">
+            <Placemark id="70169">
                 <name>2019-09-13 22:35:32</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70300">
-                    <coordinates>-122.0545723290388,36.972017325495344,85</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70168">
+                    <coordinates>-122.0545723,36.9720173,85</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70311">
+            <Placemark id="70179">
                 <name>2019-09-13 22:36:22</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70310">
-                    <coordinates>-122.0545620192979,36.971940714900356,85</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70178">
+                    <coordinates>-122.054562,36.9719407,85</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70321">
+            <Placemark id="70189">
                 <name>2019-09-13 23:21:48</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70320">
-                    <coordinates>-122.05454366292996,36.971892267500024,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70188">
+                    <coordinates>-122.0545437,36.9718923,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70331">
+            <Placemark id="70199">
                 <name>2019-09-13 23:22:02</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70330">
-                    <coordinates>-122.05444852832896,36.97195039599852,78</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70198">
+                    <coordinates>-122.0544485,36.9719504,78</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70341">
+            <Placemark id="70209">
                 <name>2019-09-13 23:22:18</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70340">
-                    <coordinates>-122.0545533021186,36.971918670495015,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70208">
+                    <coordinates>-122.0545533,36.9719187,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70351">
+            <Placemark id="70219">
                 <name>2019-09-13 23:23:11</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70350">
-                    <coordinates>-122.0544277412091,36.97193807460086,74</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70218">
+                    <coordinates>-122.0544277,36.9719381,74</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70361">
+            <Placemark id="70229">
                 <name>2019-09-13 23:24:17</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70360">
-                    <coordinates>-122.05451826576335,36.97190324779318,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70228">
+                    <coordinates>-122.0545183,36.9719032,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70371">
+            <Placemark id="70239">
                 <name>2019-09-13 23:27:42</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70370">
-                    <coordinates>-122.05441785056335,36.97193338073508,78</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70238">
+                    <coordinates>-122.0544179,36.9719334,78</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70381">
+            <Placemark id="70249">
                 <name>2019-09-13 23:30:19</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70380">
-                    <coordinates>-122.05451122496468,36.97188966911004,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70248">
+                    <coordinates>-122.0545112,36.9718897,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70391">
+            <Placemark id="70259">
                 <name>2019-09-13 23:30:30</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70390">
-                    <coordinates>-122.05441952694399,36.971895494532745,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70258">
+                    <coordinates>-122.0544195,36.9718955,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70401">
+            <Placemark id="70269">
                 <name>2019-09-13 23:30:39</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70400">
-                    <coordinates>-122.05452170234365,36.97189197413341,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70268">
+                    <coordinates>-122.0545217,36.971892,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70411">
+            <Placemark id="70279">
                 <name>2019-09-13 23:32:44</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70410">
-                    <coordinates>-122.0544859116171,36.97196707598583,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70278">
+                    <coordinates>-122.0544859,36.9719671,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70421">
+            <Placemark id="70289">
                 <name>2019-09-13 23:43:53</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70420">
-                    <coordinates>-122.0544050262515,36.97202851533608,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70288">
+                    <coordinates>-122.054405,36.9720285,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70431">
+            <Placemark id="70299">
                 <name>2019-09-13 23:45:24</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70430">
-                    <coordinates>-122.05436001543147,36.97210814341621,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70298">
+                    <coordinates>-122.05436,36.9721081,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70441">
+            <Placemark id="70309">
                 <name>2019-09-13 23:45:40</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70440">
-                    <coordinates>-122.05444660049123,36.97205257139818,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70308">
+                    <coordinates>-122.0544466,36.9720526,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70451">
+            <Placemark id="70319">
                 <name>2019-09-13 23:47:06</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70450">
-                    <coordinates>-122.05439672816736,36.97197985838817,76</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70318">
+                    <coordinates>-122.0543967,36.9719799,76</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70461">
+            <Placemark id="70329">
                 <name>2019-09-14 00:20:56</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70460">
-                    <coordinates>-122.05440770846052,36.97206879038082,75</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70328">
+                    <coordinates>-122.0544077,36.9720688,75</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70471">
+            <Placemark id="70339">
                 <name>2019-09-14 01:34:41</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70470">
-                    <coordinates>-122.05411568295402,36.97219380646662,72</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70338">
+                    <coordinates>-122.0541157,36.9721938,72</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70481">
+            <Placemark id="70349">
                 <name>2019-09-14 01:34:48</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70480">
-                    <coordinates>-122.05390538100345,36.97234023831503,74</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70348">
+                    <coordinates>-122.0539054,36.9723402,74</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70491">
+            <Placemark id="70359">
                 <name>2019-09-14 01:34:50</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70490">
-                    <coordinates>-122.05392147425754,36.972523592446905,74</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70358">
+                    <coordinates>-122.0539215,36.9725236,74</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70501">
+            <Placemark id="70369">
                 <name>2019-09-14 01:34:51</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70500">
-                    <coordinates>-122.0540027787183,36.97271205953972,74</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70368">
+                    <coordinates>-122.0540028,36.9727121,74</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70511">
+            <Placemark id="70379">
                 <name>2019-09-14 01:34:52</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70510">
-                    <coordinates>-122.05395915686022,36.97280190914597,75</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70378">
+                    <coordinates>-122.0539592,36.9728019,75</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70521">
+            <Placemark id="70389">
                 <name>2019-09-14 01:34:53</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70520">
-                    <coordinates>-122.05396359201636,36.97289876075653,75</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70388">
+                    <coordinates>-122.0539636,36.9728988,75</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70531">
+            <Placemark id="70399">
                 <name>2019-09-14 01:34:54</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70530">
-                    <coordinates>-122.0539688171013,36.973021996362135,75</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70398">
+                    <coordinates>-122.0539688,36.973022,75</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70541">
+            <Placemark id="70409">
                 <name>2019-09-14 01:34:55</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70540">
-                    <coordinates>-122.05397241963728,36.973107012708276,75</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70408">
+                    <coordinates>-122.0539724,36.973107,75</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70551">
+            <Placemark id="70419">
                 <name>2019-09-14 01:34:56</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70550">
-                    <coordinates>-122.05397549878693,36.973179677645724,75</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70418">
+                    <coordinates>-122.0539755,36.9731797,75</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70561">
+            <Placemark id="70429">
                 <name>2019-09-14 01:34:57</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70560">
-                    <coordinates>-122.05397942501615,36.97327233283757,75</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70428">
+                    <coordinates>-122.0539794,36.9732723,75</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70571">
+            <Placemark id="70439">
                 <name>2019-09-14 01:36:20</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70570">
-                    <coordinates>-122.04851125838411,36.97249929585535,67</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70438">
+                    <coordinates>-122.0485113,36.9724993,67</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70581">
+            <Placemark id="70449">
                 <name>2019-09-14 01:36:48</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70580">
-                    <coordinates>-122.04507927653867,36.96884473374134,36</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70448">
+                    <coordinates>-122.0450793,36.9688447,36</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70591">
+            <Placemark id="70459">
                 <name>2019-09-14 01:38:31</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70590">
-                    <coordinates>-122.03988772313778,36.96692575758968,24</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70458">
+                    <coordinates>-122.0398877,36.9669258,24</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70601">
+            <Placemark id="70469">
                 <name>2019-09-14 01:39:42</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70600">
-                    <coordinates>-122.03472657075788,36.96887810066492,20</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70468">
+                    <coordinates>-122.0347266,36.9688781,20</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70611">
+            <Placemark id="70479">
                 <name>2019-09-14 01:43:04</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70610">
-                    <coordinates>-122.02902441493565,36.96874676533711,8</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70478">
+                    <coordinates>-122.0290244,36.9687468,8</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70621">
+            <Placemark id="70489">
                 <name>2019-09-14 01:45:28</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70620">
-                    <coordinates>-122.02405564456383,36.97103195709283,5</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70488">
+                    <coordinates>-122.0240556,36.971032,5</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70631">
+            <Placemark id="70499">
                 <name>2019-09-14 01:47:07</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70630">
-                    <coordinates>-122.02006807506456,36.97422453364093,9</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70498">
+                    <coordinates>-122.0200681,36.9742245,9</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70641">
+            <Placemark id="70509">
                 <name>2019-09-14 01:48:48</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70640">
-                    <coordinates>-122.02090447430166,36.978749824004716,9</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70508">
+                    <coordinates>-122.0209045,36.9787498,9</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70651">
+            <Placemark id="70519">
                 <name>2019-09-14 01:52:44</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70650">
-                    <coordinates>-122.0257045516018,36.977866385166514,6</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70518">
+                    <coordinates>-122.0257046,36.9778664,6</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70661">
+            <Placemark id="70529">
                 <name>2019-09-14 01:54:15</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70660">
-                    <coordinates>-122.0256392565761,36.977746901136804,6</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70528">
+                    <coordinates>-122.0256393,36.9777469,6</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70671">
+            <Placemark id="70539">
                 <name>2019-09-14 01:54:29</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70670">
-                    <coordinates>-122.02568460267226,36.97781835686134,6</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70538">
+                    <coordinates>-122.0256846,36.9778184,6</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70681">
+            <Placemark id="70549">
                 <name>2019-09-14 01:54:40</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70680">
-                    <coordinates>-122.02570421632568,36.97773847732412,6</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70548">
+                    <coordinates>-122.0257042,36.9777385,6</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70691">
+            <Placemark id="70559">
                 <name>2019-09-14 01:57:32</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70690">
-                    <coordinates>-122.0257135202382,36.977820452337134,5</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70558">
+                    <coordinates>-122.0257135,36.9778205,5</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70701">
+            <Placemark id="70569">
                 <name>2019-09-14 01:58:50</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70700">
-                    <coordinates>-122.02569047000448,36.97775293610709,6</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70568">
+                    <coordinates>-122.0256905,36.9777529,6</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70711">
+            <Placemark id="70579">
                 <name>2019-09-14 02:01:12</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70710">
-                    <coordinates>-122.0257322957013,36.97782958861159,5</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70578">
+                    <coordinates>-122.0257323,36.9778296,5</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70721">
+            <Placemark id="70589">
                 <name>2019-09-14 02:03:44</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70720">
-                    <coordinates>-122.02572776947359,36.977906241116095,5</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70588">
+                    <coordinates>-122.0257278,36.9779062,5</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70731">
+            <Placemark id="70599">
                 <name>2019-09-14 02:04:08</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70730">
-                    <coordinates>-122.0257375763003,36.977827032131124,5</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70598">
+                    <coordinates>-122.0257376,36.977827,5</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70741">
+            <Placemark id="70609">
                 <name>2019-09-14 02:05:16</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70740">
-                    <coordinates>-122.02576448220948,36.97790154725032,5</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70608">
+                    <coordinates>-122.0257645,36.9779015,5</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70751">
+            <Placemark id="70619">
                 <name>2019-09-14 02:06:52</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70750">
-                    <coordinates>-122.02569457713703,36.97782028469907,4</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70618">
+                    <coordinates>-122.0256946,36.9778203,4</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70761">
+            <Placemark id="70629">
                 <name>2019-09-14 02:12:02</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70760">
-                    <coordinates>-122.02564537536541,36.97793310511576,4</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70628">
+                    <coordinates>-122.0256454,36.9779331,4</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70771">
+            <Placemark id="70639">
                 <name>2019-09-14 02:13:04</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70770">
-                    <coordinates>-122.02553959574739,36.97792883034514,4</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70638">
+                    <coordinates>-122.0255396,36.9779288,4</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70781">
+            <Placemark id="70649">
                 <name>2019-09-14 02:13:06</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70780">
-                    <coordinates>-122.02551520440916,36.97786332577186,5</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70648">
+                    <coordinates>-122.0255152,36.9778633,5</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70791">
+            <Placemark id="70659">
                 <name>2019-09-14 02:13:07</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70790">
-                    <coordinates>-122.02554009866158,36.977821458165515,5</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70658">
+                    <coordinates>-122.0255401,36.9778215,5</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70801">
+            <Placemark id="70669">
                 <name>2019-09-14 02:13:08</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70800">
-                    <coordinates>-122.02556993823687,36.97778076402562,5</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70668">
+                    <coordinates>-122.0255699,36.9777808,5</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70811">
+            <Placemark id="70679">
                 <name>2019-09-14 02:13:09</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70810">
-                    <coordinates>-122.02561059046725,36.97773177180158,5</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70678">
+                    <coordinates>-122.0256106,36.9777318,5</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70821">
+            <Placemark id="70689">
                 <name>2019-09-14 02:13:10</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70820">
-                    <coordinates>-122.0256617200766,36.97766664441394,5</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70688">
+                    <coordinates>-122.0256617,36.9776666,5</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70831">
+            <Placemark id="70699">
                 <name>2019-09-14 02:13:11</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70830">
-                    <coordinates>-122.02576699678043,36.97759707461761,5</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70698">
+                    <coordinates>-122.025767,36.9775971,5</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70841">
+            <Placemark id="70709">
                 <name>2019-09-14 02:13:12</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70840">
-                    <coordinates>-122.02582600537876,36.977538568933475,5</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70708">
+                    <coordinates>-122.025826,36.9775386,5</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70851">
+            <Placemark id="70719">
                 <name>2019-09-14 02:13:13</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70850">
-                    <coordinates>-122.02597347402151,36.97748598628028,5</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70718">
+                    <coordinates>-122.0259735,36.977486,5</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70861">
+            <Placemark id="70729">
                 <name>2019-09-14 02:13:14</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70860">
-                    <coordinates>-122.02603991909406,36.97744460937332,5</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70728">
+                    <coordinates>-122.0260399,36.9774446,5</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70871">
+            <Placemark id="70739">
                 <name>2019-09-14 02:13:15</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70870">
-                    <coordinates>-122.02619386309537,36.977345324173676,5</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70738">
+                    <coordinates>-122.0261939,36.9773453,5</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70881">
+            <Placemark id="70749">
                 <name>2019-09-14 02:13:16</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70880">
-                    <coordinates>-122.02628984158771,36.977286089029796,5</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70748">
+                    <coordinates>-122.0262898,36.9772861,5</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70891">
+            <Placemark id="70759">
                 <name>2019-09-14 02:13:22</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70890">
-                    <coordinates>-122.02697099514434,36.97702744716073,4</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70758">
+                    <coordinates>-122.026971,36.9770274,4</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70901">
+            <Placemark id="70769">
                 <name>2019-09-14 02:13:49</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70900">
-                    <coordinates>-122.02689299406377,36.97704564505623,4</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70768">
+                    <coordinates>-122.026893,36.9770456,4</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70911">
+            <Placemark id="70779">
                 <name>2019-09-14 02:13:55</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70910">
-                    <coordinates>-122.02694889291764,36.97703260367919,5</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70778">
+                    <coordinates>-122.0269489,36.9770326,5</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70921">
+            <Placemark id="70789">
                 <name>2019-09-14 02:13:56</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70920">
-                    <coordinates>-122.02702205002585,36.97701553589755,5</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70788">
+                    <coordinates>-122.0270221,36.9770155,5</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70931">
+            <Placemark id="70799">
                 <name>2019-09-14 02:13:58</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70930">
-                    <coordinates>-122.02721374659457,36.97698822960078,7</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70798">
+                    <coordinates>-122.0272137,36.9769882,7</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70941">
+            <Placemark id="70809">
                 <name>2019-09-14 02:13:59</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70940">
-                    <coordinates>-122.02746796081111,36.97698449220439,8</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70808">
+                    <coordinates>-122.027468,36.9769845,8</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70951">
+            <Placemark id="70819">
                 <name>2019-09-14 02:14:00</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70950">
-                    <coordinates>-122.0276460742768,36.97698667239181,9</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70818">
+                    <coordinates>-122.0276461,36.9769867,9</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70961">
+            <Placemark id="70829">
                 <name>2019-09-14 02:14:01</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70960">
-                    <coordinates>-122.02789198418203,36.97699155706558,10</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70828">
+                    <coordinates>-122.027892,36.9769916,10</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70971">
+            <Placemark id="70839">
                 <name>2019-09-14 02:14:02</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70970">
-                    <coordinates>-122.02805318982003,36.97699465080288,10</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70838">
+                    <coordinates>-122.0280532,36.9769947,10</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70981">
+            <Placemark id="70849">
                 <name>2019-09-14 02:14:03</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70980">
-                    <coordinates>-122.0281698245039,36.97699671218786,11</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70848">
+                    <coordinates>-122.0281698,36.9769967,11</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="70991">
+            <Placemark id="70859">
                 <name>2019-09-14 02:17:20</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="70990">
-                    <coordinates>-122.03342975541368,36.97536843692732,24</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70858">
+                    <coordinates>-122.0334298,36.9753684,24</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71001">
+            <Placemark id="70869">
                 <name>2019-09-14 02:18:26</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71000">
-                    <coordinates>-122.03623964104044,36.971365925551865,22</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70868">
+                    <coordinates>-122.0362396,36.9713659,22</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71011">
+            <Placemark id="70879">
                 <name>2019-09-14 02:19:06</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71010">
-                    <coordinates>-122.03917677905247,36.967505314640825,21</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70878">
+                    <coordinates>-122.0391768,36.9675053,21</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71021">
+            <Placemark id="70889">
                 <name>2019-09-14 02:24:19</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71020">
-                    <coordinates>-122.04237458184866,36.965347128326755,19</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70888">
+                    <coordinates>-122.0423746,36.9653471,19</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71031">
+            <Placemark id="70899">
                 <name>2019-09-14 02:30:03</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71030">
-                    <coordinates>-122.04232885414564,36.96539932318298,19</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70898">
+                    <coordinates>-122.0423289,36.9653993,19</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71041">
+            <Placemark id="70909">
                 <name>2019-09-14 02:30:05</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71040">
-                    <coordinates>-122.04227598861203,36.96545966528442,19</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70908">
+                    <coordinates>-122.042276,36.9654597,19</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71051">
+            <Placemark id="70919">
                 <name>2019-09-14 02:30:07</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71050">
-                    <coordinates>-122.04223056246775,36.96551151587249,20</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70918">
+                    <coordinates>-122.0422306,36.9655115,20</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71061">
+            <Placemark id="70929">
                 <name>2019-09-14 02:30:08</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71060">
-                    <coordinates>-122.04218458422935,36.96556326855685,19</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70928">
+                    <coordinates>-122.0421846,36.9655633,19</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71071">
+            <Placemark id="70939">
                 <name>2019-09-14 02:30:10</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71070">
-                    <coordinates>-122.04213288333273,36.96562145642949,19</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70938">
+                    <coordinates>-122.0421329,36.9656215,19</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71081">
+            <Placemark id="70949">
                 <name>2019-09-14 02:30:12</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71080">
-                    <coordinates>-122.04207355422034,36.96563495216307,19</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70948">
+                    <coordinates>-122.0420736,36.965635,19</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71091">
+            <Placemark id="70959">
                 <name>2019-09-14 02:30:13</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71090">
-                    <coordinates>-122.04200680997346,36.96559868875846,19</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70958">
+                    <coordinates>-122.0420068,36.9655987,19</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71101">
+            <Placemark id="70969">
                 <name>2019-09-14 02:30:14</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71100">
-                    <coordinates>-122.04195915621185,36.965572797573536,19</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70968">
+                    <coordinates>-122.0419592,36.9655728,19</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71111">
+            <Placemark id="70979">
                 <name>2019-09-14 02:30:15</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71110">
-                    <coordinates>-122.04189712064579,36.96553909248376,19</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70978">
+                    <coordinates>-122.0418971,36.9655391,19</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71121">
+            <Placemark id="70989">
                 <name>2019-09-14 02:30:16</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71120">
-                    <coordinates>-122.04184302817714,36.96550970302821,19</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70988">
+                    <coordinates>-122.041843,36.9655097,19</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71131">
+            <Placemark id="70999">
                 <name>2019-09-14 02:30:17</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71130">
-                    <coordinates>-122.04178645858013,36.96547896770222,19</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="70998">
+                    <coordinates>-122.0417865,36.965479,19</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71141">
+            <Placemark id="71009">
                 <name>2019-09-14 02:30:18</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71140">
-                    <coordinates>-122.04173606008288,36.96545054487993,19</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71008">
+                    <coordinates>-122.0417361,36.9654505,19</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71151">
+            <Placemark id="71019">
                 <name>2019-09-14 02:30:20</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71150">
-                    <coordinates>-122.04165083350298,36.96540163968425,18</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71018">
+                    <coordinates>-122.0416508,36.9654016,18</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71161">
+            <Placemark id="71029">
                 <name>2019-09-14 02:30:22</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71160">
-                    <coordinates>-122.04158858347301,36.96536591902175,18</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71028">
+                    <coordinates>-122.0415886,36.9653659,18</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71171">
+            <Placemark id="71039">
                 <name>2019-09-14 02:30:25</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71170">
-                    <coordinates>-122.04154612513037,36.965341555336636,18</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71038">
+                    <coordinates>-122.0415461,36.9653416,18</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71181">
+            <Placemark id="71049">
                 <name>2019-09-14 02:30:26</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71180">
-                    <coordinates>-122.04146822925847,36.96541200861052,19</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71048">
+                    <coordinates>-122.0414682,36.965412,19</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71191">
+            <Placemark id="71059">
                 <name>2019-09-14 02:30:27</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71190">
-                    <coordinates>-122.0414146688972,36.96545337330267,19</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71058">
+                    <coordinates>-122.0414147,36.9654534,19</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71201">
+            <Placemark id="71069">
                 <name>2019-09-14 02:30:28</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71200">
-                    <coordinates>-122.04135725286048,36.9655089453207,19</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71068">
+                    <coordinates>-122.0413573,36.9655089,19</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71211">
+            <Placemark id="71079">
                 <name>2019-09-14 02:30:29</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71210">
-                    <coordinates>-122.04127687040906,36.96557801220283,20</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71078">
+                    <coordinates>-122.0412769,36.965578,20</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71221">
+            <Placemark id="71089">
                 <name>2019-09-14 02:30:30</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71220">
-                    <coordinates>-122.04120390575909,36.965656379212106,20</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71088">
+                    <coordinates>-122.0412039,36.9656564,20</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71231">
+            <Placemark id="71099">
                 <name>2019-09-14 02:30:31</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71230">
-                    <coordinates>-122.04113932283389,36.9657323134784,20</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71098">
+                    <coordinates>-122.0411393,36.9657323,20</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71241">
+            <Placemark id="71109">
                 <name>2019-09-14 02:30:32</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71240">
-                    <coordinates>-122.04109133938658,36.96578117903187,20</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71108">
+                    <coordinates>-122.0410913,36.9657812,20</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71251">
+            <Placemark id="71119">
                 <name>2019-09-14 02:30:33</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71250">
-                    <coordinates>-122.04099597677245,36.96586880671445,20</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71118">
+                    <coordinates>-122.040996,36.9658688,20</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71261">
+            <Placemark id="71129">
                 <name>2019-09-14 02:30:34</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71260">
-                    <coordinates>-122.0409162610024,36.96592694507578,20</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71128">
+                    <coordinates>-122.0409163,36.9659269,20</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71271">
+            <Placemark id="71139">
                 <name>2019-09-14 02:30:35</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71270">
-                    <coordinates>-122.0408522924117,36.9659966279254,20</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71138">
+                    <coordinates>-122.0408523,36.9659966,20</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71281">
+            <Placemark id="71149">
                 <name>2019-09-14 02:33:23</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71280">
-                    <coordinates>-122.04527207935848,36.96891099445858,32</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71148">
+                    <coordinates>-122.0452721,36.968911,32</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71291">
+            <Placemark id="71159">
                 <name>2019-09-14 02:33:54</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71290">
-                    <coordinates>-122.04817872970273,36.97286212432388,61</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71158">
+                    <coordinates>-122.0481787,36.9728621,61</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71301">
+            <Placemark id="71169">
                 <name>2019-09-14 02:34:53</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71300">
-                    <coordinates>-122.05308024140702,36.975198919891874,78</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71168">
+                    <coordinates>-122.0530802,36.9751989,78</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71311">
+            <Placemark id="71179">
                 <name>2019-09-14 02:35:40</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71310">
-                    <coordinates>-122.05441802290575,36.97216643283782,70</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71178">
+                    <coordinates>-122.054418,36.9721664,70</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71321">
+            <Placemark id="71189">
                 <name>2019-09-14 02:38:42</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71320">
-                    <coordinates>-122.05444936651928,36.97191762275712,70</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71188">
+                    <coordinates>-122.0544494,36.9719176,70</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71331">
+            <Placemark id="71199">
                 <name>2019-09-14 03:01:55</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71330">
-                    <coordinates>-122.05453251499874,36.972026713226896,67</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71198">
+                    <coordinates>-122.0545325,36.9720267,67</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71341">
+            <Placemark id="71209">
                 <name>2019-09-14 05:06:11</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71340">
-                    <coordinates>-122.05455556523246,36.971961250563126,77</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71208">
+                    <coordinates>-122.0545556,36.9719613,77</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71351">
+            <Placemark id="71219">
                 <name>2019-09-14 05:41:34</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71350">
-                    <coordinates>-122.05445783224148,36.97196519005762,79</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71218">
+                    <coordinates>-122.0544578,36.9719652,79</coordinates>
                 </Point>
             </Placemark>
-            <Placemark id="71361">
+            <Placemark id="71229">
                 <name>2019-09-14 05:46:01</name>
                 <styleUrl>#0</styleUrl>
-                <Point id="71360">
-                    <coordinates>-122.05448700126452,36.9719989691274,79</coordinates>
-                    <altitudeMode>relativeToGround</altitudeMode>
+                <Point id="71228">
+                    <coordinates>-122.054487,36.971999,79</coordinates>
                 </Point>
             </Placemark>
         </Folder>
-        <Placemark id="71371">
+        <Placemark id="71239">
             <name>Day Path</name>
             <description>My travels of the current day</description>
-            <styleUrl>#71372</styleUrl>
-            <LineString id="71370">
-                <coordinates>-122.05569852154893,36.975766634603005,83 -122.05568293120903,36.97570008229182,82 -122.05567890789551,36.97558939926044,82 -122.0556918160264,36.97552234403507,82 -122.05566868197364,36.975446110625725,81 -122.05565334309084,36.97538613810853,80 -122.05566574830753,36.97532365102039,80 -122.05566524539334,36.97525961328016,80 -122.05567739915294,36.975202490610044,79 -122.05569751572055,36.97513598020838,78 -122.05571872193558,36.9750728644775,77 -122.05451281769096,36.972133203278176,72 -122.05438843008322,36.972013763186496,72 -122.05444978561444,36.972005465102356,72 -122.05429279256803,36.97171121839152,72 -122.05435213644249,36.97189038157181,72 -122.05441986222012,36.97188660971538,72 -122.05444609757704,36.971968333271306,71 -122.05436076980276,36.97189394388066,71 -122.05442790884716,36.971958233077984,71 -122.05450032849056,36.972002028522056,71 -122.0543135796879,36.97202285755144,71 -122.05434249725384,36.97192981842623,71 -122.05442891467554,36.97195332966463,71 -122.05437032517237,36.97194281037615,71 -122.05428977508289,36.97189394388066,71 -122.05449395824415,36.971938787062626,71 -122.054411647955,36.971891848404866,70 -122.05441449780209,36.971865152043264,70 -122.05460342589957,36.971865864505034,70 -122.05460954468889,36.971819303032916,70 -122.05451499682111,36.9720100751491,70 -122.05430318612797,36.97197130884693,69 -122.0544015896712,36.971935560029905,69 -122.05451675702078,36.971950144541424,69 -122.05454290855867,36.971900649403196,68 -122.05443142924649,36.97202252227531,68 -122.05446277756435,36.97195031217949,68 -122.05446604650659,36.97189163885729,68 -122.05463376838905,36.971923322451275,68 -122.0545416512732,36.97191904768066,68 -122.05444542702479,36.97196493860052,68 -122.05440125439507,36.97199146732406,68 -122.05434668820543,36.97188631634877,68 -122.0543222968672,36.971836905029576,68 -122.05436789442045,36.97190890557782,68 -122.05440393660409,36.97192512456046,68 -122.05430771235568,36.97191640738116,68 -122.05424065713031,36.971914102357786,68 -122.05466696072561,36.97203237101154,68 -122.05459680419607,36.972000226412874,68 -122.05449873592896,36.97196376513408,68 -122.0544481092338,36.97189717091338,68 -122.05438046727521,36.97188187394009,67 -122.05444341536803,36.97199783757047,67 -122.05438474204583,36.97201988197581,67 -122.05443654220743,36.97194327138082,67 -122.05410000879509,36.971950940822225,67 -122.05405105848057,36.971893985790174,67 -122.05442304734332,36.971874958869975,67 -122.05437703069491,36.971934763749104,67 -122.05428030353231,36.97189046539084,67 -122.05434618529124,36.97193975098149,67 -122.05442799266619,36.97197751145528,67 -122.05440033238573,36.971943858114045,66 -122.05449756246252,36.971984342706364,66 -122.05445531767053,36.97192462164627,66 -122.05441516835434,36.97193271018283,76 -122.05458942812128,36.97210956833975,75 -122.05449714336736,36.972076501731735,75 -122.05443947587354,36.97200290862189,76 -122.05435012478573,36.97195513177381,77 -122.05444165516836,36.97194461248533,77 -122.05437141481978,36.97182202715145,78 -122.05433822248322,36.971845831756454,77 -122.05443654220743,36.97193082425461,77 -122.05442137096269,36.97190932467298,78 -122.05437325883848,36.9718528306456,78 -122.05434962187154,36.971931117621224,77 -122.05427678313298,36.971988575567465,77 -122.05442028131527,36.97185630913542,76 -122.05453092243714,36.97192256807999,76 -122.05455481086118,36.97205873209701,76 -122.05436487693531,36.97191443763391,76 -122.05436152417404,36.971919173409205,75 -122.05433009203715,36.97192344817982,74 -122.05427317891461,36.97183443236814,75 -122.05436269764049,36.971882837858956,75 -122.05447476368589,36.97190668437348,76 -122.0543754381333,36.97196573488132,73 -122.05434040177805,36.97192730385528,74 -122.0546621830408,36.97181377097682,71 -122.05458615917904,36.971835689653616,72 -122.054527904952,36.971899350208204,74 -122.05439010646386,36.971995155361455,76 -122.05435615975601,36.97191728748099,74 -122.0544396435116,36.97196636352406,76 -122.05446721997303,36.97204804517047,77 -122.05431433405919,36.97190416980253,76 -122.05445691023213,36.97190169714109,76 -122.05443813476903,36.97196363940553,76 -122.05439639289123,36.97204242929534,77 -122.05436998989624,36.972147622180145,73 -122.05438055109424,36.97217897049801,73 -122.05434015032095,36.972191543352764,74 -122.05428482976002,36.97220189500318,74 -122.05422255221946,36.972211366553765,75 -122.05416220251662,36.97221811398582,75 -122.05410512175602,36.97222406513707,75 -122.05405944038374,36.9722278369935,75 -122.05402222473366,36.9722318183975,76 -122.05441768599137,36.97216651601018,79 -122.05440075148088,36.972026126493674,76 -122.05441952694399,36.97195685006396,77 -122.0545194392298,36.97191586255745,77 -122.05464935872895,36.97202310900853,77 -122.0545601752792,36.971980696578484,77 -122.05446504067821,36.97195810734944,76 -122.05456855718238,36.97198082230703,77 -122.05447820026619,36.97193572766797,77 -122.05455665487987,36.97199947204159,79 -122.05448071483714,36.97204930245594,79 -122.05445699405116,36.97205169129835,79 -122.05452379781944,36.97199804711805,80 -122.05453570012195,36.97192202325628,80 -122.0546037611757,36.971982414868634,81 -122.0545538050328,36.971935560029905,79 -122.05443385999841,36.97197851728366,81 -122.05442355025751,36.97190442125962,81 -122.05444819305283,36.971958945539754,80 -122.05450820747954,36.97201564911471,80 -122.05449337151093,36.97192742958383,78 -122.05441835347754,36.971920179237586,78 -122.05450627964181,36.97186427194343,80 -122.05441458162112,36.9719072711067,81 -122.05435867432696,36.97184767577515,81 -122.05439253721578,36.97178640406297,81 -122.05444886360509,36.9718478015037,80 -122.05448255885584,36.971911671605866,79 -122.0545551461373,36.97185505184994,79 -122.05448163684649,36.97194503158049,77 -122.05440561298472,36.971886190620225,77 -122.0545191877727,36.97187508459852,78 -122.05442673538072,36.971882963587504,78 -122.05434123996837,36.97183430663959,78 -122.05442539427621,36.97182575709836,77 -122.05445028852863,36.97192537601755,77 -122.05457149084849,36.971934135106366,78 -122.05457367014331,36.971849855069976,78 -122.05447828408522,36.97187487505094,78 -122.05448700126452,36.97192692666964,78 -122.05440469097537,36.97187919173108,77 -122.05443721275968,36.97180228776948,78 -122.05451097350759,36.971857063506704,78 -122.05450393270893,36.97199339516179,79 -122.05446445394499,36.97202365383224,78 -122.05450594436569,36.97198539044426,79 -122.05461147252662,36.97200735103057,77 -122.054631002361,36.97192843541221,76 -122.05455950472695,36.97198287587331,76 -122.05450410034699,36.971974116784494,77 -122.05434467654867,36.97210801768766,80 -122.05440276313765,36.9720724365087,80 -122.05447023745818,36.9720100751491,80 -122.05446629796369,36.971920179237586,80 -122.05444458883447,36.971997586113375,80 -122.05445045616669,36.97200957223491,77 -122.05443788331193,36.97192030496613,82 -122.05453217972261,36.971954796497684,80 -122.05441801820142,36.97188078429268,81 -122.05444794159574,36.97192902214543,81 -122.054398404548,36.97198136713074,81 -122.0545051899944,36.971967034076314,81 -122.05444458883447,36.9719072711067,81 -122.05450460326118,36.971976631355446,81 -122.05437795270426,36.97212620641754,81 -122.05445934098405,36.97202562357948,84 -122.05438172456068,36.972145903889995,81 -122.05026732763565,36.96925611508952,77 -122.04755202985112,36.96538364217891,49 -122.04457397584062,36.96180841888949,28 -122.04484789643627,36.961807748337236,28 -122.04496800910871,36.96163399148449,28 -122.04465997416716,36.96173474196061,17 -122.04440969053846,36.96183004419967,23 -122.04772050147318,36.965493655391626,46 -122.05039368617852,36.9695049874725,69 -122.05396763942012,36.972994204231206,76 -122.05571829404111,36.97584714030331,85 -122.05547899950487,36.97596277113722,86 -122.05543558124644,36.97604969147311,86 -122.05552786600036,36.97600476447211,86 -122.05558075580937,36.976054972072106,86 -122.05559969891054,36.97601050607578,86 -122.05556516546947,36.975928405334216,95 -122.0557105914895,36.97596578862236,92 -122.05570288013858,36.97597878057228,92 -122.05570572998566,36.976032508571606,92 -122.05571821902139,36.97609801314489,93 -122.0557245892678,36.976175797206324,94 -122.05571277078433,36.97625735312418,94 -122.05569977883441,36.97633308361934,95 -122.05567153182072,36.97641396898494,95 -122.05564521264476,36.9765008055018,95 -122.05556927260203,36.97654187682734,95 -122.05546022404177,36.97655486877726,95 -122.05539735976798,36.97655935309545,95 -122.05454257328255,36.972019546699684,80 -122.0544570778702,36.971957520616215,81 -122.05452991660876,36.97189444679485,82 -122.05446981836302,36.971963178400856,84 -122.05457199376268,36.97193048897849,84 -122.0545723290388,36.972017325495344,85 -122.0545620192979,36.971940714900356,85 -122.05454366292996,36.971892267500024,76 -122.05444852832896,36.97195039599852,78 -122.0545533021186,36.971918670495015,76 -122.0544277412091,36.97193807460086,74 -122.05451826576335,36.97190324779318,77 -122.05441785056335,36.97193338073508,78 -122.05451122496468,36.97188966911004,77 -122.05441952694399,36.971895494532745,77 -122.05452170234365,36.97189197413341,77 -122.0544859116171,36.97196707598583,77 -122.0544050262515,36.97202851533608,76 -122.05436001543147,36.97210814341621,76 -122.05444660049123,36.97205257139818,76 -122.05439672816736,36.97197985838817,76 -122.05440770846052,36.97206879038082,75 -122.05411568295402,36.97219380646662,72 -122.05390538100345,36.97234023831503,74 -122.05392147425754,36.972523592446905,74 -122.0540027787183,36.97271205953972,74 -122.05395915686022,36.97280190914597,75 -122.05396359201636,36.97289876075653,75 -122.0539688171013,36.973021996362135,75 -122.05397241963728,36.973107012708276,75 -122.05397549878693,36.973179677645724,75 -122.05397942501615,36.97327233283757,75 -122.04851125838411,36.97249929585535,67 -122.04507927653867,36.96884473374134,36 -122.03988772313778,36.96692575758968,24 -122.03472657075788,36.96887810066492,20 -122.02902441493565,36.96874676533711,8 -122.02405564456383,36.97103195709283,5 -122.02006807506456,36.97422453364093,9 -122.02090447430166,36.978749824004716,9 -122.0257045516018,36.977866385166514,6 -122.0256392565761,36.977746901136804,6 -122.02568460267226,36.97781835686134,6 -122.02570421632568,36.97773847732412,6 -122.0257135202382,36.977820452337134,5 -122.02569047000448,36.97775293610709,6 -122.0257322957013,36.97782958861159,5 -122.02572776947359,36.977906241116095,5 -122.0257375763003,36.977827032131124,5 -122.02576448220948,36.97790154725032,5 -122.02569457713703,36.97782028469907,4 -122.02564537536541,36.97793310511576,4 -122.02553959574739,36.97792883034514,4 -122.02551520440916,36.97786332577186,5 -122.02554009866158,36.977821458165515,5 -122.02556993823687,36.97778076402562,5 -122.02561059046725,36.97773177180158,5 -122.0256617200766,36.97766664441394,5 -122.02576699678043,36.97759707461761,5 -122.02582600537876,36.977538568933475,5 -122.02597347402151,36.97748598628028,5 -122.02603991909406,36.97744460937332,5 -122.02619386309537,36.977345324173676,5 -122.02628984158771,36.977286089029796,5 -122.02697099514434,36.97702744716073,4 -122.02689299406377,36.97704564505623,4 -122.02694889291764,36.97703260367919,5 -122.02702205002585,36.97701553589755,5 -122.02721374659457,36.97698822960078,7 -122.02746796081111,36.97698449220439,8 -122.0276460742768,36.97698667239181,9 -122.02789198418203,36.97699155706558,10 -122.02805318982003,36.97699465080288,10 -122.0281698245039,36.97699671218786,11 -122.03342975541368,36.97536843692732,24 -122.03623964104044,36.971365925551865,22 -122.03917677905247,36.967505314640825,21 -122.04237458184866,36.965347128326755,19 -122.04232885414564,36.96539932318298,19 -122.04227598861203,36.96545966528442,19 -122.04223056246775,36.96551151587249,20 -122.04218458422935,36.96556326855685,19 -122.04213288333273,36.96562145642949,19 -122.04207355422034,36.96563495216307,19 -122.04200680997346,36.96559868875846,19 -122.04195915621185,36.965572797573536,19 -122.04189712064579,36.96553909248376,19 -122.04184302817714,36.96550970302821,19 -122.04178645858013,36.96547896770222,19 -122.04173606008288,36.96545054487993,19 -122.04165083350298,36.96540163968425,18 -122.04158858347301,36.96536591902175,18 -122.04154612513037,36.965341555336636,18 -122.04146822925847,36.96541200861052,19 -122.0414146688972,36.96545337330267,19 -122.04135725286048,36.9655089453207,19 -122.04127687040906,36.96557801220283,20 -122.04120390575909,36.965656379212106,20 -122.04113932283389,36.9657323134784,20 -122.04109133938658,36.96578117903187,20 -122.04099597677245,36.96586880671445,20 -122.0409162610024,36.96592694507578,20 -122.0408522924117,36.9659966279254,20 -122.04527207935848,36.96891099445858,32 -122.04817872970273,36.97286212432388,61 -122.05308024140702,36.975198919891874,78 -122.05441802290575,36.97216643283782,70 -122.05444936651928,36.97191762275712,70 -122.05453251499874,36.972026713226896,67 -122.05455556523246,36.971961250563126,77 -122.05445783224148,36.97196519005762,79 -122.05448700126452,36.9719989691274,79</coordinates>
+            <styleUrl>#71240</styleUrl>
+            <LineString id="71238">
+                <coordinates>-122.0544003,36.9719439,66 -122.0544976,36.9719843,66 -122.0544553,36.9719246,66 -122.0544152,36.9719327,76 -122.0545894,36.9721096,75 -122.0544971,36.9720765,75 -122.0544395,36.9720029,76 -122.0543501,36.9719551,77 -122.0544417,36.9719446,77 -122.0543714,36.971822,78 -122.0543382,36.9718458,77 -122.0544365,36.9719308,77 -122.0544214,36.9719093,78 -122.0543733,36.9718528,78 -122.0543496,36.9719311,77 -122.0542768,36.9719886,77 -122.0544203,36.9718563,76 -122.0545309,36.9719226,76 -122.0545548,36.9720587,76 -122.0543649,36.9719144,76 -122.0543615,36.9719192,75 -122.0543301,36.9719234,74 -122.0542732,36.9718344,75 -122.0543627,36.9718828,75 -122.0544748,36.9719067,76 -122.0543754,36.9719657,73 -122.0543404,36.9719273,74 -122.0546622,36.9718138,71 -122.0545862,36.9718357,72 -122.0545279,36.9718994,74 -122.0543901,36.9719952,76 -122.0543562,36.9719173,74 -122.0544396,36.9719664,76 -122.0544672,36.972048,77 -122.0543143,36.9719042,76 -122.0544569,36.9719017,76 -122.0544381,36.9719636,76 -122.0543964,36.9720424,77 -122.05437,36.9721476,73 -122.0543806,36.972179,73 -122.0543402,36.9721915,74 -122.0542848,36.9722019,74 -122.0542226,36.9722114,75 -122.0541622,36.9722181,75 -122.0541051,36.9722241,75 -122.0540594,36.9722278,75 -122.0540222,36.9722318,76 -122.0544177,36.9721665,79 -122.0544008,36.9720261,76 -122.0544195,36.9719569,77 -122.0545194,36.9719159,77 -122.0546494,36.9720231,77 -122.0545602,36.9719807,77 -122.054465,36.9719581,76 -122.0545686,36.9719808,77 -122.0544782,36.9719357,77 -122.0545567,36.9719995,79 -122.0544807,36.9720493,79 -122.054457,36.9720517,79 -122.0545238,36.971998,80 -122.0545357,36.971922,80 -122.0546038,36.9719824,81 -122.0545538,36.9719356,79 -122.0544339,36.9719785,81 -122.0544236,36.9719044,81 -122.0544482,36.9719589,80 -122.0545082,36.9720156,80 -122.0544934,36.9719274,78 -122.0544184,36.9719202,78 -122.0545063,36.9718643,80 -122.0544146,36.9719073,81 -122.0543587,36.9718477,81 -122.0543925,36.9717864,81 -122.0544489,36.9718478,80 -122.0544826,36.9719117,79 -122.0545551,36.9718551,79 -122.0544816,36.971945,77 -122.0544056,36.9718862,77 -122.0545192,36.9718751,78 -122.0544267,36.971883,78 -122.0543412,36.9718343,78 -122.0544254,36.9718258,77 -122.0544503,36.9719254,77 -122.0545715,36.9719341,78 -122.0545737,36.9718499,78 -122.0544783,36.9718749,78 -122.054487,36.9719269,78 -122.0544047,36.9718792,77 -122.0544372,36.9718023,78 -122.054511,36.9718571,78 -122.0545039,36.9719934,79 -122.0544645,36.9720237,78 -122.0545059,36.9719854,79 -122.0546115,36.9720074,77 -122.054631,36.9719284,76 -122.0545595,36.9719829,76 -122.0545041,36.9719741,77 -122.0543447,36.972108,80 -122.0544028,36.9720724,80 -122.0544702,36.9720101,80 -122.0544663,36.9719202,80 -122.0544446,36.9719976,80 -122.0544505,36.9720096,77 -122.0544379,36.9719203,82 -122.0545322,36.9719548,80 -122.054418,36.9718808,81 -122.0544479,36.971929,81 -122.0543984,36.9719814,81 -122.0545052,36.971967,81 -122.0544446,36.9719073,81 -122.0545046,36.9719766,81 -122.054378,36.9721262,81 -122.0544593,36.9720256,84 -122.0543817,36.9721459,81 -122.0502673,36.9692561,77 -122.047552,36.9653836,49 -122.044574,36.9618084,28 -122.0448479,36.9618077,28 -122.044968,36.961634,28 -122.04466,36.9617347,17 -122.0444097,36.96183,23 -122.0477205,36.9654937,46 -122.0503937,36.969505,69 -122.0539676,36.9729942,76 -122.0557183,36.9758471,85 -122.055479,36.9759628,86 -122.0554356,36.9760497,86 -122.0555279,36.9760048,86 -122.0555808,36.976055,86 -122.0555997,36.9760105,86 -122.0555652,36.9759284,95 -122.0557106,36.9759658,92 -122.0557029,36.9759788,92 -122.0557057,36.9760325,92 -122.0557182,36.976098,93 -122.0557246,36.9761758,94 -122.0557128,36.9762574,94 -122.0556998,36.9763331,95 -122.0556715,36.976414,95 -122.0556452,36.9765008,95 -122.0555693,36.9765419,95 -122.0554602,36.9765549,95 -122.0553974,36.9765594,95 -122.0545426,36.9720195,80 -122.0544571,36.9719575,81 -122.0545299,36.9718944,82 -122.0544698,36.9719632,84 -122.054572,36.9719305,84 -122.0545723,36.9720173,85 -122.054562,36.9719407,85 -122.0545437,36.9718923,76 -122.0544485,36.9719504,78 -122.0545533,36.9719187,76 -122.0544277,36.9719381,74 -122.0545183,36.9719032,77 -122.0544179,36.9719334,78 -122.0545112,36.9718897,77 -122.0544195,36.9718955,77 -122.0545217,36.971892,77 -122.0544859,36.9719671,77 -122.054405,36.9720285,76 -122.05436,36.9721081,76 -122.0544466,36.9720526,76 -122.0543967,36.9719799,76 -122.0544077,36.9720688,75 -122.0541157,36.9721938,72 -122.0539054,36.9723402,74 -122.0539215,36.9725236,74 -122.0540028,36.9727121,74 -122.0539592,36.9728019,75 -122.0539636,36.9728988,75 -122.0539688,36.973022,75 -122.0539724,36.973107,75 -122.0539755,36.9731797,75 -122.0539794,36.9732723,75 -122.0485113,36.9724993,67 -122.0450793,36.9688447,36 -122.0398877,36.9669258,24 -122.0347266,36.9688781,20 -122.0290244,36.9687468,8 -122.0240556,36.971032,5 -122.0200681,36.9742245,9 -122.0209045,36.9787498,9 -122.0257046,36.9778664,6 -122.0256393,36.9777469,6 -122.0256846,36.9778184,6 -122.0257042,36.9777385,6 -122.0257135,36.9778205,5 -122.0256905,36.9777529,6 -122.0257323,36.9778296,5 -122.0257278,36.9779062,5 -122.0257376,36.977827,5 -122.0257645,36.9779015,5 -122.0256946,36.9778203,4 -122.0256454,36.9779331,4 -122.0255396,36.9779288,4 -122.0255152,36.9778633,5 -122.0255401,36.9778215,5 -122.0255699,36.9777808,5 -122.0256106,36.9777318,5 -122.0256617,36.9776666,5 -122.025767,36.9775971,5 -122.025826,36.9775386,5 -122.0259735,36.977486,5 -122.0260399,36.9774446,5 -122.0261939,36.9773453,5 -122.0262898,36.9772861,5 -122.026971,36.9770274,4 -122.026893,36.9770456,4 -122.0269489,36.9770326,5 -122.0270221,36.9770155,5 -122.0272137,36.9769882,7 -122.027468,36.9769845,8 -122.0276461,36.9769867,9 -122.027892,36.9769916,10 -122.0280532,36.9769947,10 -122.0281698,36.9769967,11 -122.0334298,36.9753684,24 -122.0362396,36.9713659,22 -122.0391768,36.9675053,21 -122.0423746,36.9653471,19 -122.0423289,36.9653993,19 -122.042276,36.9654597,19 -122.0422306,36.9655115,20 -122.0421846,36.9655633,19 -122.0421329,36.9656215,19 -122.0420736,36.965635,19 -122.0420068,36.9655987,19 -122.0419592,36.9655728,19 -122.0418971,36.9655391,19 -122.041843,36.9655097,19 -122.0417865,36.965479,19 -122.0417361,36.9654505,19 -122.0416508,36.9654016,18 -122.0415886,36.9653659,18 -122.0415461,36.9653416,18 -122.0414682,36.965412,19 -122.0414147,36.9654534,19 -122.0413573,36.9655089,19 -122.0412769,36.965578,20 -122.0412039,36.9656564,20 -122.0411393,36.9657323,20 -122.0410913,36.9657812,20 -122.040996,36.9658688,20 -122.0409163,36.9659269,20 -122.0408523,36.9659966,20 -122.0452721,36.968911,32 -122.0481787,36.9728621,61 -122.0530802,36.9751989,78 -122.054418,36.9721664,70 -122.0544494,36.9719176,70 -122.0545325,36.9720267,67 -122.0545556,36.9719613,77 -122.0544578,36.9719652,79 -122.054487,36.971999,79</coordinates>
                 <extrude>1</extrude>
-                <altitudeMode>relativeToGround</altitudeMode>
+                <altitudeMode>absolute</altitudeMode>
             </LineString>
         </Placemark>
     </Document>
