@@ -3,7 +3,7 @@ import dataManager
 import tqdm
 
 
-df = pd.read_csv('./data/oldData.csv')
+""" df = pd.read_csv('./data/raw_history.csv')
 totalList = []
 
 
@@ -44,5 +44,5 @@ for index, row in tqdm.tqdm(df.iterrows()):
     }
     totalList.append(tempList)
 
-dataManager.storeCSV(totalList)
+dataManager.storeCSV(totalList) """
 dataManager.createKMLFiles()

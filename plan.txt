@@ -27,3 +27,5 @@ Iterations of point selection algorythm:
     2. If the distance between point 1 and 3 is less than point 1's reported accuracy, throw away point 2
     3. If the point has an accuracy of greater than 10, throw it out, along with technique two
         - Great results
+
+AgY3Ew0XnsxoaMcVAgtMiqzwkFbXfFEUZOcNFl3QeLJWVUH4plvoqJeJjSl5PkK7

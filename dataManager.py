@@ -209,6 +209,12 @@ def storeCSV(locations):
 #Make the KML Files based on the most recent data recieved <=-=>
 def createKMLFiles():
 
+    #Define styles to be used
+    style2 = simplekml.Style() #creates shared style for all points
+    style2.iconstyle.color = 'ff32cd32' #lime green
+    style2.iconstyle.icon.href ='http://maps.google.com/mapfiles/kml/shapes/target.png' #can change to any desired icon URL
+    style2.iconstyle.scale = 1
+
     #Define a new KML creator, and summary array
     dayKML = simplekml.Kml()
     dayFol = dayKML.newfolder(name='Data Points')
@@ -266,7 +272,7 @@ def createKMLFiles():
         tr = E.tr
         th = E.th
         td = E.td
-
+        """ 
         pointDescription = table(
                                 tr(
                                     th('Coordinates:'),
@@ -292,69 +298,92 @@ def createKMLFiles():
                                     th('Phone Battery:'),
                                     th(str(round(float(row['battery_level']), 2)))
                                 )
-                            )
-
+                            ) """
+        pointDescription = table()
         pointDescription = lxml.etree.tostring(pointDescription, pretty_print=True, encoding='unicode', method='html')
 
         #Add all points that fit into each category into the respective summary KML file
         if time.time() - timeVal <= day:
             dayCoorArr.append((long, lat, int(row['altitude'])))
-            dayFol.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativeToGround")
+            pnt = dayFol.newpoint(name=timeString, 
+                            #description=pointDescription, 
+                            coords=[(long, lat, int(row['altitude']))], 
+                            altitudemode="relativeToGround")
+            
+            pnt.style = style2
 
         if time.time() - timeVal <= week:
             weekCoorArr.append((long, lat, int(row['altitude'])))
-            weekFol.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativeToGround")
+            pnt = weekFol.newpoint(name=timeString, 
+                             #description=pointDescription, 
+                             coords=[(long, lat, int(row['altitude']))], 
+                             altitudemode="relativeToGround")
 
         if time.time() - timeVal <= month:
             monthCoorArr.append((long, lat, int(row['altitude'])))
-            monthFol.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativeToGround")
+            pnt = monthFol.newpoint(name=timeString, 
+                              #description=pointDescription, 
+                              coords=[(long, lat, int(row['altitude']))], 
+                              altitudemode="relativeToGround")
+            
+            pnt.style = style2
 
         if time.time() - timeVal <= year:
             yearCoorArr.append((long, lat, int(row['altitude'])))
-            yearFol.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativeToGround")
+            pnt = yearFol.newpoint(name=timeString, 
+                             #description=pointDescription, 
+                             coords=[(long, lat, int(row['altitude']))], 
+                             altitudemode="relativeToGround")
+            
+            pnt.style = style2
         
         allCoorArr.append((long, lat, int(row['altitude'])))
-        allFol.newpoint(name=timeString, description=pointDescription, coords=[(long, lat, int(row['altitude']))], altitudemode="relativeToGround")
+        pnt = allFol.newpoint(name=timeString, 
+                        #description=pointDescription, 
+                        coords=[(long, lat, int(row['altitude']))], 
+                        altitudemode="relativeToGround")
+
+        pnt.style = style2
         #end row looping
     
     dayLine = dayKML.newlinestring(name="Day Path", 
-                         description="My travels of the current day", 
-                         coords=dayCoorArr, 
-                         altitudemode="relativeToGround",
-                         extrude="1")
+                                   description="My travels of the current day", 
+                                   coords=dayCoorArr, 
+                                   altitudemode="relativeToGround",
+                                   extrude="1")
     dayLine.style.linestyle.color = 'ff0000ff'
     dayLine.style.linestyle.width = 5
 
     
     weekLine = weekKML.newlinestring(name="Week Path", 
-                          description="My travels of the current week", 
-                          coords=weekCoorArr, 
-                          altitudemode="relativeToGround",
-                         extrude="1")
+                                     description="My travels of the current week", 
+                                     coords=weekCoorArr, 
+                                     altitudemode="relativeToGround",
+                                     extrude="1")
     dayLine.style.linestyle.color = 'ff0000ff'
     dayLine.style.linestyle.width = 5
 
     monthLine = monthKML.newlinestring(name="Month Path", 
-                           description="My travels of the current month", 
-                           coords=monthCoorArr, 
-                           altitudemode="relativeToGround",
-                         extrude="1")
+                                       description="My travels of the current month", 
+                                       coords=monthCoorArr, 
+                                       altitudemode="relativeToGround",
+                                       extrude="1")
     dayLine.style.linestyle.color = 'ff0000ff'
     dayLine.style.linestyle.width = 5
 
     yearLine = yearKML.newlinestring(name="Year Path", 
-                          description="My travels of the current year", 
-                          coords=yearCoorArr, 
-                          altitudemode="relativeToGround",
-                         extrude="1")
+                                     description="My travels of the current year", 
+                                     coords=yearCoorArr, 
+                                     altitudemode="relativeToGround",
+                                     extrude="1")
     dayLine.style.linestyle.color = 'ff0000ff'
     dayLine.style.linestyle.width = 5
     
     allLine = allKML.newlinestring(name="All Time Path", 
-                         description="My travels since I've been tracking them", 
-                         coords=allCoorArr, 
-                         altitudemode="relativeToGround",
-                         extrude="1")
+                                   description="My travels since I've been tracking them", 
+                                   coords=allCoorArr, 
+                                   altitudemode="relativeToGround",
+                                   extrude="1")
     allLine.style.linestyle.color = 'ff0000ff'
     allLine.style.linestyle.width = 5
 

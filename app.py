@@ -112,7 +112,7 @@ def locationendpoint():
     i = 0
 
     #Store every value sent by the endpoint to the main CSV file 'history.csv', and makes a shortened history csv
-    dataManager.storeCSV(locations)
+    dataManager.massStoreCSV(locations)
     print('Stored CSV Data')
 
     return jsonify({"result":"ok"})

@@ -1,77 +1,57 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>KML</title>
-    <link rel="stylesheet" href="https://openlayers.org/en/v5.3.0/css/ol.css" type="text/css">
-    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+<head>
+	
+	<title>Quick Start - Leaflet</title>
 
-  </head>
-  <body>
-    <div id="map" class="map"></div>
-    <div id="info">&nbsp;</div>
-    <script>
-      import Map from '../static/node_modules/ol/Map.js';
-      import View from '../static/node_modules/ol/View.js';
-      import KML from '../static/node_modules/ol/format/KML.js';
-      import {Tile as TileLayer, Vector as VectorLayer} from '../static/node_modules/ol/layer.js';
-      import BingMaps from '../static/node_modules/ol/source/BingMaps.js';
-      import VectorSource from '../static/node_modules/ol/source/Vector.js';
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
 
-      var raster = new TileLayer({
-        source: new BingMaps({
-          imagerySet: 'Aerial',
-          key: 'AgY3Ew0XnsxoaMcVAgtMiqzwkFbXfFEUZOcNFl3QeLJWVUH4plvoqJeJjSl5PkK7'
-        })
-      });
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+    <script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+    <script src="./L.KML.js"></script>
 
-      var vector = new VectorLayer({
-        source: new VectorSource({
-          url: 'http://casedelst.com/data/all.kml',
-          format: new KML()
-        })
-      });
+	
+</head>
+<body>
 
-      var map = new Map({
-        layers: [raster, vector],
-        target: document.getElementById('map'),
-        view: new View({
-          center: [876970.8463461736, 5859807.853963373],
-          projection: 'EPSG:3857',
-          zoom: 10
-        })
-      });
 
-      var displayFeatureInfo = function(pixel) {
-        var features = [];
-        map.forEachFeatureAtPixel(pixel, function(feature) {
-          features.push(feature);
-        });
-        if (features.length > 0) {
-          var info = [];
-          var i, ii;
-          for (i = 0, ii = features.length; i < ii; ++i) {
-            info.push(features[i].get('name'));
-          }
-          document.getElementById('info').innerHTML = info.join(', ') || '(unknown)';
-          map.getTarget().style.cursor = 'pointer';
-        } else {
-          document.getElementById('info').innerHTML = '&nbsp;';
-          map.getTarget().style.cursor = '';
-        }
-      };
 
-      map.on('pointermove', function(evt) {
-        if (evt.dragging) {
-          return;
-        }
-        var pixel = map.getEventPixel(evt.originalEvent);
-        displayFeatureInfo(pixel);
-      });
+<div id="mapid" style="width: 600px; height: 400px;"></div>
+<script>
 
-      map.on('click', function(evt) {
-        displayFeatureInfo(evt.pixel);
-      });
-    </script>
-  </body>
+	var mymap = L.map('mapid').setView([52.01087476690487, 4.360003424812444], 13);
+
+	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY2FzZWRlbHN0IiwiYSI6ImNrMGFwYzU1MjBtNTczanI3MGxpaWRjZXEifQ.QIBWvBelNzgCjRDzok189Q', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		id: 'mapbox.satellite'
+  }).addTo(mymap);
+  
+  // Omnivore
+  // omnivore.kml('../data/month.kml').addTo(mymap)
+
+  // Load kml file
+  fetch('../data/month.kml')
+      .then(res => res.text())
+      .then(kmltext => {
+          // Create new kml overlay
+          const parser = new DOMParser();
+          const kml = parser.parseFromString(kmltext, 'text/xml');
+          const track = new L.KML(kml);
+          mymap.addLayer(track);
+
+          // Adjust map to show the kml
+          const bounds = track.getBounds();
+          mymap.fitBounds(bounds);
+      }).addTo(mymap);
+
+</script>
+
+</body>
 </html>
