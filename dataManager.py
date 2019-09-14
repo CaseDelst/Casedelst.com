@@ -98,8 +98,7 @@ def storeCSV(locations):
         #Only store the data if it is the first val, or if the timestamp is chronologically after the previous
         if archiveFile.shape[0] == 0 or int(archiveTimeVal) < int(timeVal):
             archiveFile.loc[archRowCount] = tempArchive
-
-
+        
         if file.shape[0] >= 2:
             
             firstRow = file.loc[rowCount - 2]
@@ -143,7 +142,7 @@ def storeCSV(locations):
             coords1 = (currentRowCoor[0], currentRowCoor[1])
 
             #Calculate lists from created lists
-            totalDistance = geopy.distance.distance(coords0, coords1).meters
+            totalDistance = geopy.distance.distance((coords0[1],coords0[0]), (coords1[1],coords1[0])).meters
 
             #If the accuracy is too bad -> next point 
             if currentAccuracy >= 11 or (temp[-2] and stationaryBool):
@@ -382,3 +381,57 @@ def convertTimestamps(time, timeFormat):
 
 #Calculate Local Time
 
+def massStoreCSV(locations):
+    #Instantiates a pandas dataframe
+        
+        frame = []
+        file = pd.read_csv('.\\data\\mass_storage.csv')
+        print(file)
+        #Row counter
+        i = 0
+        
+        #Loop through values of array inside locations (dictionaries)
+        for entry in tqdm.tqdm(locations):
+
+            #Store all relevant pieces of information that I want
+            data_type = entry['geometry'].get('type')
+            coordinates = str(entry['geometry']['coordinates'][0]) + ',' + str(entry['geometry']['coordinates'][1])
+            
+            try: #Motion doesn't always have properties in it
+                motion = ','.join(entry['properties'].get('motion'))
+            except (IndexError, TypeError) as e: 
+                motion = 'None' #if there are no properties, assign None
+            
+            speed = entry['properties'].get('speed')
+            if speed is None: speed = -1
+            
+            battery_level = entry['properties'].get('battery_level')
+            if battery_level is None: battery_level = -1
+            
+            altitude = entry['properties'].get('altitude')
+            if altitude is None: altitude = -1000
+            
+            battery_state = entry['properties'].get('battery_state')
+            if battery_state is None: battery_state = ''
+            
+            accuracy = str(entry['properties'].get('horizontal_accuracy')) + ',' + str(entry['properties'].get('vertical_accuracy'))
+            if accuracy is None: accuracy = '0,0'
+            
+            timestamp = entry['properties'].get('timestamp')
+            
+            wifi = entry['properties'].get('wifi')
+            if wifi is None: wifi = ''
+            
+            #Creates an array of all the important values in the correct order
+            temp = [timestamp, coordinates, altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi]
+            
+            #Sets the row of the dataframe to the values in temp, correctly ordered
+            file.loc[file.shape[0]] = temp
+            
+            #Increment row counter
+            i += 1
+        
+        #Returns the complete dataframe, fixes all nans
+        
+        print(file)
+        file.to_csv('.\\data\\mass_storage.csv', index=False)
