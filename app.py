@@ -22,7 +22,7 @@ def index():
 
 @app.route("/data/<path:path>")
 def send_kml(path):
-    return send_from_directory('data', path)
+    return send_from_directory('static/data', path)
 
 @app.route("/about")
 def about():
