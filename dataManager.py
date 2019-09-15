@@ -25,8 +25,8 @@ def storeCSV(locations):
     latestTime = 0
 
     #Loads current csv into file
-    file = pd.read_csv('.\\data\\history.csv')
-    archiveFile = pd.read_csv('.\\data\\raw_history.csv')
+    file = pd.read_csv('./static/data/history.csv')
+    archiveFile = pd.read_csv('./static/data/raw_history.csv')
     
     if file.shape[0] >= 1: 
        
@@ -203,8 +203,8 @@ def storeCSV(locations):
             if currentAccuracy <= 11: file.loc[rowCount] = temp
         
     #Write to file after all done
-    file.to_csv('./data/history.csv', index=False)
-    archiveFile.to_csv('./data/raw_history.csv', index=False)
+    file.to_csv('./static/data/history.csv', index=False)
+    archiveFile.to_csv('./static/data/raw_history.csv', index=False)
 
 #Make the KML Files based on the most recent data recieved <=-=>
 def createKMLFiles():
@@ -252,7 +252,7 @@ def createKMLFiles():
     day = 86400
 
     #Read the csv
-    file = pd.read_csv('.\data\history.csv')
+    file = pd.read_csv('./static/data/history.csv')
     
     #Line String takes an array of tuples: [(lat, long), (lat, long)]
     print('Entering KML File Loop')
@@ -376,11 +376,11 @@ def createKMLFiles():
     allLine.style.linestyle.color = 'ff0000ff'
     allLine.style.linestyle.width = 5
 
-    dayKML.save('./data/day.kml')
-    weekKML.save('./data/week.kml')
-    monthKML.save('./data/month.kml')
-    yearKML.save('./data/year.kml')
-    allKML.save('./data/all.kml')
+    dayKML.save('./static/data/day.kml')
+    weekKML.save('./static/data/week.kml')
+    monthKML.save('./static/data/month.kml')
+    yearKML.save('./static/data/year.kml')
+    allKML.save('./static/data/all.kml')
 
 #Converts the timestamp from whatever format into unix
 #IN: Time, String of Format
@@ -403,7 +403,7 @@ def massStoreCSV(locations):
     #Instantiates a pandas dataframe
         
         frame = []
-        file = pd.read_csv('.\\data\\mass_storage.csv')
+        file = pd.read_csv('.\static\\data\\mass_storage.csv')
         print(file)
         #Row counter
         i = 0
@@ -452,4 +452,4 @@ def massStoreCSV(locations):
         #Returns the complete dataframe, fixes all nans
         
         print(file)
-        file.to_csv('.\\data\\mass_storage.csv', index=False)
+        file.to_csv('static\\data\\mass_storage.csv', index=False)
