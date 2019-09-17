@@ -288,18 +288,16 @@ def createKMLFiles():
     for index, row in tqdm.tqdm(file.iterrows()):
         #print(index)
         timeVal = float(row['timestamp'])
-
         
-
         #Get the longtitude and latitude from csv row
         long = str(round(float(row['coordinates'].split(',')[0]), 7))
         lat = str(round(float(row['coordinates'].split(',')[1]), 7))
        
         #Get timezone name
         timezoneName = tf.timezone_at(lng=float(long), lat=float(lat))
-        
+        print(timezoneName)
         #Make a naive timezone object from timestamp
-        utcmoment_naive = datetime.utcfromtimestamp(timeVal)
+        utcmoment_naive = datetime.fromtimestamp(timeVal)
         
         #Make an aware timezone object
         utcmoment = utcmoment_naive.replace(tzinfo=pytz.utc)
@@ -308,7 +306,10 @@ def createKMLFiles():
         #Creates a local string based on variable timezone
         localDateTime = utcmoment.astimezone(pytz.timezone(timezoneName))
         timeString = localDateTime.strftime(localFormat)
-  
+        
+        localTimeVal = datetime.now(pytz.timezone(timezoneName))
+        timeVal = timeVal + localTimeVal.utcoffset().total_seconds()
+
         #Makes the XML Table
         E = lxml.builder.ElementMaker()
         table = E.table

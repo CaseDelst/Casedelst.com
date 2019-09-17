@@ -14,6 +14,9 @@ lxml = "*"
 geojson = "*"
 geopy = "*"
 tqdm = "*"
+geonames = "*"
+timezonefinderl = "*"
+pytz = "*"
 
 [requires]
 python_version = "3.7"
