@@ -1,5 +1,7 @@
 import pandas as pd
 from datetime import datetime
+from timezonefinderL import TimezoneFinder
+import pytz
 import time
 import simplekml
 import geojson
@@ -7,6 +9,7 @@ import geopy.distance
 import lxml.etree
 import lxml.builder
 import tqdm
+
 
 #Store the CSV Data from the POST submit
 def storeCSV(locations):
@@ -46,8 +49,8 @@ def storeCSV(locations):
         except (IndexError, TypeError) as e: 
             motion = 'None' #if there are no properties, assign None
         
-        speed = entry['properties'].get('speed')
-        if speed is None or speed == 'None': speed = -1
+        try: speed = int(entry['properties'].get('speed'))
+        except: speed = -1
         
         battery_level = entry['properties'].get('battery_level')
         if battery_level is None or battery_level == 'None': battery_level = -1
@@ -71,10 +74,11 @@ def storeCSV(locations):
         #Gets the timestamp and timezone from method
         timeVal, timezone = convertTimestamps(timeDate, 'ISO8601')
         
-        #If it is a duplicate point, skip it
+        #If it is a duplicate point in filtered history file, skip it
         if latestTime >= timeVal:
             continue
 
+        #Set the new latest time to the newly entered time
         latestTime = timeVal
 
         #Sets property
@@ -84,6 +88,7 @@ def storeCSV(locations):
         #Creates an array of all the important values in the correct order
         temp = [timeVal, coordinates, altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi, timezone]   #Placeholders for heartrate, steps, calories
         
+        #Set up the archival version of the array for raw_history
         tempArchive = [timeDate, coordinates, altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi]
         
         #Counts rows
@@ -101,6 +106,7 @@ def storeCSV(locations):
         
         if file.shape[0] >= 2:
             
+            #Gets previous 2 rows of history file for calculations
             firstRow = file.loc[rowCount - 2]
             secondRow = file.loc[rowCount - 1]
 
@@ -120,7 +126,7 @@ def storeCSV(locations):
             except: currentAccuracy = -1
             currentMotion = str(entry['properties'].get('motion'))
             
-            #If the motion typoe is stationary or [] set the bool to True
+            #If the motion type is stationary or [] (Empty array, so False) set the bool to True
             stationaryBool = False
             if not currentMotion or currentMotion[0] == 'stationary':
                 stationaryBool = True
@@ -158,28 +164,49 @@ def storeCSV(locations):
             
             #If the motion is anything other than stationary or empty
             if not stationaryBool and averageCounter != 0:
+                
+                #Gets average time, lat, and long over previous n points that were stationary
                 timeResult = timeAverage / averageCounter
                 latResult = latAverageSum / averageCounter
                 longResult = longAverageSum / averageCounter
                 
+                #Resets all averaging counters
                 averageCounter = 0
+                print('averaged ', averageCounter, ' values')
                 timeAverage = 0
                 latAverageSum = 0
                 longAverageSum = 0
 
+                #Makes a new row for all the previous averaged values
                 file.loc[rowCount] = [timeResult, str(latResult) + ',' + str(longResult), altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi, timezone]
+                
+                #Moves row counter up one to follow ending line
                 rowCount += 1
             
             #If I am driving, artificially emulate poor accuracy to limit point overlap 
             if drivingBool:
-                oldAccuracy += 500
+
+                #If there is a valid speed value, apply a range to get better driving data
+                if speed != -1: 
+                    speedRange = 90 - 0
+                    accRange = 750 - 100
+
+                    #NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin
+                    accOffset = (((speed - 0) * accRange) / speedRange) + 100
+                    oldAccuracy += accOffset
+            
+                else:
+                    
+                    #Default car accuracy, 500m
+                    oldAccuracy += 500
 
             #If I am biking, artificially emulate poor accuracy to limit high point density
             if bikingBool:
                 oldAccuracy += 200
 
+            #Only add values every n meters when walking
             if walkingBool:
-                oldAccuracy += 20
+                oldAccuracy += 30
 
             #If the distance between point 1 and 3 is less than the accuracy, replace the middle point with the new point
             if totalDistance <= oldAccuracy or currentAccuracy >= 30:
@@ -199,7 +226,7 @@ def storeCSV(locations):
             #Get accuracy
             currentAccuracy = int(temp[-3].split(',')[0])
             
-            #If my accuracy is lower than 11, add the point to the table
+            #If my accuracy is lower than 11 (Most of them are 10-5), add the point to the table
             if currentAccuracy <= 11: file.loc[rowCount] = temp
         
     #Write to file after all done
@@ -208,6 +235,8 @@ def storeCSV(locations):
 
 #Make the KML Files based on the most recent data recieved <=-=>
 def createKMLFiles():
+
+    tf = TimezoneFinder()
 
     #Define styles to be used
     style2 = simplekml.Style() #creates shared style for all points
@@ -258,14 +287,28 @@ def createKMLFiles():
     print('Entering KML File Loop')
     for index, row in tqdm.tqdm(file.iterrows()):
         #print(index)
-        #Get both the unix time and time string
-        timeString = str(datetime.fromtimestamp(float(row['timestamp']))) 
         timeVal = float(row['timestamp'])
+
+        
 
         #Get the longtitude and latitude from csv row
         long = str(round(float(row['coordinates'].split(',')[0]), 7))
         lat = str(round(float(row['coordinates'].split(',')[1]), 7))
        
+        #Get timezone name
+        timezoneName = tf.timezone_at(lng=float(long), lat=float(lat))
+        
+        #Make a naive timezone object from timestamp
+        utcmoment_naive = datetime.utcfromtimestamp(timeVal)
+        
+        #Make an aware timezone object
+        utcmoment = utcmoment_naive.replace(tzinfo=pytz.utc)
+        localFormat = "%Y-%m-%d %H:%M:%S"
+        
+        #Creates a local string based on variable timezone
+        localDateTime = utcmoment.astimezone(pytz.timezone(timezoneName))
+        timeString = localDateTime.strftime(localFormat)
+  
         #Makes the XML Table
         E = lxml.builder.ElementMaker()
         table = E.table
