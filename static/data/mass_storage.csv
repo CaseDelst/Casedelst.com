@@ -1,1 +1,3 @@
 timestamp,coordinates,altitude,data_type,speed,motion,battery_level,battery_state,accuracy,wifi
+2019-12-03T07:35:58Z,"-122.05455651254353,36.97198291704296",72,Point,-1,stationary,1.0,unplugged,"65,10",ImAGreasyMonkey
+2019-12-03T07:36:06Z,"-122.05453968892652,36.97197652616113",72,Point,-1,stationary,1.0,unplugged,"65,10",ImAGreasyMonkey

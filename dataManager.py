@@ -1,4 +1,6 @@
 import pandas as pd
+from csv import writer
+from io import StringIO
 from datetime import datetime
 from timezonefinderL import TimezoneFinder
 import pytz
@@ -27,9 +29,15 @@ def storeCSV(locations):
 
     latestTime = 0
 
+    """ #Create a csv file output
+    output = StringIO()
+    csv_writer = writer(output)
+    """
+    
     #Loads current csv into file
     file = pd.read_csv('./static/data/history.csv')
-    archiveFile = pd.read_csv('./static/data/raw_history.csv')
+    #archiveFile = pd.read_csv('./static/data/raw_history.csv')
+    archiveFile = pd.read_csv('./static/data/mass_storage.csv')
     
     if file.shape[0] >= 1: 
        
@@ -40,12 +48,17 @@ def storeCSV(locations):
     for entry in tqdm.tqdm(locations):
 
         #Store all relevant pieces of information that I want
-        data_type = entry['geometry'].get('type')
+        try: data_type = entry['geometry'].get('type')
         
+        #If it doesn't have a point tag, skip the point
+        except (KeyError) as e: continue
+
         coordinates = str(entry['geometry']['coordinates'][0]) + ',' + str(entry['geometry']['coordinates'][1])
         
         try: #Motion doesn't always have properties in it
             motion = ','.join(entry['properties'].get('motion'))
+            if motion is None:
+                motion = 'None'
         except (IndexError, TypeError) as e: 
             motion = 'None' #if there are no properties, assign None
         
@@ -154,8 +167,9 @@ def storeCSV(locations):
             if currentAccuracy >= 11 or (temp[-2] and stationaryBool):
                 continue
 
-            #If the motion is [] or stationary sum
-            if stationaryBool:
+            #AVERAGING
+            #If the motion is [] or stationary sum, or I am connected to a wifi that is not 'xfinitywifi'
+            if stationaryBool or (wifi and wifi != 'xfinitywifi'):
                 timeAverage += temp[0]
                 latAverageSum += coords1[0]
                 longAverageSum += coords1[1]
@@ -163,7 +177,7 @@ def storeCSV(locations):
                 continue
             
             #If the motion is anything other than stationary or empty
-            if not stationaryBool and averageCounter != 0:
+            if (not stationaryBool or (not wifi or wifi == 'xfinitywifi')) and averageCounter != 0:
                 
                 #Gets average time, lat, and long over previous n points that were stationary
                 timeResult = timeAverage / averageCounter
@@ -220,7 +234,7 @@ def storeCSV(locations):
         else:
             
             #If there is wifi, and I am stationary, throw away the point
-            if temp[-2] and stationaryBool:
+            if wifi and stationaryBool:
                 continue
 
             #Get accuracy
@@ -231,7 +245,8 @@ def storeCSV(locations):
         
     #Write to file after all done
     file.to_csv('./static/data/history.csv', index=False)
-    archiveFile.to_csv('./static/data/raw_history.csv', index=False)
+    #archiveFile.to_csv('./static/data/raw_history.csv', index=False)
+    archiveFile.to_csv('./static/data/mass_storage.csv', index=False)
 
 #Make the KML Files based on the most recent data recieved <=-=>
 def createKMLFiles():
@@ -295,7 +310,7 @@ def createKMLFiles():
        
         #Get timezone name
         timezoneName = tf.timezone_at(lng=float(long), lat=float(lat))
-        print(timezoneName)
+    
         #Make a naive timezone object from timestamp
         utcmoment_naive = datetime.fromtimestamp(timeVal)
         
@@ -309,19 +324,19 @@ def createKMLFiles():
         
         localTimeVal = datetime.now(pytz.timezone(timezoneName))
         timeVal = timeVal + localTimeVal.utcoffset().total_seconds()
-
+        
         #Makes the XML Table
         E = lxml.builder.ElementMaker()
         table = E.table
         tr = E.tr
         th = E.th
         td = E.td
-        """ 
-        pointDescription = table(
-                                tr(
+         
+        """ tr(
                                     th('Coordinates:'),
                                     th(str(row['coordinates'])),
-                                ),
+                                ), """
+        pointDescription = table(
                                 tr(
                                     th('Altitude:'),
                                     th(str(row['altitude']))
@@ -342,28 +357,28 @@ def createKMLFiles():
                                     th('Phone Battery:'),
                                     th(str(round(float(row['battery_level']), 2)))
                                 )
-                            ) """
-        pointDescription = table()
+                            )
+        #pointDescription = table()
         pointDescription = lxml.etree.tostring(pointDescription, pretty_print=True, encoding='unicode', method='html')
 
         #Add all points that fit into each category into the respective summary KML file
         if time.time() - timeVal <= day:
             dayCoorArr.append((long, lat, int(row['altitude'])))
             pnt = dayFol.newpoint(name=timeString, 
-                            #description=pointDescription, 
+                            description=pointDescription, 
                             coords=[(long, lat, int(row['altitude']))])
             pnt.style = style2
 
         if time.time() - timeVal <= week:
             weekCoorArr.append((long, lat, int(row['altitude'])))
             pnt = weekFol.newpoint(name=timeString, 
-                             #description=pointDescription, 
+                             description=pointDescription, 
                              coords=[(long, lat, int(row['altitude']))])
 
         if time.time() - timeVal <= month:
             monthCoorArr.append((long, lat, int(row['altitude'])))
             pnt = monthFol.newpoint(name=timeString, 
-                              #description=pointDescription, 
+                              description=pointDescription, 
                               coords=[(long, lat, int(row['altitude']))])
             
             pnt.style = style2
@@ -371,14 +386,14 @@ def createKMLFiles():
         if time.time() - timeVal <= year:
             yearCoorArr.append((long, lat, int(row['altitude'])))
             pnt = yearFol.newpoint(name=timeString, 
-                             #description=pointDescription, 
+                             description=pointDescription, 
                              coords=[(long, lat, int(row['altitude']))])
             
             pnt.style = style2
         
         allCoorArr.append((long, lat, int(row['altitude'])))
         pnt = allFol.newpoint(name=timeString, 
-                        #description=pointDescription, 
+                        description=pointDescription, 
                         coords=[(long, lat, int(row['altitude']))])
 
         pnt.style = style2
