@@ -1,14 +1,31 @@
 #NOTE TO SELF: To push to heroku: "heroku login" then "git push heroku master"
 
+#To set AWS Keys https://devcenter.heroku.com/articles/s3
+
 from flask import Flask, render_template, url_for, jsonify, request, send_from_directory
 import dataManager 
 import pandas as pd
 import socket
+import boto3
+
 app = Flask(__name__, static_url_path='')
 
 #Setup a tool to let me see the local IP
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))
+
+"""
+with open('filename', 'wb') as data:
+    s3.download_fileobj('mybucket', 'mykey', data)
+
+import boto3
+s3 = boto3.resource('s3')
+s3.meta.client.upload_file('/tmp/hello.txt', 'mybucket', 'hello.txt')
+
+import boto3
+s3 = boto3.resource('s3')
+s3.Bucket('mybucket').download_file('hello.txt', '/tmp/hello.txt')
+"""
 
 #Prints the IP address I need to connect to
 print(' * IP: ' + str(s.getsockname()[0]) + ':' + str(5000) + '') 
@@ -87,14 +104,26 @@ def locationYear():
 
 @app.route("/location/month")
 def locationMonth():
+
+    s3 = boto3.resource('s3')
+    s3.Bucket('flaskbucketcd').download_file('month.kml', './static/data/month.kml')
+    
     return render_template('location_month.html', title='Month Location')
 
 @app.route("/location/week")
 def locationWeek():
+
+    s3 = boto3.resource('s3')
+    s3.Bucket('flaskbucketcd').download_file('week.kml', './static/data/week.kml')
+
     return render_template('location_week.html', title='Week Location')
 
 @app.route("/location/day")
 def locationDay():
+
+    s3 = boto3.resource('s3')
+    s3.Bucket('flaskbucketcd').download_file('day.kml', './static/data/day.kml')
+
     return render_template('location_day.html', title='Day Location')
 
 @app.route("/location/test")
@@ -111,11 +140,12 @@ def locationendpoint():
     locations = data['locations']
     i = 0
 
-    #Store every value sent by the endpoint to the main CSV file 'history.csv', and makes a shortened history csv
+    #Store every value sent by the endpoint to the main CSV file 'raw_history.csv', and makes a shortened history csv
     dataManager.storeCSV(locations)
     print('Stored CSV Data')
 
-    return jsonify({"result":"ok"})
+    #return jsonify({"result":"ok"})
+    return jsonify({"result":"Currently Testing"})
 
 #Refreshes the KML file
 @app.route("/location/refresh")
@@ -123,9 +153,6 @@ def kmlrefresh():
     dataManager.createKMLFiles()
     signature = url_for('static', filename='signature.png')
     return render_template('location.html', title='Location', signature=signature)
-
-#@app.route("/location/endpoint")
-#def location():
 
 #Add a header that says to always refresh a page
 @app.after_request

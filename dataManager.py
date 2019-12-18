@@ -11,10 +11,24 @@ import geopy.distance
 import lxml.etree
 import lxml.builder
 import tqdm
+import boto3
+import s3fs
+import os
 
 
 #Store the CSV Data from the POST submit
 def storeCSV(locations):
+
+    bucket_name = 'flaskbucketcd'
+
+    #https://stackoverflow.com/questions/30818341/how-to-read-a-csv-file-from-an-s3-bucket-using-pandas-in-python
+
+    #Mount s3fs for AWS
+    fs = s3fs.S3FileSystem(anon=False) # accessing all buckets you have access to with your credentials
+
+    #Grab the files from aws
+    file = pd.read_csv('s3://flaskbucketcd/data/history.csv')
+    archiveFile = pd.read_csv('s3://flaskbucketcd/data/mass_storage.csv')
 
     #Initialize values for stationary averaging
     timeAverage = 0
@@ -29,15 +43,11 @@ def storeCSV(locations):
 
     latestTime = 0
 
-    """ #Create a csv file output
-    output = StringIO()
-    csv_writer = writer(output)
-    """
-    
+    #LOCAL
     #Loads current csv into file
-    file = pd.read_csv('./static/data/history.csv')
+    #file = pd.read_csv('./static/data/history.csv')
     #archiveFile = pd.read_csv('./static/data/raw_history.csv')
-    archiveFile = pd.read_csv('./static/data/mass_storage.csv')
+    #archiveFile = pd.read_csv('./static/data/mass_storage.csv')
     
     if file.shape[0] >= 1: 
        
@@ -45,38 +55,9 @@ def storeCSV(locations):
 
     #Loop through values of array inside locations (dictionaries)
     print('Entering New Data Loop')
+    
     for entry in tqdm.tqdm(locations):
 
-        #Store all relevant pieces of information that I want
-        try: data_type = entry['geometry'].get('type')
-        
-        #If it doesn't have a point tag, skip the point
-        except (KeyError) as e: continue
-
-        coordinates = str(entry['geometry']['coordinates'][0]) + ',' + str(entry['geometry']['coordinates'][1])
-        
-        try: #Motion doesn't always have properties in it
-            motion = ','.join(entry['properties'].get('motion'))
-            if motion is None:
-                motion = 'None'
-        except (IndexError, TypeError) as e: 
-            motion = 'None' #if there are no properties, assign None
-        
-        try: speed = int(entry['properties'].get('speed'))
-        except: speed = -1
-        
-        battery_level = entry['properties'].get('battery_level')
-        if battery_level is None or battery_level == 'None': battery_level = -1
-        
-        altitude = entry['properties'].get('altitude')
-        if altitude is None or altitude == 'None': altitude = -1000
-        
-        battery_state = entry['properties'].get('battery_state')
-        if battery_state is None or battery_state == 'None': battery_state = ''
-        
-        accuracy = str(entry['properties'].get('horizontal_accuracy')) + ',' + str(entry['properties'].get('vertical_accuracy'))
-        if accuracy is None or accuracy == 'None': accuracy = '0,0'
-        
         timeDate = entry['properties'].get('timestamp')
 
         #Convert UTC time to timestamp
@@ -93,6 +74,52 @@ def storeCSV(locations):
 
         #Set the new latest time to the newly entered time
         latestTime = timeVal
+
+        #Store all relevant pieces of information that I want
+        try: 
+            data_type = entry['geometry'].get('type')
+        
+        #If it doesn't have a point tag, skip the point
+        except (KeyError) as e: 
+            continue
+
+        coordinates = str(entry['geometry']['coordinates'][0]) + ',' + str(entry['geometry']['coordinates'][1])
+        
+        try: #Motion doesn't always have properties in it
+            motion = ','.join(entry['properties'].get('motion'))
+            
+            if motion is None:
+                motion = 'None'
+        
+        except (IndexError, TypeError) as e: 
+            motion = 'None' #if there are no properties, assign None
+        
+        try: 
+            speed = int(entry['properties'].get('speed'))
+        except: 
+            speed = -1
+        
+        battery_level = entry['properties'].get('battery_level')
+        
+        if battery_level is None or battery_level == 'None': 
+            battery_level = -1
+        
+        altitude = entry['properties'].get('altitude')
+        
+        if altitude is None or altitude == 'None': 
+            altitude = -1000
+        
+        battery_state = entry['properties'].get('battery_state')
+        
+        if battery_state is None or battery_state == 'None': 
+            battery_state = ''
+        
+        accuracy = str(entry['properties'].get('horizontal_accuracy')) + ',' + str(entry['properties'].get('vertical_accuracy'))
+        
+        if accuracy is None or accuracy == 'None': 
+            accuracy = '0,0'
+        
+        timeDate = entry['properties'].get('timestamp')
 
         #Sets property
         wifi = entry['properties'].get('wifi')
@@ -244,12 +271,20 @@ def storeCSV(locations):
             if currentAccuracy <= 11: file.loc[rowCount] = temp
         
     #Write to file after all done
-    file.to_csv('./static/data/history.csv', index=False)
-    #archiveFile.to_csv('./static/data/raw_history.csv', index=False)
-    archiveFile.to_csv('./static/data/mass_storage.csv', index=False)
+
+    with fs.open(f"flaskbucketcd/data/history.csv",'w') as f:
+        file.to_csv(f)
+    
+    #file.to_csv('s3://data/history.csv', index=False)
+    
+    with fs.open(f"flaskbucketcd/data/mass_storage.csv",'w') as f:
+        archiveFile.to_csv(f)
 
 #Make the KML Files based on the most recent data recieved <=-=>
 def createKMLFiles():
+
+    #Mount Filesystem
+    fs = s3fs.S3FileSystem(anon=False)
 
     tf = TimezoneFinder()
 
@@ -296,18 +331,29 @@ def createKMLFiles():
     day = 86400
 
     #Read the csv
+    
+    #AWS
+    #Grab the files from aws
+    file = pd.read_csv('s3://flaskbucketcd/data/history.csv')
+
+    #LOCAL
     file = pd.read_csv('./static/data/history.csv')
     
     #Line String takes an array of tuples: [(lat, long), (lat, long)]
     print('Entering KML File Loop')
     for index, row in tqdm.tqdm(file.iterrows()):
+
         #print(index)
         timeVal = float(row['timestamp'])
+
+        #TEMPORARY, this only takes into account the last month of data
+        if time.time() - timeVal > month:
+            continue
         
         #Get the longtitude and latitude from csv row
         long = str(round(float(row['coordinates'].split(',')[0]), 7))
         lat = str(round(float(row['coordinates'].split(',')[1]), 7))
-       
+        
         #Get timezone name
         timezoneName = tf.timezone_at(lng=float(long), lat=float(lat))
     
@@ -383,6 +429,7 @@ def createKMLFiles():
             
             pnt.style = style2
 
+        """
         if time.time() - timeVal <= year:
             yearCoorArr.append((long, lat, int(row['altitude'])))
             pnt = yearFol.newpoint(name=timeString, 
@@ -396,7 +443,10 @@ def createKMLFiles():
                         description=pointDescription, 
                         coords=[(long, lat, int(row['altitude']))])
 
+        print('4: ' + str(time.time()))
+
         pnt.style = style2
+        """
         #end row looping
     
     dayLine = dayKML.newlinestring(name="Day Path", 
@@ -421,6 +471,7 @@ def createKMLFiles():
     dayLine.style.linestyle.color = 'ff0000ff'
     dayLine.style.linestyle.width = 5
 
+    """
     yearLine = yearKML.newlinestring(name="Year Path", 
                                      description="My travels of the current year", 
                                      coords=yearCoorArr,
@@ -434,12 +485,26 @@ def createKMLFiles():
                                    extrude="1")
     allLine.style.linestyle.color = 'ff0000ff'
     allLine.style.linestyle.width = 5
+    """
 
-    dayKML.save('./static/data/day.kml')
-    weekKML.save('./static/data/week.kml')
-    monthKML.save('./static/data/month.kml')
+    with fs.open(f"flaskbucketcd/data/day.kml",'w') as f:
+        f.write(dayKML.kml())
+
+    with fs.open(f"flaskbucketcd/data/week.kml",'w') as f:
+        f.write(weekKML.kml())
+
+    with fs.open(f"flaskbucketcd/data/month.kml",'w') as f:
+        f.write(monthKML.kml())
+
+    #dayKML.save('./static/data/day.kml')
+    #weekKML.save('./static/data/week.kml')
+    #monthKML.save('./static/data/month.kml')
+    
+    """
+    #For Local Saving
     yearKML.save('./static/data/year.kml')
     allKML.save('./static/data/all.kml')
+    """
 
 #Converts the timestamp from whatever format into unix
 #IN: Time, String of Format
