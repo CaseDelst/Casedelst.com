@@ -1,5 +1,5 @@
 import pandas as pd
-from csv import writer
+import csv
 from io import StringIO
 from datetime import datetime
 from timezonefinderL import TimezoneFinder
@@ -26,9 +26,16 @@ def storeCSV(locations):
     #Mount s3fs for AWS
     fs = s3fs.S3FileSystem(anon=False) # accessing all buckets you have access to with your credentials
 
+    
+    file = [[]]
+    archiveFile = [[]]
+
     #Grab the files from aws
-    file = pd.read_csv('s3://flaskbucketcd/data/history.csv')
-    archiveFile = pd.read_csv('s3://flaskbucketcd/data/mass_storage.csv')
+    with fs.open('s3://flaskbucketcd/data/history.csv', 'r') as history:
+        file = list(csv.reader(history))
+
+    raw_history = fs.open('s3://flaskbucketcd/data/raw_history.csv', 'a', newline='')
+    writer = csv.writer(raw_history)
 
     #Initialize values for stationary averaging
     timeAverage = 0
@@ -43,15 +50,15 @@ def storeCSV(locations):
 
     latestTime = 0
 
-    #LOCAL
-    #Loads current csv into file
-    #file = pd.read_csv('./static/data/history.csv')
-    #archiveFile = pd.read_csv('./static/data/raw_history.csv')
-    #archiveFile = pd.read_csv('./static/data/mass_storage.csv')
-    
-    if file.shape[0] >= 1: 
-       
-        latestTime = int(file['timestamp'].iloc[file.shape[0] - 1])
+    archiveTimeVal = 0
+    with fs.open('s3://flaskbucketcd/data/archiveCurrentTime.txt', 'r') as archiveTime:
+        archiveTimeVal = int(float(archiveTime.readline()))
+
+    #if archiveFile.shape[0] >= 1: 
+    if len(file) >= 2:
+
+        #latestTime = int(file['timestamp'].iloc[file.shape[0] - 1]
+        latestTime = int(float(file[len(file) - 1][0]))
 
     #Loop through values of array inside locations (dictionaries)
     print('Entering New Data Loop')
@@ -61,7 +68,6 @@ def storeCSV(locations):
         timeDate = entry['properties'].get('timestamp')
 
         #Convert UTC time to timestamp
-        #print(timeVal)
         dt = datetime.strptime(timeDate[:-1], "%Y-%m-%dT%H:%M:%S")
         timezone = timeDate[-1:]
         
@@ -130,33 +136,26 @@ def storeCSV(locations):
         
         #Set up the archival version of the array for raw_history
         tempArchive = [timeDate, coordinates, altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi]
-        
-        #Counts rows
-        rowCount = file.shape[0]
-        archRowCount = archiveFile.shape[0]
-
-        #Sets up archiving based on previous and current timestamp
-        archiveTimeDate = archiveFile['timestamp'].iloc[-1]
-        dt = datetime.strptime(archiveTimeDate[:-1], "%Y-%m-%dT%H:%M:%S")
-        archiveTimeVal, timezone = convertTimestamps(archiveTimeDate, 'ISO8601')
-
+    
         #Only store the data if it is the first val, or if the timestamp is chronologically after the previous
-        if archiveFile.shape[0] == 0 or int(archiveTimeVal) < int(timeVal):
-            archiveFile.loc[archRowCount] = tempArchive
+        if len(archiveFile) == 1 or int(archiveTimeVal) < int(timeVal):
+            writer.writerow(tempArchive)
+            archiveTimeVal = int(timeVal)
         
-        if file.shape[0] >= 2:
+        #if file.shape[0] >= 2:
+        if len(file) >= 3:
             
             #Gets previous 2 rows of history file for calculations
-            firstRow = file.loc[rowCount - 2]
-            secondRow = file.loc[rowCount - 1]
+            firstRow = file[len(file) - 2]
+            secondRow = file[len(file) - 1]
 
             #Gets the val in the accuracy column, splits the horiz and vert accuracy, selects the first, and casts it as int
-            accuracyList = firstRow['accuracy'].split(',')
+            accuracyList = firstRow[8].split(',')
             try: oldAccuracy = int(accuracyList[0])
             except: oldAccuracy = -1
 
             #Makes list and casts it to float
-            firstRowCoor = firstRow['coordinates'].split(',')
+            firstRowCoor = firstRow[1].split(',')
             firstRowCoor = [float(i) for i in firstRowCoor]
 
             #Makes list and casts it to float
@@ -219,7 +218,8 @@ def storeCSV(locations):
                 longAverageSum = 0
 
                 #Makes a new row for all the previous averaged values
-                file.loc[rowCount] = [timeResult, str(latResult) + ',' + str(longResult), altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi, timezone]
+                #file.loc[rowCount] = [timeResult, str(latResult) + ',' + str(longResult), altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi, timezone]
+                file.append([timeResult, str(latResult) + ',' + str(longResult), altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi, timezone])
                 
                 #Moves row counter up one to follow ending line
                 rowCount += 1
@@ -251,11 +251,14 @@ def storeCSV(locations):
 
             #If the distance between point 1 and 3 is less than the accuracy, replace the middle point with the new point
             if totalDistance <= oldAccuracy or currentAccuracy >= 30:
-                file.loc[rowCount - 1] = temp
+                #file.loc[rowCount - 1] = temp
+                file[len(file) - 2] = temp
             
             #Else add the new val to the end of the table
             else:
-                file.loc[rowCount] = temp
+                #file.loc[rowCount] = temp
+                file.append(temp)
+                
         
         #If the size is less than 2, so we can't do 3 point analysis
         else:
@@ -268,17 +271,21 @@ def storeCSV(locations):
             currentAccuracy = int(temp[-3].split(',')[0])
             
             #If my accuracy is lower than 11 (Most of them are 10-5), add the point to the table
-            if currentAccuracy <= 11: file.loc[rowCount] = temp
+            if currentAccuracy <= 11: 
+                #file.loc[rowCount] = temp
+                file.append(temp)
         
     #Write to file after all done
 
-    with fs.open(f"flaskbucketcd/data/history.csv",'w') as f:
-        file.to_csv(f)
+    raw_history.close()
+
+    with fs.open(f"flaskbucketcd/data/history.csv",'w', newline='') as f:
+        csvWriter = csv.writer(f,delimiter=',')
+        csvWriter.writerows(file)
+
+    with fs.open(f"flaskbucketcd/data/archiveCurrentTime.txt",'w') as f:
+        f.write(str(archiveTimeVal))
     
-    #file.to_csv('s3://data/history.csv', index=False)
-    
-    with fs.open(f"flaskbucketcd/data/mass_storage.csv",'w') as f:
-        archiveFile.to_csv(f)
 
 #Make the KML Files based on the most recent data recieved <=-=>
 def createKMLFiles():
@@ -347,8 +354,8 @@ def createKMLFiles():
         timeVal = float(row['timestamp'])
 
         #TEMPORARY, this only takes into account the last month of data
-        if time.time() - timeVal > month:
-            continue
+        #if time.time() - timeVal > month:
+        #    continue
         
         #Get the longtitude and latitude from csv row
         long = str(round(float(row['coordinates'].split(',')[0]), 7))
@@ -429,8 +436,7 @@ def createKMLFiles():
             
             pnt.style = style2
 
-        """
-        if time.time() - timeVal <= year:
+        if time.time() - timeVal <= year and index % 10 == 0:
             yearCoorArr.append((long, lat, int(row['altitude'])))
             pnt = yearFol.newpoint(name=timeString, 
                              description=pointDescription, 
@@ -438,15 +444,14 @@ def createKMLFiles():
             
             pnt.style = style2
         
-        allCoorArr.append((long, lat, int(row['altitude'])))
-        pnt = allFol.newpoint(name=timeString, 
-                        description=pointDescription, 
-                        coords=[(long, lat, int(row['altitude']))])
+        if index % 20 == 0:
+            allCoorArr.append((long, lat, int(row['altitude'])))
+            pnt = allFol.newpoint(name=timeString, 
+                            description=pointDescription, 
+                            coords=[(long, lat, int(row['altitude']))])
 
-        print('4: ' + str(time.time()))
+            pnt.style = style2
 
-        pnt.style = style2
-        """
         #end row looping
     
     dayLine = dayKML.newlinestring(name="Day Path", 
@@ -471,7 +476,6 @@ def createKMLFiles():
     dayLine.style.linestyle.color = 'ff0000ff'
     dayLine.style.linestyle.width = 5
 
-    """
     yearLine = yearKML.newlinestring(name="Year Path", 
                                      description="My travels of the current year", 
                                      coords=yearCoorArr,
@@ -485,7 +489,6 @@ def createKMLFiles():
                                    extrude="1")
     allLine.style.linestyle.color = 'ff0000ff'
     allLine.style.linestyle.width = 5
-    """
 
     with fs.open(f"flaskbucketcd/data/day.kml",'w') as f:
         f.write(dayKML.kml())
@@ -495,6 +498,12 @@ def createKMLFiles():
 
     with fs.open(f"flaskbucketcd/data/month.kml",'w') as f:
         f.write(monthKML.kml())
+
+    with fs.open(f"flaskbucketcd/data/year.kml",'w') as f:
+        f.write(yearKML.kml())
+
+    with fs.open(f"flaskbucketcd/data/all.kml",'w') as f:
+        f.write(allKML.kml())
 
     #dayKML.save('./static/data/day.kml')
     #weekKML.save('./static/data/week.kml')

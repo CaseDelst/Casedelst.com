@@ -104,25 +104,16 @@ def locationYear():
 
 @app.route("/location/month")
 def locationMonth():
-
-    s3 = boto3.resource('s3')
-    s3.Bucket('flaskbucketcd').download_file('month.kml', './static/data/month.kml')
     
     return render_template('location_month.html', title='Month Location')
 
 @app.route("/location/week")
 def locationWeek():
 
-    s3 = boto3.resource('s3')
-    s3.Bucket('flaskbucketcd').download_file('week.kml', './static/data/week.kml')
-
     return render_template('location_week.html', title='Week Location')
 
 @app.route("/location/day")
 def locationDay():
-
-    s3 = boto3.resource('s3')
-    s3.Bucket('flaskbucketcd').download_file('day.kml', './static/data/day.kml')
 
     return render_template('location_day.html', title='Day Location')
 
