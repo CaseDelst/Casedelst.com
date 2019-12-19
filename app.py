@@ -133,10 +133,11 @@ def locationendpoint():
 
     #Store every value sent by the endpoint to the main CSV file 'raw_history.csv', and makes a shortened history csv
     dataManager.storeCSV(locations)
+    dataManager.createKMLFiles()
     print('Stored CSV Data')
 
-    #return jsonify({"result":"ok"})
-    return jsonify({"result":"Currently Testing"})
+    return jsonify({"result":"ok"})
+    #return jsonify({"result":"Currently Testing"})
 
 #Refreshes the KML file
 @app.route("/location/refresh")

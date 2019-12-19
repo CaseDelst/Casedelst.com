@@ -15,8 +15,9 @@ import boto3
 import s3fs
 import os
 
-
 #Store the CSV Data from the POST submit
+#IN: JSON formatted location data
+#OUT: NO RETURN, updated location history file
 def storeCSV(locations):
 
     bucket_name = 'flaskbucketcd'
@@ -75,7 +76,7 @@ def storeCSV(locations):
         timeVal, timezone = convertTimestamps(timeDate, 'ISO8601')
         
         #If it is a duplicate point in filtered history file, skip it
-        if latestTime >= timeVal:
+        if archiveTimeVal >= timeVal:
             continue
 
         #Set the new latest time to the newly entered time
@@ -109,6 +110,8 @@ def storeCSV(locations):
         
         if battery_level is None or battery_level == 'None': 
             battery_level = -1
+        else:
+            battery_level = str(round(float(battery_level), 2))
         
         altitude = entry['properties'].get('altitude')
         
@@ -206,23 +209,18 @@ def storeCSV(locations):
             if (not stationaryBool or (not wifi or wifi == 'xfinitywifi')) and averageCounter != 0:
                 
                 #Gets average time, lat, and long over previous n points that were stationary
-                timeResult = timeAverage / averageCounter
+                timeResult = round(float(timeAverage / averageCounter), 1)
                 latResult = latAverageSum / averageCounter
                 longResult = longAverageSum / averageCounter
                 
                 #Resets all averaging counters
                 averageCounter = 0
-                print('averaged ', averageCounter, ' values')
                 timeAverage = 0
                 latAverageSum = 0
                 longAverageSum = 0
 
                 #Makes a new row for all the previous averaged values
-                #file.loc[rowCount] = [timeResult, str(latResult) + ',' + str(longResult), altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi, timezone]
                 file.append([timeResult, str(latResult) + ',' + str(longResult), altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi, timezone])
-                
-                #Moves row counter up one to follow ending line
-                rowCount += 1
             
             #If I am driving, artificially emulate poor accuracy to limit point overlap 
             if drivingBool:
@@ -251,12 +249,12 @@ def storeCSV(locations):
 
             #If the distance between point 1 and 3 is less than the accuracy, replace the middle point with the new point
             if totalDistance <= oldAccuracy or currentAccuracy >= 30:
-                #file.loc[rowCount - 1] = temp
-                file[len(file) - 2] = temp
+
+                #This replaces the last line in the file, aka the "middle" point of our 2nd to last, this one, and new line 
+                file[len(file) - 1] = temp
             
             #Else add the new val to the end of the table
             else:
-                #file.loc[rowCount] = temp
                 file.append(temp)
                 
         
@@ -272,22 +270,24 @@ def storeCSV(locations):
             
             #If my accuracy is lower than 11 (Most of them are 10-5), add the point to the table
             if currentAccuracy <= 11: 
-                #file.loc[rowCount] = temp
+
                 file.append(temp)
         
     #Write to file after all done
 
+    #Close large annex file that we've been writing to
     raw_history.close()
 
+    #Writes all of filtered history to new file in bucket
     with fs.open(f"flaskbucketcd/data/history.csv",'w', newline='') as f:
         csvWriter = csv.writer(f,delimiter=',')
         csvWriter.writerows(file)
 
+    #Write the last used time value to the file for the next use
     with fs.open(f"flaskbucketcd/data/archiveCurrentTime.txt",'w') as f:
         f.write(str(archiveTimeVal))
-    
 
-#Make the KML Files based on the most recent data recieved <=-=>
+#Make the KML Files based on the most recent data recieved
 def createKMLFiles():
 
     #Mount Filesystem
@@ -341,25 +341,42 @@ def createKMLFiles():
     
     #AWS
     #Grab the files from aws
-    file = pd.read_csv('s3://flaskbucketcd/data/history.csv')
+    #file = pd.read_csv('s3://flaskbucketcd/data/history.csv')
+    file = [[]]
+
+    #Grab the files from aws
+    with fs.open('s3://flaskbucketcd/data/history.csv', 'r') as history:
+        file = list(csv.reader(history))
 
     #LOCAL
-    file = pd.read_csv('./static/data/history.csv')
+    #file = pd.read_csv('./static/data/history.csv')
     
     #Line String takes an array of tuples: [(lat, long), (lat, long)]
     print('Entering KML File Loop')
-    for index, row in tqdm.tqdm(file.iterrows()):
+
+    index = 0
+
+    #for index, row in tqdm.tqdm(file.itertuples(index=False)):
+    for row in tqdm.tqdm(file):
+
+        if index == 0: 
+            index += 1
+            continue
 
         #print(index)
-        timeVal = float(row['timestamp'])
+        #timeVal = float(row['timestamp'])
+        timeVal = float(row[0])
 
         #TEMPORARY, this only takes into account the last month of data
         #if time.time() - timeVal > month:
         #    continue
         
         #Get the longtitude and latitude from csv row
-        long = str(round(float(row['coordinates'].split(',')[0]), 7))
-        lat = str(round(float(row['coordinates'].split(',')[1]), 7))
+        #long = str(round(float(row['coordinates'].split(',')[0]), 7))
+        #lat = str(round(float(row['coordinates'].split(',')[1]), 7))
+        
+        long = str(round(float(row[1].split(',')[0]), 7))
+        lat = str(round(float(row[1].split(',')[1]), 7))
         
         #Get timezone name
         timezoneName = tf.timezone_at(lng=float(long), lat=float(lat))
@@ -385,30 +402,26 @@ def createKMLFiles():
         th = E.th
         td = E.td
          
-        """ tr(
-                                    th('Coordinates:'),
-                                    th(str(row['coordinates'])),
-                                ), """
         pointDescription = table(
                                 tr(
                                     th('Altitude:'),
-                                    th(str(row['altitude']))
+                                    #th(str(row['altitude']))
+                                    th(str(row[2]))
                                 ),
                                 tr(
                                     th('Speed:'),
-                                    th(str(row['speed']))
+                                    #th(str(row['speed']))
+                                    th(str(row[4]))
                                 ), 
                                 tr(
                                     th('Motion Type:'),
-                                    th(str(row['motion']))
-                                ), 
-                                tr(
-                                    th('GPS Accuracy:'),
-                                    th(str(row['accuracy']))
+                                    #th(str(row['motion']))
+                                    th(str(row[5]))
                                 ),
                                 tr(
                                     th('Phone Battery:'),
-                                    th(str(round(float(row['battery_level']), 2)))
+                                    #th(str(round(float(row['battery_level']), 2)))
+                                    th(str(round(float(row[6]), 2)))
                                 )
                             )
         #pointDescription = table()
@@ -416,42 +429,45 @@ def createKMLFiles():
 
         #Add all points that fit into each category into the respective summary KML file
         if time.time() - timeVal <= day:
-            dayCoorArr.append((long, lat, int(row['altitude'])))
+            #dayCoorArr.append((long, lat, int(row['altitude'])))
+            dayCoorArr.append((long, lat, int(row[2])))
             pnt = dayFol.newpoint(name=timeString, 
                             description=pointDescription, 
-                            coords=[(long, lat, int(row['altitude']))])
+                            coords=[(long, lat, int(row[2]))])
             pnt.style = style2
 
         if time.time() - timeVal <= week:
-            weekCoorArr.append((long, lat, int(row['altitude'])))
+            weekCoorArr.append((long, lat, int(row[2])))
             pnt = weekFol.newpoint(name=timeString, 
                              description=pointDescription, 
-                             coords=[(long, lat, int(row['altitude']))])
+                             coords=[(long, lat, int(row[2]))])
 
         if time.time() - timeVal <= month:
-            monthCoorArr.append((long, lat, int(row['altitude'])))
+            monthCoorArr.append((long, lat, int(row[2])))
             pnt = monthFol.newpoint(name=timeString, 
                               description=pointDescription, 
-                              coords=[(long, lat, int(row['altitude']))])
+                              coords=[(long, lat, int(row[2]))])
             
             pnt.style = style2
 
-        if time.time() - timeVal <= year and index % 10 == 0:
-            yearCoorArr.append((long, lat, int(row['altitude'])))
+        if time.time() - timeVal <= year and index % 5 == 0:
+            yearCoorArr.append((long, lat, int(row[2])))
             pnt = yearFol.newpoint(name=timeString, 
                              description=pointDescription, 
-                             coords=[(long, lat, int(row['altitude']))])
+                             coords=[(long, lat, int(row[2]))])
             
             pnt.style = style2
         
-        if index % 20 == 0:
-            allCoorArr.append((long, lat, int(row['altitude'])))
+        if index % 10 == 0:
+            allCoorArr.append((long, lat, int(row[2])))
             pnt = allFol.newpoint(name=timeString, 
                             description=pointDescription, 
-                            coords=[(long, lat, int(row['altitude']))])
+                            coords=[(long, lat, int(row[2]))])
 
             pnt.style = style2
 
+
+        index += 1
         #end row looping
     
     dayLine = dayKML.newlinestring(name="Day Path", 
@@ -528,9 +544,7 @@ def convertTimestamps(time, timeFormat):
         return dt, timezone
 
     else:
-        return 'Time Zone Currently Not Supported by dataManager.py:convertTimestamps():59'
-
-#Calculate Local Time
+        return 'Time Zone Currently Not Supported by dataManager.py:convertTimestamps()'
 
 def massStoreCSV(locations):
     #Instantiates a pandas dataframe
