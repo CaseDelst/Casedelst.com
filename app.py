@@ -35,7 +35,11 @@ s.close()
 @app.route("/index")
 def index():
     signature = url_for('static', filename='signature.png')
-    return render_template('index.html', signature=signature)
+    instagram = url_for('static', filename='instagram.png')
+    email = url_for('static', filename='email.png')
+    linkedin = url_for('static', filename='linkedin.png')
+    github = url_for('static', filename='github.png')
+    return render_template('index.html', signature=signature, instagram=instagram, email=email, linkedin=linkedin, github=github)
 
 @app.route("/data/<path:path>")
 def send_kml(path):

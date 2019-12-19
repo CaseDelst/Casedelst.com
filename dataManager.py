@@ -300,7 +300,6 @@ def createKMLFiles():
     style2.labelstyle.color = simplekml.Color.grey
     style2.labelstyle.scale = .75  # Text half as big
 
-
     #Define a new KML creator, and summary array
     dayKML = simplekml.Kml()
     dayFol = dayKML.newfolder(name='Data Points')
