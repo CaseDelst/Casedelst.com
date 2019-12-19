@@ -449,7 +449,7 @@ def createKMLFiles():
             
             pnt.style = style2
 
-        if time.time() - timeVal <= year and index % 5 == 0:
+        if time.time() - timeVal <= year and index % 8 == 0:
             yearCoorArr.append((long, lat, int(row[2])))
             pnt = yearFol.newpoint(name=timeString, 
                              description=pointDescription, 
