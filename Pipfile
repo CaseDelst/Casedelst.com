@@ -17,6 +17,8 @@ tqdm = "*"
 geonames = "*"
 timezonefinderl = "*"
 pytz = "*"
+boto3 = "*"
+s3fs = "*"
 
 [requires]
 python_version = "3.7"
