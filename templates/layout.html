@@ -18,34 +18,58 @@
     <header class="site-header ">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-          <a class="navbar-brand mr-4" href="/"><img src={{signature}} width=100vw alt=""></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse " id="navbarToggle">
-            <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="/">Home</a>
-              <a class="nav-item nav-link" href="/about">About</a>
-              <a class="nav-item nav-link" href="/projects">Projects</a>
-              <a class="nav-item nav-link" href="/blog">Blog</a>
-              <a class="nav-item nav-link" href="/location">Location</a>
-            </div>
+            <a class="navbar-brand mr-4" href="/"><img src={{signature}} width=100vw alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarToggle">
+                <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link" href="/">Home</a>
+                    <a class="nav-item nav-link" href="/about">About</a>
+                    <a class="nav-item nav-link" href="/projects">Projects</a>
+                    <a class="nav-item nav-link" href="/blog">Blog</a>
+                    <a class="nav-item nav-link" href="/location">Location</a>
+
+                    
+                </div>
+
+                
+
             <!-- Navbar Right Side -->
-          </div>   
+            </div>
+
+            
         </div>
-      </nav>
+        <div class="" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+            
+            <div class="" style="display:flex; flex-direction: column; justify-content: center; align-items: center; padding-right:0px">
+                <h6 class="nav-item nav-link" title="Current Location" style="margin-bottom:-1px;padding-top:0px; padding-bottom:0px; padding-right:4px; padding-left:4px">{{archive['Location']}}</h6>
+                <h6 class="nav-item nav-link" title="Current Temperature" style="margin-top:-1px; margin-bottom:0px; padding-bottom:0px; padding-top:0px; padding-right:4px; padding-left:4px">{{archive['Temperature']}}</h6>
+            </div>
+            
+            <img src={{archive['Weather']}} style="width:50px;height:50px;border:0;padding-right:2px" hspace="0" alt="weather" title={{archive['WeatherDescription']}}>
+            
+            <div class="" style="display:flex; flex-direction: column; justify-content: center; align-items: center; padding-right:0px">
+                <h6 class="nav-item nav-link" style="margin-bottom:-1px;padding-top:0px; padding-bottom:0px; padding-right:4px; padding-left:4px" title="Altitude">{{archive['Altitude']}}ft</h6>
+                <h6 class="nav-item nav-link" style="margin-top:-1px; margin-bottom:0px; padding-bottom:0px; padding-top:0px; padding-right:4px; padding-left:4px"title="Speed">{{archive['Speed']}}mph</h6>
+            </div>
+            <img src={{archive['Activity']}} style="width:50px;height:50px;border:0;padding-right:2px" hspace="5" alt={{archive['ActivityDescription']}} title={{archive['ActivityDescription']}}>
+            <img src={{archive['BatteryImage']}} style="width:20px;height:37px;border:0;" hspace="5" alt={{archive['BatteryPercentage']}} title={{archive['BatteryPercentage']}}>
+        </div> 
+        
+    </nav>
+
+      
       
     </header>
 
     <main role="main" class="container">
-      <div class="">
-        <div>
-          {% block content %}{% endblock %}
+        <div class=""> 
+            <div>
+            {% block content %}{% endblock %}
+            </div>
         </div>
-      </div>
     </main>
-
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -63,10 +87,10 @@
 </head>
 <body>
 
-<div class="footer">
-  <div style="font-family:helvetica; font-size:1vw; padding: 2px">
-    <i>Website created by <b>Case Delst</b> with Flask.  Heavily inspired by Collin Hurst.</i></p>
-</div>
+<div class="footer" style="padding:0px">
+    <div style="font-family:helvetica; font-size:1.5vw; padding: 1px">
+        <i>Website created by <b>Case Delst</b> with Flask.  Heavily inspired by Collin Hurst.</i></p>
+    </div>
 </div>
 
 </body>

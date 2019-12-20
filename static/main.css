@@ -53,6 +53,11 @@ div#loading {
   font-weight: 500;
 }
 
+.nav-info {
+  color: #cccccc;
+  font-weight: 500;
+}
+
 .content-section{                            /* Controls content pane?*/
   background: #cccccc;
   border: 1px solid #dddddd;
@@ -94,6 +99,7 @@ color: #613942;
   text-align: center;
   align-self: center;
 }
+
 .mb-1 {
   color: #613942;
 }

@@ -7,25 +7,15 @@ import dataManager
 import pandas as pd
 import socket
 import boto3
+import time
+import requests
+import s3fs
 
 app = Flask(__name__, static_url_path='')
 
 #Setup a tool to let me see the local IP
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))
-
-"""
-with open('filename', 'wb') as data:
-    s3.download_fileobj('mybucket', 'mykey', data)
-
-import boto3
-s3 = boto3.resource('s3')
-s3.meta.client.upload_file('/tmp/hello.txt', 'mybucket', 'hello.txt')
-
-import boto3
-s3 = boto3.resource('s3')
-s3.Bucket('mybucket').download_file('hello.txt', '/tmp/hello.txt')
-"""
 
 #Prints the IP address I need to connect to
 print(' * IP: ' + str(s.getsockname()[0]) + ':' + str(5000) + '') 
@@ -34,12 +24,16 @@ s.close()
 @app.route("/")
 @app.route("/index")
 def index():
+
+    archive = create_archive_urls()
+
     signature = url_for('static', filename='signature.png')
     instagram = url_for('static', filename='instagram.png')
     email = url_for('static', filename='email.png')
     linkedin = url_for('static', filename='linkedin.png')
     github = url_for('static', filename='github.png')
-    return render_template('index.html', signature=signature, instagram=instagram, email=email, linkedin=linkedin, github=github)
+
+    return render_template('index.html', archive=archive, signature=signature, instagram=instagram, email=email, linkedin=linkedin, github=github)
 
 @app.route("/data/<path:path>")
 def send_kml(path):
@@ -47,38 +41,52 @@ def send_kml(path):
 
 @app.route("/about")
 def about():
+
+    archive = create_archive_urls()
+
     signature = url_for('static', filename='signature.png')
     image_file = url_for('static', filename='me_pic.png')
-    return render_template('about.html', image_file=image_file, signature=signature)
-
+    return render_template('about.html', archive=archive, image_file=image_file, signature=signature)
 
 @app.route("/projects")
 def projects():
-    signature = url_for('static', filename='signature.png')
-    return render_template('projects.html', title='Projects', signature=signature)
 
+    archive = create_archive_urls()
+
+    signature = url_for('static', filename='signature.png')
+    return render_template('projects.html', archive=archive, title='Projects', signature=signature)
 
 @app.route("/blog")
 def blog():
+
+    archive = create_archive_urls()
+
     signature = url_for('static', filename='signature.png')
     CruzHacks = url_for('static', filename='CruzHacks.jpg')
     FitByte   = url_for('static', filename='fitbit.png')
-    return render_template('blog.html', title='Blog', signature=signature, CruzHacks=CruzHacks, FitByte=FitByte)
-
+    return render_template('blog.html', archive=archive, title='Blog', signature=signature, CruzHacks=CruzHacks, FitByte=FitByte)
 
 @app.route("/blog/cruzhacks")
 def cruzhacks():
+
+    archive = create_archive_urls()
+
     signature = url_for('static', filename='signature.png')
-    return render_template('cruzhacks.html', title='CruzHacks', signature=signature)
+    return render_template('cruzhacks.html', archive=archive, title='CruzHacks', signature=signature)
 
 @app.route("/blog/fitbyte")
 def fitbyte():
-    signature = url_for('static', filename='signature.png')
-    return render_template('fitbyte.html', title='FitByte', signature=signature)
 
+    archive = create_archive_urls()
+
+    signature = url_for('static', filename='signature.png')
+    return render_template('fitbyte.html', archive=archive, title='FitByte', signature=signature)
 
 @app.route("/portfolio")
 def portfolio():
+
+    archive = create_archive_urls()
+
     signature = url_for('static', filename='signature.png')
     blue_ref = url_for('static', filename='blue_ref.png')
     purple_horizon = url_for('static', filename='purple_horizon.png')
@@ -90,13 +98,16 @@ def portfolio():
     trapcity = url_for('static', filename='trapcity.png')
     tumbleweed = url_for('static', filename='prom.png')
     prom = url_for('static', filename='tumbleweed.png')
-    return render_template('portfolio.html', title='Portfolio', blue_ref=blue_ref, purple_horizon=purple_horizon, boss=boss, dozer=dozer, drop=drop, ninten=ninten, shades=shades, trapcity=trapcity, tumbleweed=tumbleweed, prom=prom, signature=signature)
+    return render_template('portfolio.html', archive=archive, title='Portfolio', blue_ref=blue_ref, purple_horizon=purple_horizon, boss=boss, dozer=dozer, drop=drop, ninten=ninten, shades=shades, trapcity=trapcity, tumbleweed=tumbleweed, prom=prom, signature=signature)
 
 #Main location webpage
 @app.route("/location")
 def location():
+
+    archive = create_archive_urls()
+
     signature = url_for('static', filename='signature.png')
-    return render_template('location.html', title='Location', signature=signature)
+    return render_template('location.html', archive=archive, title='Location', signature=signature)
 
 @app.route("/location/all")
 def locationAll():
@@ -108,17 +119,14 @@ def locationYear():
 
 @app.route("/location/month")
 def locationMonth():
-    
     return render_template('location_month.html', title='Month Location')
 
 @app.route("/location/week")
 def locationWeek():
-
     return render_template('location_week.html', title='Week Location')
 
 @app.route("/location/day")
 def locationDay():
-
     return render_template('location_day.html', title='Day Location')
 
 @app.route("/location/test")
@@ -140,15 +148,213 @@ def locationendpoint():
     dataManager.createKMLFiles()
     print('Stored CSV Data')
 
-    #return jsonify({"result":"ok"})
-    return jsonify({"result":"Currently Testing"})
+    return jsonify({"result":"ok"})
+    #return jsonify({"result":"Currently Testing"})
 
 #Refreshes the KML file
 @app.route("/location/refresh")
 def kmlrefresh():
     dataManager.createKMLFiles()
+
+    archive = create_archive_urls()
+
     signature = url_for('static', filename='signature.png')
-    return render_template('location.html', title='Location', signature=signature)
+    return render_template('location.html', archive=archive, title='Location', signature=signature)
+
+def create_archive_urls():
+
+    fs = s3fs.S3FileSystem(anon=False) # accessing all buckets you have access to with your credentials
+    
+    degree_sign= u'\N{DEGREE SIGN}'
+
+    archive = {'Location':'', 
+               'Temperature':'',
+               'Weather':'', 
+               'WeatherDescription':'',
+               'BatteryImage': None,
+               'BatteryPercentage': 0,
+               'Altitude': -1,
+               'Activity': None,
+               'ActivityDescription': '',
+               'Speed': -1}
+
+    archiveTimeVal = None
+    archiveLatitude = None
+    archiveLongtitude = None
+    archiveLocation = None
+    archiveTemperature = None
+    archiveWeather = None
+    archiveWeatherTime = None
+    archiveBatteryPercentage = None
+    archiveChargingStatus = None
+    archiveAltitude = None
+    archiveActivity = None
+    archiveSpeed = None
+    archiveWeatherAPIkey = None
+
+    with fs.open('s3://flaskbucketcd/data/archiveCurrentVals.txt', 'r') as archiveVals:
+        archiveTimeVal = int(float(archiveVals.readline()))
+        archiveLongtitude = archiveVals.readline().strip('\n')
+        archiveLatitude = archiveVals.readline().strip('\n')
+        archiveLocation = archiveVals.readline().strip('\n')
+        archiveTemperature = archiveVals.readline().strip('\n')
+        archiveWeather = archiveVals.readline().strip('\n')
+        archiveWeatherTime = int(archiveVals.readline().strip('\n'))
+        archiveWeatherCode = archiveVals.readline().strip('\n')
+        archiveBatteryPercentage = float(archiveVals.readline().strip('\n'))
+        archiveChargingStatus = archiveVals.readline().strip('\n')
+        archiveAltitude = archiveVals.readline().strip('\n')
+        archiveActivity = archiveVals.readline().strip('\n')
+        archiveSpeed = archiveVals.readline().strip('\n')
+        archiveWeatherAPIkey = archiveVals.readline().strip('\n')
+
+    #Location
+    archive['Location'] = archiveLocation
+    
+    #Weather
+    #If the last call to archive time is longer than 10 minutes ago, refresh it
+    if time.time() - archiveWeatherTime > 600:
+        
+        responseObj = requests.get('http://api.openweathermap.org/data/2.5/weather?lat=' + str(archiveLatitude) + '&lon=' + str(archiveLongtitude) + '&APPID=' + str(archiveWeatherAPIkey))
+        response = responseObj.json()
+
+        #If response is not an error code, rely on new data
+        if response['cod'] != '404' and response['cod'] != '401' and response['cod'] != '429' and response['cod'] != '400':
+            
+            archiveWeather = response['weather'][0]['main']
+            archiveTemperature = float(response['main']['temp'])
+
+            archiveWeatherTime = archiveTimeVal
+            
+            archiveLocation = response['name']
+            archive['Location'] = archiveLocation
+            archive['Temperature'] = str(round(((float(archiveTemperature) - 273.15) * 9/5) + 32, 1)) + 'F' + degree_sign
+            archive['Weather'] = url_for('static', filename=str(response['weather'][0]['icon'][:2]) + '.png')
+            archiveWeatherCode = response['weather'][0]['icon']
+
+        #Else use our old archived data
+        else: 
+            archive['Location'] = archiveLocation
+            archive['Temperature'] = str(round(((float(archiveTemperature) - 273.15) * 9/5) + 32, 1)) + 'F' + degree_sign
+            archive['Weather'] = url_for('static', filename=str(archiveWeatherCode[:2]) + '.png')
+
+    #If we don't need to refresh the weather data
+    else:
+
+        archive['Location'] = archiveLocation
+        archive['Temperature'] = str(round(((float(archiveTemperature) - 273.15) * 9/5) + 32, 1)) + 'F' + degree_sign
+        archive['Weather'] = url_for('static', filename=str(archiveWeatherCode[:2]) + '.png')
+        
+    archive['WeatherDescription'] = archiveWeather 
+
+    #If charging, show the charging icon
+    if archiveChargingStatus == 'charging':
+
+        if archiveBatteryPercentage >= 1.0:
+            archive['BatteryImage'] = url_for('static', filename='battery_charging_100.png')
+
+        elif archiveBatteryPercentage >= .8:
+            archive['BatteryImage'] = url_for('static', filename='battery_charging_80.png')
+
+        elif archiveBatteryPercentage >= .6:
+            archive['BatteryImage'] = url_for('static', filename='battery_charging_60.png')
+
+        elif archiveBatteryPercentage >= .4:
+            archive['BatteryImage'] = url_for('static', filename='battery_charging_40.png')
+
+        elif archiveBatteryPercentage >= .2:
+            archive['BatteryImage'] = url_for('static', filename='battery_charging_20.png')
+
+        else:
+            archive['BatteryImage'] = url_for('static', filename='battery_charging_0.png')
+
+    #Else, determine the correct level of battery to show
+    else:
+
+        if archiveBatteryPercentage >= .8:
+            archive['BatteryImage'] = url_for('static', filename='battery5.png')
+
+        elif archiveBatteryPercentage >= .6:
+            archive['BatteryImage'] = url_for('static', filename='battery4.png')
+
+        elif archiveBatteryPercentage >= .4:
+            archive['BatteryImage'] = url_for('static', filename='battery3.png')
+
+        elif archiveBatteryPercentage >= .2:
+            archive['BatteryImage'] = url_for('static', filename='battery2.png')
+
+        else:
+            archive['BatteryImage'] = url_for('static', filename='battery1.png')
+
+    archive['BatteryPercentage'] = str(int(float(archiveBatteryPercentage) * 100)) + '%'
+
+    if archiveChargingStatus == 'charging':
+        archive['BatteryPercentage'] = archive['BatteryPercentage'] + ', charging'
+
+    #Altitude
+    archive['Altitude'] = archiveAltitude
+
+    #Activity
+    #Figure out what image to serve
+
+    #If the motion type is known to us, assign a known image
+    if archiveActivity != 'None':
+
+        if archiveActivity == 'driving':
+            archive['Activity'] = url_for('static', filename='car.png')
+            archive['ActivityDescription'] = 'Driving'
+
+        elif archiveActivity == 'walking':
+            archive['Activity'] = url_for('static', filename='walk.png')
+            archive['ActivityDescription'] = 'Walking'
+            
+        elif archiveActivity == 'running':
+            archive['Activity'] = url_for('static', filename='run.png')
+            archive['ActivityDescription'] = 'Running'
+
+        elif archiveActivity == 'cycling':
+            archive['Activity'] = url_for('static', filename='bicycle.png')
+            archive['ActivityDescription'] = 'Cycling'
+
+        elif archiveActivity == 'stationary':
+            archive['Activity'] = url_for('static', filename='stationary.png')
+            archive['ActivityDescription'] = 'Stationary'
+
+        elif archiveActivity == '' or archiveActivity == None:
+            archive['Activity'] = url_for('static', filename='stationary.png')
+            archive['ActivityDescription'] = 'Stationary'
+
+        else:
+            archive['Activity'] = url_for('static', filename='question_mark.png')
+            archive['ActivityDescription'] = 'Unknown'
+
+    #If we don't know the movement type
+    else:
+        archive['Activity'] = url_for('static', filename='question_mark.png')
+        archive['ActivityDescription'] = 'Unknown'
+
+    #archiveSpeed, converts m/s to mph
+    archive['Speed'] = str(round(int(archiveSpeed) * 2.23694, 0))
+
+    #Write the last used time value to the file for the next use
+    with fs.open(f"flaskbucketcd/data/archiveCurrentVals.txt",'w') as f:
+        f.write(str(archiveTimeVal) + '\n')
+        f.write(str(archiveLongtitude) + '\n')
+        f.write(str(archiveLatitude) + '\n')
+        f.write(str(archiveLocation) + '\n')
+        f.write(str(archiveTemperature) + '\n')
+        f.write(str(archiveWeather) + '\n')
+        f.write(str(archiveWeatherTime) + '\n')
+        f.write(str(archiveWeatherCode) + '\n')
+        f.write(str(archiveBatteryPercentage) + '\n')
+        f.write(str(archiveChargingStatus) + '\n')
+        f.write(str(archiveAltitude) + '\n')
+        f.write(str(archiveActivity) + '\n')
+        f.write(str(archiveSpeed) + '\n')
+        f.write(str(archiveWeatherAPIkey) + '\n')
+
+    #Returns the filled dictionary with all images and text needed for the info
+    return archive
 
 #Add a header that says to always refresh a page
 @app.after_request

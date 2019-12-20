@@ -51,9 +51,33 @@ def storeCSV(locations):
 
     latestTime = 0
 
-    archiveTimeVal = 0
-    with fs.open('s3://flaskbucketcd/data/archiveCurrentTime.txt', 'r') as archiveTime:
-        archiveTimeVal = int(float(archiveTime.readline()))
+    archiveTimeVal = -1
+    archiveLatitude = -1
+    archiveLongtitude = -1
+    archiveLocation = 'None'
+    archiveWeather = 'None'
+    archiveTemperature = -1
+    archiveBatteryPercentage = -1
+    archiveChargingStatus = 'False'
+    archiveAltitude = -1
+    archiveActivity = 'None'
+    archiveSpeed = -1
+
+    with fs.open('s3://flaskbucketcd/data/archiveCurrentVals.txt', 'r') as archiveVals:
+        archiveTimeVal = int(float(archiveVals.readline()))
+        archiveLatitude = archiveVals.readline().strip('\n')
+        archiveLongtitude = archiveVals.readline().strip('\n')
+        archiveLocation = archiveVals.readline().strip('\n')
+        archiveTemperature = archiveVals.readline().strip('\n')
+        archiveWeather = archiveVals.readline().strip('\n')
+        archiveWeatherTime = int(archiveVals.readline().strip('\n'))
+        archiveWeatherCode = archiveVals.readline().strip('\n')
+        archiveBatteryPercentage = float(archiveVals.readline().strip('\n'))
+        archiveChargingStatus = archiveVals.readline().strip('\n')
+        archiveAltitude = archiveVals.readline().strip('\n')
+        archiveActivity = archiveVals.readline().strip('\n')
+        archiveSpeed = archiveVals.readline().strip('\n')
+        archiveWeatherAPIkey = archiveVals.readline().strip('\n')
 
     #if archiveFile.shape[0] >= 1: 
     if len(file) >= 2:
@@ -62,8 +86,6 @@ def storeCSV(locations):
         latestTime = int(float(file[len(file) - 1][0]))
 
     #Loop through values of array inside locations (dictionaries)
-    print('Entering New Data Loop')
-    
     for entry in tqdm.tqdm(locations):
 
         timeDate = entry['properties'].get('timestamp')
@@ -101,10 +123,14 @@ def storeCSV(locations):
         except (IndexError, TypeError) as e: 
             motion = 'None' #if there are no properties, assign None
         
+        archiveActivity = motion
+
         try: 
             speed = int(entry['properties'].get('speed'))
         except: 
             speed = -1
+
+        archiveSpeed = speed
         
         battery_level = entry['properties'].get('battery_level')
         
@@ -113,16 +139,23 @@ def storeCSV(locations):
         else:
             battery_level = str(round(float(battery_level), 2))
         
+        archiveBatteryPercentage = battery_level
+
         altitude = entry['properties'].get('altitude')
         
         if altitude is None or altitude == 'None': 
             altitude = -1000
         
+        #Archive altitude is in feet
+        archiveAltitude = round(altitude * 3.28084, 2)
+
         battery_state = entry['properties'].get('battery_state')
         
         if battery_state is None or battery_state == 'None': 
             battery_state = ''
         
+        archiveChargingStatus = battery_state
+
         accuracy = str(entry['properties'].get('horizontal_accuracy')) + ',' + str(entry['properties'].get('vertical_accuracy'))
         
         if accuracy is None or accuracy == 'None': 
@@ -164,8 +197,10 @@ def storeCSV(locations):
             #Makes list and casts it to float
             currentRowCoor = temp[1].split(',')
             currentRowCoor = [float(i) for i in currentRowCoor]
+            
             try: currentAccuracy = int(temp[-3].split(',')[0])
             except: currentAccuracy = -1
+            
             currentMotion = str(entry['properties'].get('motion'))
             
             #If the motion type is stationary or [] (Empty array, so False) set the bool to True
@@ -188,6 +223,9 @@ def storeCSV(locations):
             #Get coordinates from previous lists Formatted in Lat,Long
             coords0 = (firstRowCoor[0], firstRowCoor[1])
             coords1 = (currentRowCoor[0], currentRowCoor[1])
+
+            archiveLatitude = currentRowCoor[0]
+            archiveLongtitude = currentRowCoor[1]
 
             #Calculate lists from created lists
             totalDistance = geopy.distance.distance((coords0[1],coords0[0]), (coords1[1],coords1[0])).meters
@@ -278,14 +316,29 @@ def storeCSV(locations):
     #Close large annex file that we've been writing to
     raw_history.close()
 
+    #Open the archive File, and change all the values within it 
+
     #Writes all of filtered history to new file in bucket
     with fs.open(f"flaskbucketcd/data/history.csv",'w', newline='') as f:
         csvWriter = csv.writer(f,delimiter=',')
         csvWriter.writerows(file)
 
     #Write the last used time value to the file for the next use
-    with fs.open(f"flaskbucketcd/data/archiveCurrentTime.txt",'w') as f:
-        f.write(str(archiveTimeVal))
+    with fs.open(f"flaskbucketcd/data/archiveCurrentVals.txt",'w') as f:
+        f.write(str(archiveTimeVal) + '\n')
+        f.write(str(archiveLatitude) + '\n')
+        f.write(str(archiveLongtitude) + '\n')
+        f.write(str(archiveLocation) + '\n')
+        f.write(str(archiveTemperature) + '\n')
+        f.write(str(archiveWeather) + '\n')
+        f.write(str(archiveWeatherTime) + '\n')
+        f.write(str(archiveWeatherCode) + '\n')
+        f.write(str(archiveBatteryPercentage) + '\n')
+        f.write(str(archiveChargingStatus) + '\n')
+        f.write(str(archiveAltitude) + '\n')
+        f.write(str(archiveActivity) + '\n')
+        f.write(str(archiveSpeed) + '\n')
+        f.write(str(archiveWeatherAPIkey) + '\n')
 
 #Make the KML Files based on the most recent data recieved
 def createKMLFiles():
