@@ -85,9 +85,12 @@ def storeCSV(locations):
         #latestTime = int(file['timestamp'].iloc[file.shape[0] - 1]
         latestTime = int(float(file[len(file) - 1][0]))
 
+    i = -1
+
     #Loop through values of array inside locations (dictionaries)
     for entry in tqdm.tqdm(locations):
 
+        i+=1
         timeDate = entry['properties'].get('timestamp')
 
         #Convert UTC time to timestamp
@@ -99,6 +102,7 @@ def storeCSV(locations):
         
         #If it is a duplicate point in filtered history file, skip it
         if archiveTimeVal >= timeVal:
+            
             continue
 
         #Set the new latest time to the newly entered time
@@ -236,7 +240,7 @@ def storeCSV(locations):
 
             #AVERAGING
             #If the motion is [] or stationary sum, or I am connected to a wifi that is not 'xfinitywifi'
-            if stationaryBool or (wifi and wifi != 'xfinitywifi'):
+            if (stationaryBool or (wifi and wifi != 'xfinitywifi')) and (i != len(locations) - 1):
                 timeAverage += temp[0]
                 latAverageSum += coords1[0]
                 longAverageSum += coords1[1]
@@ -256,7 +260,6 @@ def storeCSV(locations):
                 timeAverage = 0
                 latAverageSum = 0
                 longAverageSum = 0
-
                 #Makes a new row for all the previous averaged values
                 file.append([timeResult, str(latResult) + ',' + str(longResult), altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi, timezone])
             
@@ -289,6 +292,7 @@ def storeCSV(locations):
             if totalDistance <= oldAccuracy or currentAccuracy >= 30:
 
                 #This replaces the last line in the file, aka the "middle" point of our 2nd to last, this one, and new line 
+                
                 file[len(file) - 1] = temp
             
             #Else add the new val to the end of the table
@@ -308,7 +312,6 @@ def storeCSV(locations):
             
             #If my accuracy is lower than 11 (Most of them are 10-5), add the point to the table
             if currentAccuracy <= 11: 
-
                 file.append(temp)
         
     #Write to file after all done

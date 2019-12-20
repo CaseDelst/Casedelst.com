@@ -136,6 +136,7 @@ def locationTest():
 #Reciever for Location Data
 @app.route("/location/endpoint", methods=['POST'])
 def locationendpoint():
+
     print('Retrieving Data From Phone\n\n')
     data = request.get_json()
     dataHeader = request.headers
@@ -194,8 +195,8 @@ def create_archive_urls():
 
     with fs.open('s3://flaskbucketcd/data/archiveCurrentVals.txt', 'r') as archiveVals:
         archiveTimeVal = int(float(archiveVals.readline()))
-        archiveLongtitude = archiveVals.readline().strip('\n')
         archiveLatitude = archiveVals.readline().strip('\n')
+        archiveLongtitude = archiveVals.readline().strip('\n')
         archiveLocation = archiveVals.readline().strip('\n')
         archiveTemperature = archiveVals.readline().strip('\n')
         archiveWeather = archiveVals.readline().strip('\n')
@@ -217,6 +218,8 @@ def create_archive_urls():
         
         responseObj = requests.get('http://api.openweathermap.org/data/2.5/weather?lat=' + str(archiveLatitude) + '&lon=' + str(archiveLongtitude) + '&APPID=' + str(archiveWeatherAPIkey))
         response = responseObj.json()
+
+        #print(response)
 
         #If response is not an error code, rely on new data
         if response['cod'] != '404' and response['cod'] != '401' and response['cod'] != '429' and response['cod'] != '400':
@@ -339,8 +342,8 @@ def create_archive_urls():
     #Write the last used time value to the file for the next use
     with fs.open(f"flaskbucketcd/data/archiveCurrentVals.txt",'w') as f:
         f.write(str(archiveTimeVal) + '\n')
-        f.write(str(archiveLongtitude) + '\n')
         f.write(str(archiveLatitude) + '\n')
+        f.write(str(archiveLongtitude) + '\n')
         f.write(str(archiveLocation) + '\n')
         f.write(str(archiveTemperature) + '\n')
         f.write(str(archiveWeather) + '\n')
