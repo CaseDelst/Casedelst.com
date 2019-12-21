@@ -11,6 +11,8 @@ import time
 import requests
 import s3fs
 
+DEV = False
+
 app = Flask(__name__, static_url_path='')
 
 #Setup a tool to let me see the local IP
@@ -155,8 +157,9 @@ def locationendpoint():
     dataManager.createKMLFiles()
     print('Stored CSV Data')
 
-    return jsonify({"result":"ok"})
-    #return jsonify({"result":"Currently Testing"})
+    if DEV: return jsonify({"result":"Currently Testing"})
+    else: return jsonify({"result":"ok"})
+    
 
 #Refreshes the KML file
 @app.route("/location/refresh")
