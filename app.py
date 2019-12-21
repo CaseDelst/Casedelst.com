@@ -348,6 +348,8 @@ def create_archive_urls():
     #archiveSpeed, converts m/s to mph
     if archiveSpeed != '-1':
         archive['Speed'] = str(round(int(archiveSpeed) * 2.23694, 0)) + 'mph'
+    elif archive['ActivityDescription'] == 'Stationary':
+        archive['Speed'] = '0.0mph'
     else:
         archive['Speed'] = 'UNAVBL'
 
