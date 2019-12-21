@@ -15,7 +15,7 @@ import boto3
 import s3fs
 import os
 
-VERBOSE = True
+VERBOSE = False
 
 #Store the CSV Data from the POST submit
 #IN: JSON formatted location data
@@ -252,7 +252,7 @@ def storeCSV(locations):
             if (((stationaryBool or                             #We're stationary
                (wifi and wifi != 'xfinitywifi')) and            #We have a current wifi value
                (i != len(locations) - 1)) and                   #We aren't at the last element of our list
-               averageCounter > 50):                            #Our counter is below min average count
+               averageCounter < 50):                            #Our counter is below min average count
 
                 timeAverage += temp[0]
                 latAverageSum += coords1[0]
@@ -262,7 +262,7 @@ def storeCSV(locations):
                 continue
             
             #If the motion is anything other than stationary or empty, OR if there's already been 50 averaged values
-            if (not stationaryBool or (not wifi or wifi == 'xfinitywifi')) or averageCounter != 0:
+            if not stationaryBool or not wifi or wifi == 'xfinitywifi' or averageCounter >= 50:
                 
                 #Gets average time, lat, and long over previous n points that were stationary
                 timeResult = round(float(timeAverage / averageCounter), 1)
