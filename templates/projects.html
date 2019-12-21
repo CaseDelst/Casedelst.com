@@ -1,69 +1,70 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h1 style="color: #613942; padding:10px">Projects!</h1>
-    <div class=" " >
-      <a href="https://github.com/CaseDelst/Casedelst.com" class="list-group-item list-group-item-action list-group-item-dark flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Casedelst.com</h5>
-        </div>
-        <p class="mb-1">
-            The personal website i built that you are looking at right now.
-        </p>
-        <small>January 2019</small>
-      </a>
 
-      <a href="https://github.com/JustynDuthler/Cruz-Hacks-Bus-Plus-Plus" class="list-group-item list-group-item-action list-group-item-dark flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Bus++</h5>
-          </div>
-          <p class="mb-1">
-              A bus tracking app developed mostly within the CruzHacks hackthon.
-          </p>
-          <small>January 2019</small>
-        </a>
 
-      <a href="https://github.com/CaseDelst/FitByte" class="list-group-item list-group-item-action list-group-item-dark flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">FitByte</h5>
-        </div>
-        <p class="mb-1">
-            A data consolidation app written in Python to access the FitBit API
-            and learn about data science through my personal data!
-        </p>
-        <small>May 2019</small>
-      </a>
 
-      <a href="https://github.com/CaseDelst/Pinger" class="list-group-item list-group-item-action list-group-item-dark flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Pinger</h5>
-        </div>
-        <p class="mb-1">
-            A simple ping utility that shows the ping time to google using MatPlotLib and a refreshing graph.  
-        </p>
-        <small>June 2019</small>
-      </a>
 
-      <a href="/portfolio" class="list-group-item list-group-item-action list-group-item-dark flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Graphic Design</h5>
-          </div>
-          <p class="mb-1">
-              Paid and Unpaid projects in Graphic Design
-          </p>
-          <small>2016 - 2018</small>
-        </a>
-      
-      
-      <a href=""  class = "list-group-item list-group-item-action list-group-item-dark flex-column align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-          <h5  class="mb-1"><i>And More To Come!</i></h5>
+
+
+
+<h1 style="color: #613942; padding-top: calc(50px + 1%)">Projects!</h1>
+
+<div class="row" style="padding-bottom: calc(50px + 1%); ">
+    <div class="col-lg-4 col-sm-6 mb-4">
+      <div class="card h-100" style="border-color: #613942;">
+        <a href="https://github.com/CaseDelst/Casedelst.com"><img class="card-img-top" src={{website}} alt="Website Image"></a>
+        <div class="card-body">
+          <h3 style="color: #cccccc" class="card-title">
+            Casedelst.com
+          </h3>
+          <p class="card-text">My first project, this website, which I have been adding to since I created it in the Winter of 2018.</p>
+          <p class="card-text">Click to see the project repository. </p>
         </div>
-        <p class="mb-1">
-            I am always working on something Computer Science related... Sit Tight!
-        </p>
-        <small>Now - Future</small>
-      </a>
+      </div>
     </div>
+
+    <div class="col-lg-4 col-sm-6 mb-4">
+      <div class="card h-100" style="border-color: #613942;">
+        <a href="https://github.com/slugbus"><img class="card-img-top" src={{slugbus}} alt="Slug Bus Image"></a>
+        <div class="card-body">
+          <h3 style="color: #cccccc" class="card-title">
+              Bus++
+          </h3>
+          <p class="card-text">A loop-bus tracking app developed mostly during the 2019 CruzHacks event.</p>
+          <p class="card-text">Click to see the project repository. </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6 mb-4">
+        <div class="card h-100" style="border-color: #613942;">
+          <a href="https://github.com/CaseDelst/FitByte"><img class="card-img-top" src={{fitbit_project}} alt="FitByte Image"></a>
+          <div class="card-body">
+            <h3 style="color: #cccccc" class="card-title">
+                FitByte
+            </h3>
+            <p class="card-text">A data collector and analyzer fueled by my fitbit.  Made with Python.</p>
+            <p class="card-text">Click to see the repository.</p>
+          </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-sm-6 mb-4">
+      <div class="card h-100" style="border-color: #613942;">
+        <a href="https://github.com/CaseDelst/Pinger"><img class="card-img-top" src={{ping}} alt="Pinger Image"></a>
+        <div class="card-body">
+          <h3 style="color: #cccccc" class="card-title">
+              Pinger
+          </h3>
+          <p class="card-text">A ping visualizer written in Python using matplotlib.</p>
+          <p class="card-text">Click to see the project repository.</p>
+        </div>
+      </div>
+    </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
 
 {% endblock content %}

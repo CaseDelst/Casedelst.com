@@ -1,38 +1,46 @@
 {% extends "layout.html" %}
 {% block content %}
 
-
-
-<h1 style="color: #613942; padding: 10px"> Blog! </h1>
-
-<div class=" " >
-  <div style="float:left">
-    <a href="/blog/cruzhacks" class="list-group-item list-group-item-action list-group-item-dark flex-column align-items-start">
-      <img src={{CruzHacks}} alt="CruzHacks Image" style="float:right; width:150px; padding:-10px">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1" style="float:left">CruzHacks 2019</h5>
-      </div>
-      <p class="mb-1" style="float:left">
-          A 36-hour hackathon event hosted by UCSC
-      </p>
-      <small style="padding:20px">1/21/19</small>
-    </a>
+<!-- IMAGES HAVE TO BE 700 x 300 ratio-->
+<!-- Project One -->
+<div class="row" style="padding-top: calc(50px + 1%);">
+    <div class="col-md-7">
+      <a href="#">
+        <img class="img-fluid rounded mb-3 mb-md-0" src="{{cruzhacks}}" alt="this didnt work">
+      </a>
+    </div>
+    <div class="col-md-5">
+      <h2 style="color: #613942">CruzHacks 2019</h2>
+      <p>A 36-hour hackathon even hosted by UCSC. </p>
+      <a href="/blog/cruzhacks">
+        <button type="button" class="location-button">Read more!</button>
+      </a>
+    </div>
   </div>
+  <!-- /.row -->
 
-  <div style="float:left">
-    <a href="/blog/fitbyte" class="list-group-item list-group-item-action list-group-item-dark flex-column align-items-start">
-      <img src={{FitByte}} alt="CruzHacks Image" style="float:right; width:150px; padding:-10px">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1" style="float:left">FitByte</h5>
-      </div>
-      <p class="mb-1" style="float:left">
-          A data consolidation tool for my fitbit Charge 3
-      </p>
-      <small style="padding:20px">5/11/19</small>
-    </a>
+  <hr>
+
+  <!-- Project Two -->
+  <div class="row" style="padding-bottom: calc(50px + 1%)">
+    <div class="col-md-7">
+      <a href="#">
+        <img class="img-fluid rounded mb-3 mb-md-0" src="{{FitByte}}" alt="">
+      </a>
+    </div>
+    <div class="col-md-5">
+        <h2 style="color: #613942">FitByte</h2>
+      <p>A custom data collection app with the focus of analyzing and building off of my personal health data.</p>
+      <a href="/blog/fitbyte">
+        <button type="button" class="location-button">Read more!</button>
+      </a>
+    </div>
   </div>
+  <!-- /.row -->
+
+  <hr>
+
 
 </div>
-
 
 {% endblock content %}

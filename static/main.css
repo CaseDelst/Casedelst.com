@@ -114,24 +114,29 @@ color: #613942;
   height: auto;
 }
 
+.page-item{
+  color: #613942;
+  background-color: #613942;
+}
+
 .location-button {
   background-color: #613942;
   border: none;
   color: #cccccc;
-  padding: 25px;
+  padding: 8px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 18px;
   margin: 4px 2px;
   border-radius: 12px;
-  box-shadow: 0 9px #999;
+  box-shadow: 0 6px #3e252b;
 }
 
 .location-button:hover {background-color: #85505c}
 
 .location-button:active {
   background-color: #311c21;
-  box-shadow: 0 4px #666;
+  box-shadow: 0 4px #3e252b;
   transform: translateY(6px);
 }

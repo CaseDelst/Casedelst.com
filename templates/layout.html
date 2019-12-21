@@ -42,19 +42,19 @@
         </div>
         <div class="" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
             
-            <div class="" style="display:flex; flex-direction: column; justify-content: center; align-items: center; padding-right:0px">
+            <div class="" style="display:flex; flex-direction: column; justify-content: center; align-items: center; padding-right:6px">
                 <h6 class="nav-item nav-link" title="Current Location" style="margin-bottom:-1px;padding-top:0px; padding-bottom:0px; padding-right:4px; padding-left:4px">{{archive['Location']}}</h6>
                 <h6 class="nav-item nav-link" title="Current Temperature" style="margin-top:-1px; margin-bottom:0px; padding-bottom:0px; padding-top:0px; padding-right:4px; padding-left:4px">{{archive['Temperature']}}</h6>
             </div>
             
-            <img src={{archive['Weather']}} style="width:50px;height:50px;border:0;padding-right:2px" hspace="0" alt="weather" title={{archive['WeatherDescription']}}>
+            <img src={{archive['Weather']}} style="width:50px;height:50px;border:0;padding-right:2px" hspace="0" alt="weather" title="{{archive['WeatherDescription']}}">
             
             <div class="" style="display:flex; flex-direction: column; justify-content: center; align-items: center; padding-right:0px">
-                <h6 class="nav-item nav-link" style="margin-bottom:-1px;padding-top:0px; padding-bottom:0px; padding-right:4px; padding-left:4px" title="Altitude">{{archive['Altitude']}}ft</h6>
-                <h6 class="nav-item nav-link" style="margin-top:-1px; margin-bottom:0px; padding-bottom:0px; padding-top:0px; padding-right:4px; padding-left:4px"title="Speed">{{archive['Speed']}}mph</h6>
+                <h6 class="nav-item nav-link" style="margin-bottom:-1px;padding-top:0px; padding-bottom:0px; padding-right:4px; padding-left:4px" title="Altitude">{{archive['Altitude']}}</h6>
+                <h6 class="nav-item nav-link" style="margin-top:-1px; margin-bottom:0px; padding-bottom:0px; padding-top:0px; padding-right:4px; padding-left:4px"title="Speed">{{archive['Speed']}}</h6>
             </div>
-            <img src={{archive['Activity']}} style="width:50px;height:50px;border:0;padding-right:2px" hspace="5" alt={{archive['ActivityDescription']}} title={{archive['ActivityDescription']}}>
-            <img src={{archive['BatteryImage']}} style="width:20px;height:37px;border:0;" hspace="5" alt={{archive['BatteryPercentage']}} title={{archive['BatteryPercentage']}}>
+            <img src={{archive['Activity']}} style="width:50px;height:50px;border:0;padding-right:2px" hspace="5" alt="{{archive['ActivityDescription']}}" title="{{archive['ActivityDescription']}}">
+            <img src={{archive['BatteryImage']}} style="width:20px;height:37px;border:0;" hspace="5" alt="{{archive['BatteryPercentage']}}" title="{{archive['BatteryPercentage']}}">
         </div> 
         
     </nav>
