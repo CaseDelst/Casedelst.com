@@ -85,12 +85,13 @@ def storeCSV(locations):
         #latestTime = int(file['timestamp'].iloc[file.shape[0] - 1]
         latestTime = int(float(file[len(file) - 1][0]))
 
-    i = -1
+    #Counter to make sure it doesn't average all the way through without adding at least one of the vals that was averaged
+    i = 0
 
     #Loop through values of array inside locations (dictionaries)
     for entry in tqdm.tqdm(locations):
-
         i+=1
+
         timeDate = entry['properties'].get('timestamp')
 
         #Convert UTC time to timestamp
@@ -102,7 +103,6 @@ def storeCSV(locations):
         
         #If it is a duplicate point in filtered history file, skip it
         if archiveTimeVal >= timeVal:
-            
             continue
 
         #Set the new latest time to the newly entered time
@@ -314,12 +314,8 @@ def storeCSV(locations):
             if currentAccuracy <= 11: 
                 file.append(temp)
         
-    #Write to file after all done
-
     #Close large annex file that we've been writing to
     raw_history.close()
-
-    #Open the archive File, and change all the values within it 
 
     #Writes all of filtered history to new file in bucket
     with fs.open(f"flaskbucketcd/data/history.csv",'w', newline='') as f:
