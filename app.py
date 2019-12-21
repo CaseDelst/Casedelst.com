@@ -35,16 +35,10 @@ def index():
 
     return render_template('index.html', archive=archive, signature=signature, instagram=instagram, email=email, linkedin=linkedin, github=github)
 
-#Serves files from my data folder
-@app.route("/serve/data/<path:path>")
-def serve_data(path):
-    return send_from_directory('static/data', path)
-
-#Serves files from my static/image folder
-@app.route("/serve/static/<path:path>")
+#Serves files from my website
+@app.route("/serve/<path:path>")
 def serve_static(path):
     return send_from_directory('static', path)
-
 
 @app.route("/about")
 def about():
@@ -263,7 +257,7 @@ def create_archive_urls():
 
     archive['Location'] = archiveLocation
     archive['Temperature'] = str(round(((float(archiveTemperature) - 273.15) * 9/5) + 32, 1)) + 'F' + degree_sign
-    archive['Weather'] = url_for('static', filename=str(archiveWeatherCode) + '.png')
+    archive['Weather'] = url_for('static', filename= 'weather/' + str(archiveWeatherCode) + '.png')
 
     weatherComponents = archiveWeather.split(',')
     archive['WeatherDescription'] = weatherComponents[0] + '\n' + weatherComponents[1] + '\nWind: ' + str(round(float(weatherComponents[2]) * 2.23694, 1)) + 'mph'
@@ -278,40 +272,40 @@ def create_archive_urls():
         archive['BatteryPercentage'] = charging_sign + archive['BatteryPercentage']
 
         if archiveBatteryPercentage >= 1.0:
-            archive['BatteryImage'] = url_for('static', filename='battery_charging_100.png')
+            archive['BatteryImage'] = url_for('static', filename='battery/battery_charging_100.png')
 
         elif archiveBatteryPercentage >= .8:
-            archive['BatteryImage'] = url_for('static', filename='battery_charging_80.png')
+            archive['BatteryImage'] = url_for('static', filename='battery/battery_charging_80.png')
 
         elif archiveBatteryPercentage >= .6:
-            archive['BatteryImage'] = url_for('static', filename='battery_charging_60.png')
+            archive['BatteryImage'] = url_for('static', filename='battery/battery_charging_60.png')
 
         elif archiveBatteryPercentage >= .4:
-            archive['BatteryImage'] = url_for('static', filename='battery_charging_40.png')
+            archive['BatteryImage'] = url_for('static', filename='battery/battery_charging_40.png')
 
         elif archiveBatteryPercentage >= .2:
-            archive['BatteryImage'] = url_for('static', filename='battery_charging_20.png')
+            archive['BatteryImage'] = url_for('static', filename='battery/battery_charging_20.png')
 
         else:
-            archive['BatteryImage'] = url_for('static', filename='battery_charging_0.png')
+            archive['BatteryImage'] = url_for('static', filename='battery/battery_charging_0.png')
 
     #Else, determine the correct level of battery to show
     else:
 
         if archiveBatteryPercentage >= .8:
-            archive['BatteryImage'] = url_for('static', filename='battery5.png')
+            archive['BatteryImage'] = url_for('static', filename='battery/battery5.png')
 
         elif archiveBatteryPercentage >= .6:
-            archive['BatteryImage'] = url_for('static', filename='battery4.png')
+            archive['BatteryImage'] = url_for('static', filename='battery/battery4.png')
 
         elif archiveBatteryPercentage >= .4:
-            archive['BatteryImage'] = url_for('static', filename='battery3.png')
+            archive['BatteryImage'] = url_for('static', filename='battery/battery3.png')
 
         elif archiveBatteryPercentage >= .2:
-            archive['BatteryImage'] = url_for('static', filename='battery2.png')
+            archive['BatteryImage'] = url_for('static', filename='battery/battery2.png')
 
         else:
-            archive['BatteryImage'] = url_for('static', filename='battery1.png')
+            archive['BatteryImage'] = url_for('static', filename='battery/battery1.png')
 
     #Altitude, check to see if our value is -1000 m in ft
     if archiveAltitude != '-3280.84':
@@ -325,30 +319,30 @@ def create_archive_urls():
     #If the motion type is known to us, assign a known image
     
     if archiveActivity == 'driving':
-        archive['Activity'] = url_for('static', filename='car.png')
+        archive['Activity'] = url_for('static', filename='activity/car.png')
         archive['ActivityDescription'] = 'Driving'
 
     elif archiveActivity == 'walking':
-        archive['Activity'] = url_for('static', filename='walk.png')
+        archive['Activity'] = url_for('static', filename='activity/walk.png')
         archive['ActivityDescription'] = 'Walking'
         
     elif archiveActivity == 'running':
-        archive['Activity'] = url_for('static', filename='run.png')
+        archive['Activity'] = url_for('static', filename='activity/run.png')
         archive['ActivityDescription'] = 'Running'
 
     elif archiveActivity == 'cycling':
-        archive['Activity'] = url_for('static', filename='bicycle.png')
+        archive['Activity'] = url_for('static', filename='activity/bicycle.png')
         archive['ActivityDescription'] = 'Cycling'
 
     elif archiveActivity == 'stationary':
-        archive['Activity'] = url_for('static', filename='stationary.png')
+        archive['Activity'] = url_for('static', filename='activity/stationary.png')
         archive['ActivityDescription'] = 'Stationary'
 
     elif archiveActivity == '' or archiveActivity == None or archiveActivity == 'None':
-        archive['Activity'] = url_for('static', filename='stationary.png')
+        archive['Activity'] = url_for('static', filename='activity/stationary.png')
         archive['ActivityDescription'] = 'Stationary'
     else:
-        archive['Activity'] = url_for('static', filename='question_mark.png')
+        archive['Activity'] = url_for('static', filename='activity/question_mark.png')
         archive['ActivityDescription'] = 'Unknown'
 
     #archiveSpeed, converts m/s to mph

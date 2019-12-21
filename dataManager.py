@@ -363,44 +363,46 @@ def storeCSV(locations):
 #Make the KML Files based on the most recent data recieved
 def createKMLFiles():
 
+    #NOTE:
+    #   Google maps inner-path color: 669df6 (REMEMBER TO ACCOUNT FOR KML COLOR SCHEME)
+    #   Google maps outer-path color: 206cd5
+    
+
+
+
     #Mount Filesystem
     fs = s3fs.S3FileSystem(anon=False)
 
     tf = TimezoneFinder()
 
     #Define styles to be used
-    pntStyle = simplekml.Style()
-    pntStyle.iconstyle.icon.href = 'http://maps.google.com/mapfiles/kml/shapes/info-i.png'
+    pointStyle = simplekml.Style()
+    pointStyle.iconstyle.icon.href = 'http://maps.google.com/mapfiles/kml/shapes/info-i.png'
 
 
     #Define a new KML creator, and summary array
     dayKML = simplekml.Kml()
-    dayDoc = dayKML.newdocument(name='Data Points')
-    dayKML.document.name = "Day Summary"
+    dayDoc = dayKML.newdocument(name='Day Summary')
     dayCoorArr = []
     
     #Define a new KML creator, and summary array
     weekKML = simplekml.Kml()
-    weekDoc = weekKML.newdocument(name='Data Points')
-    weekKML.document.name = "Week Summary"
+    weekDoc = weekKML.newdocument(name='Week Summary')
     weekCoorArr = []
     
     #Define a new KML creator, and summary array
     monthKML = simplekml.Kml()
-    monthDoc = monthKML.newdocument(name='Data Points')
-    monthKML.document.name = "Month Summary"
+    monthDoc = monthKML.newdocument(name='Month Summary')
     monthCoorArr = []
     
     #Define a new KML creator, and summary array
     yearKML = simplekml.Kml()
-    yearDoc = yearKML.newdocument(name='Data Points')
-    yearKML.document.name = "Year Summary"
+    yearDoc = yearKML.newdocument(name='Year Summary')
     yearCoorArr = []
 
     #Define a new KML creator, and summary array
     allKML = simplekml.Kml()
-    allDoc = allKML.newdocument(name='Data Points')
-    allKML.document.name = "All Time Summary"
+    allDoc = allKML.newdocument(name='All Summary')
     allCoorArr = []
 
     #Number of seconds in each respective field
@@ -462,7 +464,7 @@ def createKMLFiles():
         tr = E.tr
         th = E.th
         td = E.td
-         
+        """  
         pointDescription = table(
                                 tr(
                                     th('Altitude:'),
@@ -487,14 +489,16 @@ def createKMLFiles():
                             )
         #pointDescription = table()
         pointDescription = lxml.etree.tostring(pointDescription, pretty_print=True, encoding='unicode', method='html')
+        """
 
+        pointDescription = ' '
         #Add all points that fit into each category into the respective summary KML file
         if time.time() - timeVal <= day:
             dayCoorArr.append((long, lat, int(row[2])))
             pnt = dayDoc.newpoint(name=timeString, 
                             description=pointDescription, 
                             coords=[(long, lat, int(row[2]))])
-            pnt.style = lineStyle
+            pnt.style = pointStyle
             
         if time.time() - timeVal <= week:
             weekCoorArr.append((long, lat, int(row[2])))
