@@ -364,8 +364,8 @@ def storeCSV(locations):
 def createKMLFiles():
 
     #NOTE:
-    #   Google maps inner-path color: 669df6 (REMEMBER TO ACCOUNT FOR KML COLOR SCHEME)
-    #   Google maps outer-path color: 206cd5
+    #   Google maps inner-path color: 009df666 669df6 -> rrbbgg(REMEMBER TO ACCOUNT FOR KML COLOR SCHEME: aabbggrr)
+    #   Google maps outer-path color: ff6cd520   206cd5
 
 
 
@@ -375,15 +375,22 @@ def createKMLFiles():
 
     tf = TimezoneFinder()
 
+    lineStyle = simplekml.Style()
+    lineStyle.linestyle.color = 'fff69d66'
+    lineStyle.linestyle.width = 5
+    lineStyle.linestyle.gxouterwidth = 1
+    lineStyle.linestyle.gxoutercolor = 'ffd56c20'
+
     #Define styles to be used
     unknownStyle = simplekml.Style()
-    unknownStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/question_mark.png'
+    unknownStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/question_mark2.png'
 
     carStyle = simplekml.Style()
-    carStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/car_map.svg'
+    carStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/car_map2.png'
+    carStyle.iconstyle.scale = 10
 
     currentStyle = simplekml.Style()
-    currentStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/current_location_map.png'
+    currentStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/current_location_map2.png'
 
     bicycleStyle = simplekml.Style()
     bicycleStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/bicycle_map.png'
@@ -395,16 +402,16 @@ def createKMLFiles():
     planeStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/plane_map.png'
 
     runStyle = simplekml.Style()
-    runStyle.iconstyle.icon.href = 'https://img.icons8.com/ios-filled/200/000000/running.png'
+    runStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/run_map2.png'
 
     stationaryStyle = simplekml.Style()
-    stationaryStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/stationary.png'
+    stationaryStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/stationary_map.png'
 
     trainStyle = simplekml.Style()
     trainStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/train_map.png'
 
     walkStyle = simplekml.Style()
-    walkStyle.iconstyle.icon.href = 'https://img.icons8.com/ios-filled/100/000000/walking.png'
+    walkStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/walk_map2.png'
 
     activityDict = {'origin': originStyle,
                     'stationary': stationaryStyle,
@@ -577,26 +584,31 @@ def createKMLFiles():
                                    description="My travels of the current day", 
                                    coords=dayCoorArr,
                                    extrude="1")
+    dayLine.style = lineStyle
     
     weekLine = weekKML.newlinestring(name="Week Path", 
                                      description="My travels of the current week", 
                                      coords=weekCoorArr,
                                      extrude="1")
+    weekLine.style = lineStyle
     
     monthLine = monthKML.newlinestring(name="Month Path", 
                                        description="My travels of the current month", 
                                        coords=monthCoorArr,
                                        extrude="1")
+    monthLine.style = lineStyle
     
     yearLine = yearKML.newlinestring(name="Year Path", 
                                      description="My travels of the current year", 
                                      coords=yearCoorArr,
                                      extrude="1")
+    yearLine.style = lineStyle
     
     allLine = allKML.newlinestring(name="All Time Path", 
                                    description="My travels since I've been tracking them", 
                                    coords=allCoorArr,
                                    extrude="1")
+    allLine.style = lineStyle
 
     with fs.open(f"flaskbucketcd/data/day.kml",'w') as f:
         f.write(dayKML.kml())
