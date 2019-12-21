@@ -376,42 +376,42 @@ def createKMLFiles():
     tf = TimezoneFinder()
 
     lineStyle = simplekml.Style()
-    lineStyle.linestyle.color = 'fff69d66'
+    lineStyle.linestyle.color = 'fff48644'
     lineStyle.linestyle.width = 5
     lineStyle.linestyle.gxouterwidth = 1
     lineStyle.linestyle.gxoutercolor = 'ffd56c20'
 
     #Define styles to be used
     unknownStyle = simplekml.Style()
-    unknownStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/question_mark2.png'
+    unknownStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/question_mark_icon.png'
 
     carStyle = simplekml.Style()
-    carStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/car_map2.png'
+    carStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/car_map_icon.png'
     carStyle.iconstyle.scale = 10
 
     currentStyle = simplekml.Style()
-    currentStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/current_location_map2.png'
+    currentStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/current_location_map_icon.png'
 
     bicycleStyle = simplekml.Style()
-    bicycleStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/bicycle_map.png'
+    bicycleStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/bicycle_map_icon.png'
 
     originStyle = simplekml.Style()
-    originStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/origin_map.png'
+    originStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/origin_map_icon.png'
 
     planeStyle = simplekml.Style()
-    planeStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/plane_map.png'
+    planeStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/plane_map_icon.png'
 
     runStyle = simplekml.Style()
-    runStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/run_map2.png'
+    runStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/run_map_icon.png'
 
     stationaryStyle = simplekml.Style()
-    stationaryStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/stationary_map.png'
+    stationaryStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/stationary_map_icon.png'
 
     trainStyle = simplekml.Style()
-    trainStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/train_map.png'
+    trainStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/train_map_icon.png'
 
     walkStyle = simplekml.Style()
-    walkStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/walk_map2.png'
+    walkStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/walk_map_icon.png'
 
     activityDict = {'origin': originStyle,
                     'stationary': stationaryStyle,

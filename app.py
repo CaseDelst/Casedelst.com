@@ -291,7 +291,6 @@ def create_archive_urls():
 
     #Else, determine the correct level of battery to show
     else:
-
         if archiveBatteryPercentage >= .8:
             archive['BatteryImage'] = url_for('static', filename='battery/battery5.png')
 
