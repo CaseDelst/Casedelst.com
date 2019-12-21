@@ -335,7 +335,7 @@ def create_archive_urls():
     elif archiveActivity == 'stationary':
         archive['Activity'] = url_for('static', filename='stationary.png')
         archive['ActivityDescription'] = 'Stationary'
-        
+
     elif archiveActivity == '' or archiveActivity == None or archiveActivity == 'None':
         archive['Activity'] = url_for('static', filename='stationary.png')
         archive['ActivityDescription'] = 'Stationary'
@@ -383,4 +383,4 @@ def add_header(r):
     return r
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
