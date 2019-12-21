@@ -155,8 +155,8 @@ def locationendpoint():
     dataManager.createKMLFiles()
     print('Stored CSV Data')
 
-    #return jsonify({"result":"ok"})
-    return jsonify({"result":"Currently Testing"})
+    return jsonify({"result":"ok"})
+    #return jsonify({"result":"Currently Testing"})
 
 #Refreshes the KML file
 @app.route("/location/refresh")
