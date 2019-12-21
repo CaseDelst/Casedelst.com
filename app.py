@@ -35,9 +35,16 @@ def index():
 
     return render_template('index.html', archive=archive, signature=signature, instagram=instagram, email=email, linkedin=linkedin, github=github)
 
-@app.route("/data/<path:path>")
-def send_kml(path):
+#Serves files from my data folder
+@app.route("/serve/data/<path:path>")
+def serve_data(path):
     return send_from_directory('static/data', path)
+
+#Serves files from my static/image folder
+@app.route("/serve/static/<path:path>")
+def serve_static(path):
+    return send_from_directory('static', path)
+
 
 @app.route("/about")
 def about():
@@ -58,6 +65,7 @@ def projects():
     slugbus = url_for('static', filename='slugbus.png')
     fitbit_project = url_for('static', filename='fitbit_project.png')
     ping = url_for('static', filename='ping.png')
+
     return render_template('projects.html', archive=archive, title='Projects', ping=ping, fitbit_project=fitbit_project,slugbus=slugbus, website=website, signature=signature)
 
 @app.route("/blog")
