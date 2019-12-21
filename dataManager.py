@@ -15,6 +15,8 @@ import boto3
 import s3fs
 import os
 
+VERBOSE = True
+
 #Store the CSV Data from the POST submit
 #IN: JSON formatted location data
 #OUT: NO RETURN, updated location history file
@@ -103,6 +105,7 @@ def storeCSV(locations):
         
         #If it is a duplicate point in filtered history file, skip it
         if archiveTimeVal >= timeVal:
+            if VERBOSE: print('1: old data, continuing')
             continue
 
         #Set the new latest time to the newly entered time
@@ -114,6 +117,7 @@ def storeCSV(locations):
         
         #If it doesn't have a point tag, skip the point
         except (KeyError) as e: 
+            if VERBOSE: print("2: Key Error, continuing")
             continue
 
         coordinates = str(entry['geometry']['coordinates'][0]) + ',' + str(entry['geometry']['coordinates'][1])
@@ -178,7 +182,9 @@ def storeCSV(locations):
         tempArchive = [timeDate, coordinates, altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi]
     
         #Only store the data if it is the first val, or if the timestamp is chronologically after the previous
-        if len(archiveFile) == 1 or int(archiveTimeVal) < int(timeVal):
+        if (len(archiveFile) == 1 or 
+            int(archiveTimeVal) < int(timeVal)):
+            
             writer.writerow(tempArchive)
             archiveTimeVal = int(timeVal)
         
@@ -235,31 +241,42 @@ def storeCSV(locations):
             totalDistance = geopy.distance.distance((coords0[1],coords0[0]), (coords1[1],coords1[0])).meters
 
             #If the accuracy is too bad -> next point 
-            if currentAccuracy >= 11 or (temp[-2] and stationaryBool):
+            if (currentAccuracy >= 11 or 
+               (temp[-2] and stationaryBool)):
+
+                if VERBOSE: print('3: accuracy too bad, or we have wifi and were stationary, continuing')
                 continue
 
             #AVERAGING
             #If the motion is [] or stationary sum, or I am connected to a wifi that is not 'xfinitywifi'
-            if (stationaryBool or (wifi and wifi != 'xfinitywifi')) and (i != len(locations) - 1):
+            if (((stationaryBool or                             #We're stationary
+               (wifi and wifi != 'xfinitywifi')) and            #We have a current wifi value
+               (i != len(locations) - 1)) and                   #We aren't at the last element of our list
+               averageCounter > 50):                            #Our counter is below min average count
+
                 timeAverage += temp[0]
                 latAverageSum += coords1[0]
                 longAverageSum += coords1[1]
                 averageCounter += 1
+                if VERBOSE: print('4: averaged')
                 continue
             
-            #If the motion is anything other than stationary or empty
-            if (not stationaryBool or (not wifi or wifi == 'xfinitywifi')) and averageCounter != 0:
+            #If the motion is anything other than stationary or empty, OR if there's already been 50 averaged values
+            if (not stationaryBool or (not wifi or wifi == 'xfinitywifi')) or averageCounter != 0:
                 
                 #Gets average time, lat, and long over previous n points that were stationary
                 timeResult = round(float(timeAverage / averageCounter), 1)
                 latResult = latAverageSum / averageCounter
                 longResult = longAverageSum / averageCounter
                 
+                if VERBOSE: print('5: averaged val added, counter =' + str(averageCounter))
+
                 #Resets all averaging counters
                 averageCounter = 0
                 timeAverage = 0
                 latAverageSum = 0
                 longAverageSum = 0
+
                 #Makes a new row for all the previous averaged values
                 file.append([timeResult, str(latResult) + ',' + str(longResult), altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi, timezone])
             
@@ -284,19 +301,21 @@ def storeCSV(locations):
             if bikingBool:
                 oldAccuracy += 200
 
-            #Only add values every n meters when walking
+            #If I am biking, artificially emulate slightly worse accuracy to limit high point density
             if walkingBool:
                 oldAccuracy += 30
 
             #If the distance between point 1 and 3 is less than the accuracy, replace the middle point with the new point
-            if totalDistance <= oldAccuracy or currentAccuracy >= 30:
+            if (totalDistance <= oldAccuracy or 
+               currentAccuracy >= 30):
 
                 #This replaces the last line in the file, aka the "middle" point of our 2nd to last, this one, and new line 
-                
+                if VERBOSE: print("6: replacing val because of insufficient distance")
                 file[len(file) - 1] = temp
             
             #Else add the new val to the end of the table
             else:
+                if VERBOSE: print("7: appending val")
                 file.append(temp)
                 
         
@@ -305,6 +324,7 @@ def storeCSV(locations):
             
             #If there is wifi, and I am stationary, throw away the point
             if wifi and stationaryBool:
+                if VERBOSE: print("8: else statement: wifi and stationary")
                 continue
 
             #Get accuracy
@@ -312,6 +332,7 @@ def storeCSV(locations):
             
             #If my accuracy is lower than 11 (Most of them are 10-5), add the point to the table
             if currentAccuracy <= 11: 
+                if VERBOSE: print("9: else statement: appending")
                 file.append(temp)
         
     #Close large annex file that we've been writing to
@@ -348,37 +369,37 @@ def createKMLFiles():
     tf = TimezoneFinder()
 
     #Define styles to be used
-    style2 = simplekml.Style() #creates shared style for all points
-    style2.labelstyle.color = simplekml.Color.grey
-    style2.labelstyle.scale = .75  # Text half as big
+    pntStyle = simplekml.Style()
+    pntStyle.iconstyle.icon.href = 'http://maps.google.com/mapfiles/kml/shapes/info-i.png'
+
 
     #Define a new KML creator, and summary array
     dayKML = simplekml.Kml()
-    dayFol = dayKML.newfolder(name='Data Points')
+    dayDoc = dayKML.newdocument(name='Data Points')
     dayKML.document.name = "Day Summary"
     dayCoorArr = []
     
     #Define a new KML creator, and summary array
     weekKML = simplekml.Kml()
-    weekFol = weekKML.newfolder(name='Data Points')
+    weekDoc = weekKML.newdocument(name='Data Points')
     weekKML.document.name = "Week Summary"
     weekCoorArr = []
     
     #Define a new KML creator, and summary array
     monthKML = simplekml.Kml()
-    monthFol = monthKML.newfolder(name='Data Points')
+    monthDoc = monthKML.newdocument(name='Data Points')
     monthKML.document.name = "Month Summary"
     monthCoorArr = []
     
     #Define a new KML creator, and summary array
     yearKML = simplekml.Kml()
-    yearFol = yearKML.newfolder(name='Data Points')
+    yearDoc = yearKML.newdocument(name='Data Points')
     yearKML.document.name = "Year Summary"
     yearCoorArr = []
 
     #Define a new KML creator, and summary array
     allKML = simplekml.Kml()
-    allFol = allKML.newfolder(name='Data Points')
+    allDoc = allKML.newdocument(name='Data Points')
     allKML.document.name = "All Time Summary"
     allCoorArr = []
 
@@ -399,9 +420,6 @@ def createKMLFiles():
     with fs.open('s3://flaskbucketcd/data/history.csv', 'r') as history:
         file = list(csv.reader(history))
 
-    #LOCAL
-    #file = pd.read_csv('./static/data/history.csv')
-    
     #Line String takes an array of tuples: [(lat, long), (lat, long)]
     print('Entering KML File Loop')
 
@@ -417,14 +435,6 @@ def createKMLFiles():
         #print(index)
         #timeVal = float(row['timestamp'])
         timeVal = float(row[0])
-
-        #TEMPORARY, this only takes into account the last month of data
-        #if time.time() - timeVal > month:
-        #    continue
-        
-        #Get the longtitude and latitude from csv row
-        #long = str(round(float(row['coordinates'].split(',')[0]), 7))
-        #lat = str(round(float(row['coordinates'].split(',')[1]), 7))
         
         long = str(round(float(row[1].split(',')[0]), 7))
         lat = str(round(float(row[1].split(',')[1]), 7))
@@ -480,84 +490,66 @@ def createKMLFiles():
 
         #Add all points that fit into each category into the respective summary KML file
         if time.time() - timeVal <= day:
-            #dayCoorArr.append((long, lat, int(row['altitude'])))
             dayCoorArr.append((long, lat, int(row[2])))
-            pnt = dayFol.newpoint(name=timeString, 
+            pnt = dayDoc.newpoint(name=timeString, 
                             description=pointDescription, 
                             coords=[(long, lat, int(row[2]))])
-            pnt.style = style2
-
+            pnt.style = lineStyle
+            
         if time.time() - timeVal <= week:
             weekCoorArr.append((long, lat, int(row[2])))
-            pnt = weekFol.newpoint(name=timeString, 
+            pnt = weekDoc.newpoint(name=timeString, 
                              description=pointDescription, 
                              coords=[(long, lat, int(row[2]))])
 
         if time.time() - timeVal <= month:
             monthCoorArr.append((long, lat, int(row[2])))
-            pnt = monthFol.newpoint(name=timeString, 
+            pnt = monthDoc.newpoint(name=timeString, 
                               description=pointDescription, 
                               coords=[(long, lat, int(row[2]))])
-            
-            pnt.style = style2
 
         if time.time() - timeVal <= year and index % 8 == 0:
             yearCoorArr.append((long, lat, int(row[2])))
-            pnt = yearFol.newpoint(name=timeString, 
+            pnt = yearDoc.newpoint(name=timeString, 
                              description=pointDescription, 
                              coords=[(long, lat, int(row[2]))])
-            
-            pnt.style = style2
         
         if index % 10 == 0:
             allCoorArr.append((long, lat, int(row[2])))
-            pnt = allFol.newpoint(name=timeString, 
+            pnt = allDoc.newpoint(name=timeString, 
                             description=pointDescription, 
                             coords=[(long, lat, int(row[2]))])
 
-            pnt.style = style2
-
-
         index += 1
-        #end row looping
-    
+
+    #----------------------------------------------------------------------------------
+
     dayLine = dayKML.newlinestring(name="Day Path", 
                                    description="My travels of the current day", 
                                    coords=dayCoorArr,
                                    extrude="1")
-    dayLine.style.linestyle.color = 'ff0000ff'
-    dayLine.style.linestyle.width = 5
-
     
     weekLine = weekKML.newlinestring(name="Week Path", 
                                      description="My travels of the current week", 
                                      coords=weekCoorArr,
                                      extrude="1")
-    dayLine.style.linestyle.color = 'ff0000ff'
-    dayLine.style.linestyle.width = 5
-
+    
     monthLine = monthKML.newlinestring(name="Month Path", 
                                        description="My travels of the current month", 
                                        coords=monthCoorArr,
                                        extrude="1")
-    dayLine.style.linestyle.color = 'ff0000ff'
-    dayLine.style.linestyle.width = 5
-
+    
     yearLine = yearKML.newlinestring(name="Year Path", 
                                      description="My travels of the current year", 
                                      coords=yearCoorArr,
                                      extrude="1")
-    dayLine.style.linestyle.color = 'ff0000ff'
-    dayLine.style.linestyle.width = 5
     
     allLine = allKML.newlinestring(name="All Time Path", 
                                    description="My travels since I've been tracking them", 
                                    coords=allCoorArr,
                                    extrude="1")
-    allLine.style.linestyle.color = 'ff0000ff'
-    allLine.style.linestyle.width = 5
 
-    with fs.open(f"flaskbucketcd/data/day.kml",'w') as f:
+    with fs.open(f"flaskbucketcd/data/day1.kml",'w') as f:
         f.write(dayKML.kml())
 
     with fs.open(f"flaskbucketcd/data/week.kml",'w') as f:
@@ -572,15 +564,6 @@ def createKMLFiles():
     with fs.open(f"flaskbucketcd/data/all.kml",'w') as f:
         f.write(allKML.kml())
 
-    #dayKML.save('./static/data/day.kml')
-    #weekKML.save('./static/data/week.kml')
-    #monthKML.save('./static/data/month.kml')
-    
-    """
-    #For Local Saving
-    yearKML.save('./static/data/year.kml')
-    allKML.save('./static/data/all.kml')
-    """
 
 #Converts the timestamp from whatever format into unix
 #IN: Time, String of Format
@@ -597,6 +580,7 @@ def convertTimestamps(time, timeFormat):
     else:
         return 'Time Zone Currently Not Supported by dataManager.py:convertTimestamps()'
 
+#TODO: see if I can make this useful
 def massStoreCSV(locations):
     #Instantiates a pandas dataframe
         
