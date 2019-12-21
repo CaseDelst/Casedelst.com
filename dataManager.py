@@ -366,7 +366,7 @@ def createKMLFiles():
     #NOTE:
     #   Google maps inner-path color: 669df6 (REMEMBER TO ACCOUNT FOR KML COLOR SCHEME)
     #   Google maps outer-path color: 206cd5
-    
+
 
 
 
@@ -376,9 +376,44 @@ def createKMLFiles():
     tf = TimezoneFinder()
 
     #Define styles to be used
-    pointStyle = simplekml.Style()
-    pointStyle.iconstyle.icon.href = 'http://maps.google.com/mapfiles/kml/shapes/info-i.png'
+    unknownStyle = simplekml.Style()
+    unknownStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/question_mark.png'
 
+    carStyle = simplekml.Style()
+    carStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/car_map.svg'
+
+    currentStyle = simplekml.Style()
+    currentStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/current_location_map.png'
+
+    bicycleStyle = simplekml.Style()
+    bicycleStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/bicycle_map.png'
+
+    originStyle = simplekml.Style()
+    originStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/origin_map.png'
+
+    planeStyle = simplekml.Style()
+    planeStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/plane_map.png'
+
+    runStyle = simplekml.Style()
+    runStyle.iconstyle.icon.href = 'https://img.icons8.com/ios-filled/200/000000/running.png'
+
+    stationaryStyle = simplekml.Style()
+    stationaryStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/stationary.png'
+
+    trainStyle = simplekml.Style()
+    trainStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/train_map.png'
+
+    walkStyle = simplekml.Style()
+    walkStyle.iconstyle.icon.href = 'https://img.icons8.com/ios-filled/100/000000/walking.png'
+
+    activityDict = {'origin': originStyle,
+                    'stationary': stationaryStyle,
+                    'walking': walkStyle,
+                    'running': runStyle,
+                    'cycling': bicycleStyle,
+                    'driving': carStyle,
+                    'current': currentStyle,
+                    'None': unknownStyle}
 
     #Define a new KML creator, and summary array
     dayKML = simplekml.Kml()
@@ -425,19 +460,31 @@ def createKMLFiles():
     #Line String takes an array of tuples: [(lat, long), (lat, long)]
     print('Entering KML File Loop')
 
-    index = 0
+    pastActivity = 'None'
 
-    #for index, row in tqdm.tqdm(file.itertuples(index=False)):
-    for row in tqdm.tqdm(file):
+    for i, row in tqdm.tqdm(enumerate(file)):
 
-        if index == 0: 
-            index += 1
+        if i == 0: 
             continue
 
         #print(index)
-        #timeVal = float(row['timestamp'])
         timeVal = float(row[0])
         
+        #This will either grab the first or only activty icon
+        activity = str(row[5].split(',')[0])
+        if activity in  {None, ''}: activity = 'None'
+        
+        #Hopefully this should eliminate all the None values of unsure activity
+        if activity != 'None': #Resets the past activity if there is a valid current
+            pastActivity = activity
+        else: #Else grab the old one and use that
+            activity = pastActivity
+
+        if i == 1: #If we're at our first, substitute activity with origin marker
+            activity = 'origin'
+        elif i == (len(file) - 1): #If we're at our last, sub with current
+            activity = 'current'
+
         long = str(round(float(row[1].split(',')[0]), 7))
         lat = str(round(float(row[1].split(',')[1]), 7))
         
@@ -468,63 +515,61 @@ def createKMLFiles():
         pointDescription = table(
                                 tr(
                                     th('Altitude:'),
-                                    #th(str(row['altitude']))
                                     th(str(row[2]))
                                 ),
                                 tr(
                                     th('Speed:'),
-                                    #th(str(row['speed']))
                                     th(str(row[4]))
                                 ), 
                                 tr(
                                     th('Motion Type:'),
-                                    #th(str(row['motion']))
-                                    th(str(row[5]))
+                                    th(activity)
                                 ),
                                 tr(
                                     th('Phone Battery:'),
-                                    #th(str(round(float(row['battery_level']), 2)))
                                     th(str(round(float(row[6]), 2)))
                                 )
                             )
         #pointDescription = table()
         pointDescription = lxml.etree.tostring(pointDescription, pretty_print=True, encoding='unicode', method='html')
         """
-
         pointDescription = ' '
+
         #Add all points that fit into each category into the respective summary KML file
         if time.time() - timeVal <= day:
             dayCoorArr.append((long, lat, int(row[2])))
             pnt = dayDoc.newpoint(name=timeString, 
                             description=pointDescription, 
                             coords=[(long, lat, int(row[2]))])
-            pnt.style = pointStyle
+            pnt.style = activityDict[activity]
             
         if time.time() - timeVal <= week:
             weekCoorArr.append((long, lat, int(row[2])))
             pnt = weekDoc.newpoint(name=timeString, 
                              description=pointDescription, 
                              coords=[(long, lat, int(row[2]))])
+            pnt.style = activityDict[activity]
 
         if time.time() - timeVal <= month:
             monthCoorArr.append((long, lat, int(row[2])))
             pnt = monthDoc.newpoint(name=timeString, 
                               description=pointDescription, 
                               coords=[(long, lat, int(row[2]))])
+            pnt.style = activityDict[activity]
 
-        if time.time() - timeVal <= year and index % 8 == 0:
+        if time.time() - timeVal <= year and i % 8 == 0:
             yearCoorArr.append((long, lat, int(row[2])))
             pnt = yearDoc.newpoint(name=timeString, 
                              description=pointDescription, 
                              coords=[(long, lat, int(row[2]))])
+            pnt.style = activityDict[activity]
         
-        if index % 10 == 0:
+        if i % 10 == 0:
             allCoorArr.append((long, lat, int(row[2])))
             pnt = allDoc.newpoint(name=timeString, 
                             description=pointDescription, 
                             coords=[(long, lat, int(row[2]))])
-
-        index += 1
+            pnt.style = activityDict[activity]
 
     #----------------------------------------------------------------------------------
 
@@ -553,7 +598,7 @@ def createKMLFiles():
                                    coords=allCoorArr,
                                    extrude="1")
 
-    with fs.open(f"flaskbucketcd/data/day1.kml",'w') as f:
+    with fs.open(f"flaskbucketcd/data/day.kml",'w') as f:
         f.write(dayKML.kml())
 
     with fs.open(f"flaskbucketcd/data/week.kml",'w') as f:
