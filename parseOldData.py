@@ -1,17 +1,29 @@
 import pandas as pd
 import dataManager
+import s3fs
+import boto3
+import tqdm
+import csv
 import tqdm
 
-
-df = pd.read_csv('./static/data/raw_history.csv')
+fs = s3fs.S3FileSystem(anon=False)
 totalList = []
+file = [[]]
 
-""" 
-for index, row in tqdm.tqdm(df.iterrows()):
+#Grab the files from aws
+with fs.open('s3://flaskbucketcd/data/raw_history.csv', 'r') as history:
+    file = list(csv.reader(history))
+
+i = -1
+for row in tqdm.tqdm(file):
+    i+= 1
+
+    if i == 0:
+        continue
     
     try: 
-        horizAcc = row['accuracy'].split(',')[0]
-        vertAcc = row['accuracy'].split(',')[1]
+        horizAcc = row[8].split(',')[0]
+        vertAcc = row[8].split(',')[1]
     except:
         horizAcc = ''
         vertAcc = ''
@@ -20,30 +32,32 @@ for index, row in tqdm.tqdm(df.iterrows()):
       "geometry": {
         "type": "Point",
         "coordinates": [
-          row['coordinates'].split(',')[0],
-          row['coordinates'].split(',')[1]
+          row[1].split(',')[0],
+          row[1].split(',')[1]
         ]
       },
       "properties": {
-        "timestamp": row['timestamp'],
-        "altitude": row['altitude'],
-        "speed": row['speed'],
+        "timestamp": row[0],
+        "altitude": row[2],
+        "speed": row[4],
         "horizontal_accuracy": horizAcc,
         "vertical_accuracy": vertAcc,
-        "motion": [row['motion']],
+        "motion": [row[5]],
         "pauses": False,
         "activity": "other_navigation",
         "desired_accuracy": 100,
         "deferred": 1000,
         "significant_change": "disabled",
-        "locations_in_payload": 1,
-        "battery_state": row['battery_state'],
-        "battery_level": row['battery_level'],
+        "locations_in_payload": len(file) - 1,
+        "battery_state": row[7],
+        "battery_level": row[6],
         "device_id": "",
-        "wifi": row['wifi']
+        "wifi": row[9]
       }
     }
+
     totalList.append(tempList)
 
-dataManager.storeCSV(totalList) """
-dataManager.createKMLFiles()
+#Once all data has been populated into a list, feed it into the filter to fill out the history file
+dataManager.storeCSV(totalList)
+#dataManager.createKMLFiles()

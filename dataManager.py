@@ -16,6 +16,7 @@ import s3fs
 import os
 
 VERBOSE = False
+RESORT = False
 
 #Store the CSV Data from the POST submit
 #IN: JSON formatted location data
@@ -29,7 +30,6 @@ def storeCSV(locations):
     #Mount s3fs for AWS
     fs = s3fs.S3FileSystem(anon=False) # accessing all buckets you have access to with your credentials
 
-    
     file = [[]]
     archiveFile = [[]]
 
@@ -150,9 +150,11 @@ def storeCSV(locations):
         archiveBatteryPercentage = battery_level
 
         altitude = entry['properties'].get('altitude')
-        
+
         if altitude is None or altitude == 'None': 
             altitude = -1000
+        else:
+            altitude = int(altitude)
         
         #Archive altitude is in feet
         archiveAltitude = round(altitude * 3.28084, 2)
@@ -182,13 +184,10 @@ def storeCSV(locations):
         tempArchive = [timeDate, coordinates, altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi]
     
         #Only store the data if it is the first val, or if the timestamp is chronologically after the previous
-        if (len(archiveFile) == 1 or 
-            int(archiveTimeVal) < int(timeVal)):
-            
-            writer.writerow(tempArchive)
+        if len(archiveFile) == 1 or int(archiveTimeVal) < int(timeVal):
+            if not RESORT: writer.writerow(tempArchive)
             archiveTimeVal = int(timeVal)
         
-        #if file.shape[0] >= 2:
         if len(file) >= 3:
             
             #Gets previous 2 rows of history file for calculations
@@ -262,7 +261,7 @@ def storeCSV(locations):
                 continue
             
             #If the motion is anything other than stationary or empty, OR if there's already been 50 averaged values
-            if not stationaryBool or not wifi or wifi == 'xfinitywifi' or averageCounter >= 50:
+            if (not stationaryBool or not wifi or wifi == 'xfinitywifi' or averageCounter >= 50) and averageCounter != 0:
                 
                 #Gets average time, lat, and long over previous n points that were stationary
                 timeResult = round(float(timeAverage / averageCounter), 1)
@@ -376,24 +375,26 @@ def createKMLFiles():
     tf = TimezoneFinder()
 
     lineStyle = simplekml.Style()
-    lineStyle.linestyle.color = 'fff48644'
-    lineStyle.linestyle.width = 5
-    lineStyle.linestyle.gxouterwidth = 1
-    lineStyle.linestyle.gxoutercolor = 'ffd56c20'
+    lineStyle.linestyle.color = '40f48644'
+    lineStyle.linestyle.width = 3
+    lineStyle.linestyle.gxouterwidth = .7
+    lineStyle.linestyle.gxoutercolor = '40d56c20'
 
     #Define styles to be used
     unknownStyle = simplekml.Style()
     unknownStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/question_mark_icon.png'
+    unknownStyle.iconstyle.scale = .5
 
     carStyle = simplekml.Style()
     carStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/car_map_icon.png'
-    carStyle.iconstyle.scale = 10
+    carStyle.iconstyle.scale = .9
 
     currentStyle = simplekml.Style()
     currentStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/current_location_map_icon.png'
 
     bicycleStyle = simplekml.Style()
     bicycleStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/bicycle_map_icon.png'
+    bicycleStyle.iconstyle.scale = .85
 
     originStyle = simplekml.Style()
     originStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/origin_map_icon.png'
@@ -403,15 +404,18 @@ def createKMLFiles():
 
     runStyle = simplekml.Style()
     runStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/run_map_icon.png'
+    runStyle.iconstyle.scale = .75
 
     stationaryStyle = simplekml.Style()
     stationaryStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/stationary_map_icon.png'
+    stationaryStyle.iconstyle.scale = .5
 
     trainStyle = simplekml.Style()
     trainStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/train_map_icon.png'
 
     walkStyle = simplekml.Style()
     walkStyle.iconstyle.icon.href = 'http://casedelst.com/serve/activity/walk_map_icon.png'
+    walkStyle.iconstyle.scale = .7
 
     activityDict = {'origin': originStyle,
                     'stationary': stationaryStyle,
@@ -468,6 +472,11 @@ def createKMLFiles():
     print('Entering KML File Loop')
 
     pastActivity = 'None'
+    dayCounter = 0
+    weekCounter = 0
+    monthCounter = 0
+    yearCounter = 0
+    allCounter = 0
 
     for i, row in tqdm.tqdm(enumerate(file)):
 
@@ -486,11 +495,6 @@ def createKMLFiles():
             pastActivity = activity
         else: #Else grab the old one and use that
             activity = pastActivity
-
-        if i == 1: #If we're at our first, substitute activity with origin marker
-            activity = 'origin'
-        elif i == (len(file) - 1): #If we're at our last, sub with current
-            activity = 'current'
 
         long = str(round(float(row[1].split(',')[0]), 7))
         lat = str(round(float(row[1].split(',')[1]), 7))
@@ -548,28 +552,40 @@ def createKMLFiles():
             pnt = dayDoc.newpoint(name=timeString, 
                             description=pointDescription, 
                             coords=[(long, lat, int(row[2]))])
-            pnt.style = activityDict[activity]
+            
+            if dayCounter == 0: pnt.style = activityDict['origin']
+            else:               pnt.style = activityDict[activity]
+            dayCounter+=1
             
         if time.time() - timeVal <= week:
             weekCoorArr.append((long, lat, int(row[2])))
             pnt = weekDoc.newpoint(name=timeString, 
                              description=pointDescription, 
                              coords=[(long, lat, int(row[2]))])
-            pnt.style = activityDict[activity]
+            
+            if weekCounter == 0: pnt.style = activityDict['origin']
+            else:               pnt.style = activityDict[activity]
+            weekCounter+=1
 
         if time.time() - timeVal <= month:
             monthCoorArr.append((long, lat, int(row[2])))
             pnt = monthDoc.newpoint(name=timeString, 
                               description=pointDescription, 
                               coords=[(long, lat, int(row[2]))])
-            pnt.style = activityDict[activity]
+            
+            if monthCounter == 0: pnt.style = activityDict['origin']
+            else:               pnt.style = activityDict[activity]
+            monthCounter+=1
 
         if time.time() - timeVal <= year and i % 8 == 0:
             yearCoorArr.append((long, lat, int(row[2])))
             pnt = yearDoc.newpoint(name=timeString, 
                              description=pointDescription, 
                              coords=[(long, lat, int(row[2]))])
-            pnt.style = activityDict[activity]
+
+            if yearCounter == 0: pnt.style = activityDict['origin']
+            else:               pnt.style = activityDict[activity]
+            yearCounter+=1
         
         if i % 10 == 0:
             allCoorArr.append((long, lat, int(row[2])))
@@ -577,6 +593,10 @@ def createKMLFiles():
                             description=pointDescription, 
                             coords=[(long, lat, int(row[2]))])
             pnt.style = activityDict[activity]
+
+            if allCounter == 0: pnt.style = activityDict['origin']
+            else:               pnt.style = activityDict[activity]
+            allCounter+=1
 
     #----------------------------------------------------------------------------------
 
