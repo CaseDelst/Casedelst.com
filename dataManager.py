@@ -16,7 +16,7 @@ import s3fs
 import os
 
 VERBOSE = False
-RESORT = False
+RE_SORT = False
 
 #Store the CSV Data from the POST submit
 #IN: JSON formatted location data
@@ -81,10 +81,9 @@ def storeCSV(locations):
         archiveSpeed = archiveVals.readline().strip('\n')
         archiveWeatherAPIkey = archiveVals.readline().strip('\n')
 
-    #if archiveFile.shape[0] >= 1: 
     if len(file) >= 2:
-
-        #latestTime = int(file['timestamp'].iloc[file.shape[0] - 1]
+        
+        #Grab the last time from the sorted file
         latestTime = int(float(file[len(file) - 1][0]))
 
     #Counter to make sure it doesn't average all the way through without adding at least one of the vals that was averaged
@@ -94,21 +93,26 @@ def storeCSV(locations):
     for entry in tqdm.tqdm(locations):
         i+=1
 
+        #Get the timestamp
+        #UTC!!!
         timeDate = entry['properties'].get('timestamp')
 
         #Convert UTC time to timestamp
         dt = datetime.strptime(timeDate[:-1], "%Y-%m-%dT%H:%M:%S")
         timezone = timeDate[-1:]
         
-        #Gets the timestamp and timezone from method
+        #Gets the timestamp and timezone from method, this is UTC
         timeVal, timezone = convertTimestamps(timeDate, 'ISO8601')
-        
+
+
         #If it is a duplicate point in filtered history file, skip it
+        #Archive time also in UTC
         if archiveTimeVal >= timeVal:
             if VERBOSE: print('1: old data, continuing')
             continue
 
         #Set the new latest time to the newly entered time
+        #Now latest time in UTC
         latestTime = timeVal
 
         #Store all relevant pieces of information that I want
@@ -170,22 +174,25 @@ def storeCSV(locations):
         
         if accuracy is None or accuracy == 'None': 
             accuracy = '0,0'
-        
-        timeDate = entry['properties'].get('timestamp')
 
         #Sets property
         wifi = entry['properties'].get('wifi')
         if wifi is None: wifi = ''
         
         #Creates an array of all the important values in the correct order
+        #UTC Time, number
         temp = [timeVal, coordinates, altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi, timezone]   #Placeholders for heartrate, steps, calories
         
         #Set up the archival version of the array for raw_history
+        #UTC Time , written out
         tempArchive = [timeDate, coordinates, altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi]
     
         #Only store the data if it is the first val, or if the timestamp is chronologically after the previous
+                                    #Both of these are UTC
         if len(archiveFile) == 1 or int(archiveTimeVal) < int(timeVal):
-            if not RESORT: writer.writerow(tempArchive)
+            if not RE_SORT: writer.writerow(tempArchive)
+
+            #Also UTC
             archiveTimeVal = int(timeVal)
         
         if len(file) >= 3:
@@ -240,9 +247,7 @@ def storeCSV(locations):
             totalDistance = geopy.distance.distance((coords0[1],coords0[0]), (coords1[1],coords1[0])).meters
 
             #If the accuracy is too bad -> next point 
-            if (currentAccuracy >= 11 or 
-               (temp[-2] and stationaryBool)):
-
+            if currentAccuracy >= 11 or (temp[-2] and stationaryBool):
                 if VERBOSE: print('3: accuracy too bad, or we have wifi and were stationary, continuing')
                 continue
 
@@ -253,6 +258,8 @@ def storeCSV(locations):
                (i != len(locations) - 1)) and                   #We aren't at the last element of our list
                averageCounter < 50):                            #Our counter is below min average count
 
+
+                #UTC
                 timeAverage += temp[0]
                 latAverageSum += coords1[0]
                 longAverageSum += coords1[1]
@@ -264,6 +271,7 @@ def storeCSV(locations):
             if (not stationaryBool or not wifi or wifi == 'xfinitywifi' or averageCounter >= 50) and averageCounter != 0:
                 
                 #Gets average time, lat, and long over previous n points that were stationary
+                #UTC
                 timeResult = round(float(timeAverage / averageCounter), 1)
                 latResult = latAverageSum / averageCounter
                 longResult = longAverageSum / averageCounter
@@ -277,6 +285,7 @@ def storeCSV(locations):
                 longAverageSum = 0
 
                 #Makes a new row for all the previous averaged values
+                #UTC Time
                 file.append([timeResult, str(latResult) + ',' + str(longResult), altitude, data_type, speed, motion, battery_level, battery_state, accuracy, wifi, timezone])
             
             #If I am driving, artificially emulate poor accuracy to limit point overlap 
@@ -365,9 +374,6 @@ def createKMLFiles():
     #NOTE:
     #   Google maps inner-path color: 009df666 669df6 -> rrbbgg(REMEMBER TO ACCOUNT FOR KML COLOR SCHEME: aabbggrr)
     #   Google maps outer-path color: ff6cd520   206cd5
-
-
-
 
     #Mount Filesystem
     fs = s3fs.S3FileSystem(anon=False)
@@ -483,7 +489,8 @@ def createKMLFiles():
         if i == 0: 
             continue
 
-        #print(index)
+        
+        #UTC
         timeVal = float(row[0])
         
         #This will either grab the first or only activty icon
@@ -499,22 +506,28 @@ def createKMLFiles():
         long = str(round(float(row[1].split(',')[0]), 7))
         lat = str(round(float(row[1].split(',')[1]), 7))
         
-        #Get timezone name
+        #Get timezone name of current location
         timezoneName = tf.timezone_at(lng=float(long), lat=float(lat))
     
         #Make a naive timezone object from timestamp
+        #UTC Object
         utcmoment_naive = datetime.fromtimestamp(timeVal)
         
         #Make an aware timezone object
         utcmoment = utcmoment_naive.replace(tzinfo=pytz.utc)
         localFormat = "%Y-%m-%d %H:%M:%S"
         
-        #Creates a local string based on variable timezone
+        #Transfers the timezone from utc to local object
         localDateTime = utcmoment.astimezone(pytz.timezone(timezoneName))
+
+        #Creates the string from our declared format, in our local time
         timeString = localDateTime.strftime(localFormat)
         
+        #Gets the local timezone information 
         localTimeVal = datetime.now(pytz.timezone(timezoneName))
-        timeVal = timeVal + localTimeVal.utcoffset().total_seconds()
+        
+        #This line takes the UTC moment from the file, and makes it local time, which we then compare to UTC...
+        #timeVal = timeVal + localTimeVal.utcoffset().total_seconds()
         
         #Makes the XML Table
         E = lxml.builder.ElementMaker()
@@ -554,7 +567,8 @@ def createKMLFiles():
                             coords=[(long, lat, int(row[2]))])
             
             if dayCounter == 0: pnt.style = activityDict['origin']
-            else:               pnt.style = activityDict[activity]
+            elif i == len(file) - 1: pnt.style = activityDict['current']
+            else: pnt.style = activityDict[activity]
             dayCounter+=1
             
         if time.time() - timeVal <= week:
@@ -564,7 +578,8 @@ def createKMLFiles():
                              coords=[(long, lat, int(row[2]))])
             
             if weekCounter == 0: pnt.style = activityDict['origin']
-            else:               pnt.style = activityDict[activity]
+            elif i == len(file) - 1: pnt.style = activityDict['current']
+            else: pnt.style = activityDict[activity]
             weekCounter+=1
 
         if time.time() - timeVal <= month:
@@ -574,7 +589,8 @@ def createKMLFiles():
                               coords=[(long, lat, int(row[2]))])
             
             if monthCounter == 0: pnt.style = activityDict['origin']
-            else:               pnt.style = activityDict[activity]
+            elif i == len(file) - 1: pnt.style = activityDict['current']
+            else: pnt.style = activityDict[activity]
             monthCounter+=1
 
         if time.time() - timeVal <= year and i % 8 == 0:
@@ -584,7 +600,8 @@ def createKMLFiles():
                              coords=[(long, lat, int(row[2]))])
 
             if yearCounter == 0: pnt.style = activityDict['origin']
-            else:               pnt.style = activityDict[activity]
+            elif i == len(file) - 1: pnt.style = activityDict['current']
+            else: pnt.style = activityDict[activity]
             yearCounter+=1
         
         if i % 10 == 0:
@@ -595,7 +612,8 @@ def createKMLFiles():
             pnt.style = activityDict[activity]
 
             if allCounter == 0: pnt.style = activityDict['origin']
-            else:               pnt.style = activityDict[activity]
+            elif i == len(file) - 1: pnt.style = activityDict['current']
+            else: pnt.style = activityDict[activity]
             allCounter+=1
 
     #----------------------------------------------------------------------------------

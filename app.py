@@ -117,6 +117,25 @@ def location():
     signature = url_for('static', filename='signature.png')
     return render_template('location.html', archive=archive, title='Location', signature=signature)
 
+#Reciever for Location Data
+@app.route("/location/endpoint", methods=['POST'])
+def locationendpoint():
+
+    print('Retrieving Data From Phone\n\n')
+    data = request.get_json()
+    dataHeader = request.headers
+    print(dataHeader)
+    locations = data['locations']
+    i = 0
+
+    #Store every value sent by the endpoint to the main CSV file 'raw_history.csv', and makes a shortened history csv
+    dataManager.storeCSV(locations)
+    dataManager.createKMLFiles()
+    print('Stored CSV Data')
+
+    if DEV: return jsonify({"result":"Currently Testing"})
+    else: return jsonify({"result":"ok"})
+    
 @app.route("/location/all")
 def locationAll():
     return render_template('location_all.html', title='All Time Location')
@@ -140,26 +159,6 @@ def locationDay():
 @app.route("/location/test")
 def locationTest():
     return render_template('location_test.html', title='Test Location')
-
-#Reciever for Location Data
-@app.route("/location/endpoint", methods=['POST'])
-def locationendpoint():
-
-    print('Retrieving Data From Phone\n\n')
-    data = request.get_json()
-    dataHeader = request.headers
-    print(dataHeader)
-    locations = data['locations']
-    i = 0
-
-    #Store every value sent by the endpoint to the main CSV file 'raw_history.csv', and makes a shortened history csv
-    dataManager.storeCSV(locations)
-    dataManager.createKMLFiles()
-    print('Stored CSV Data')
-
-    if DEV: return jsonify({"result":"Currently Testing"})
-    else: return jsonify({"result":"ok"})
-    
 
 #Refreshes the KML file
 @app.route("/location/refresh")
