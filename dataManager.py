@@ -15,7 +15,7 @@ import boto3
 import s3fs
 import os
 
-VERBOSE = False
+VERBOSE = True
 RE_SORT = False
 
 #Store the CSV Data from the POST submit
@@ -90,9 +90,10 @@ def storeCSV(locations):
     i = 0
 
     #Loop through values of array inside locations (dictionaries)
-    for entry in tqdm.tqdm(locations):
+    for entry in locations: #tqdm.tqdm():
         i+=1
-
+        if VERBOSE: print('\n', i)
+        
         #Get the timestamp
         #UTC!!!
         timeDate = entry['properties'].get('timestamp')
@@ -104,11 +105,10 @@ def storeCSV(locations):
         #Gets the timestamp and timezone from method, this is UTC
         timeVal, timezone = convertTimestamps(timeDate, 'ISO8601')
 
-
         #If it is a duplicate point in filtered history file, skip it
         #Archive time also in UTC
         if archiveTimeVal >= timeVal:
-            if VERBOSE: print('1: old data, continuing')
+            if VERBOSE: print('   1: old data, continuing. . . archiveTimeVal:', archiveTimeVal, 'timeVal:', timeVal)
             continue
 
         #Set the new latest time to the newly entered time
@@ -121,7 +121,7 @@ def storeCSV(locations):
         
         #If it doesn't have a point tag, skip the point
         except (KeyError) as e: 
-            if VERBOSE: print("2: Key Error, continuing")
+            if VERBOSE: print("   2: Key Error in Geometry, continuing")
             continue
 
         coordinates = str(entry['geometry']['coordinates'][0]) + ',' + str(entry['geometry']['coordinates'][1])
@@ -190,6 +190,8 @@ def storeCSV(locations):
         #Only store the data if it is the first val, or if the timestamp is chronologically after the previous
                                     #Both of these are UTC
         if len(archiveFile) == 1 or int(archiveTimeVal) < int(timeVal):
+            
+            if VERBOSE: print('   2.5: Adding row to raw_history, len(archiveFile) =', len(archiveFile), '(', archiveTimeVal, '<', timeVal, ') (archiveTimeVal < timeVal)')
             if not RE_SORT: writer.writerow(tempArchive)
 
             #Also UTC
@@ -248,7 +250,7 @@ def storeCSV(locations):
 
             #If the accuracy is too bad -> next point 
             if currentAccuracy >= 11 or (temp[-2] and stationaryBool):
-                if VERBOSE: print('3: accuracy too bad, or we have wifi and were stationary, continuing')
+                if VERBOSE: print('   3: Accuracy: ' + str(currentAccuracy) + ' temp[-2]: ' + str(temp[-2]) + ' stationaryBool: ' + str(stationaryBool) + ', skipping')
                 continue
 
             #AVERAGING
@@ -264,7 +266,7 @@ def storeCSV(locations):
                 latAverageSum += coords1[0]
                 longAverageSum += coords1[1]
                 averageCounter += 1
-                if VERBOSE: print('4: averaged')
+                if VERBOSE: print('   4: Averaged.  Average values:', timeAverage, longAverageSum, latAverageSum, averageCounter)
                 continue
             
             #If the motion is anything other than stationary or empty, OR if there's already been 50 averaged values
@@ -276,7 +278,7 @@ def storeCSV(locations):
                 latResult = latAverageSum / averageCounter
                 longResult = longAverageSum / averageCounter
                 
-                if VERBOSE: print('5: averaged val added, counter =' + str(averageCounter))
+                if VERBOSE: print('   5: Averaged val added, reset.  Counter at reset=', averageCounter)
 
                 #Resets all averaging counters
                 averageCounter = 0
@@ -318,12 +320,12 @@ def storeCSV(locations):
                currentAccuracy >= 30):
 
                 #This replaces the last line in the file, aka the "middle" point of our 2nd to last, this one, and new line 
-                if VERBOSE: print("6: replacing val because of insufficient distance")
+                if VERBOSE: print('   6: Distance val insufficient,', totalDistance, 'or accuracy too high,', oldAccuracy)
                 file[len(file) - 1] = temp
             
             #Else add the new val to the end of the table
             else:
-                if VERBOSE: print("7: appending val")
+                if VERBOSE: print("   7: appending val")
                 file.append(temp)
                 
         
@@ -332,7 +334,7 @@ def storeCSV(locations):
             
             #If there is wifi, and I am stationary, throw away the point
             if wifi and stationaryBool:
-                if VERBOSE: print("8: else statement: wifi and stationary")
+                if VERBOSE: print("   8: else statement: wifi and stationary SHOULD NEVER SEE THIS")
                 continue
 
             #Get accuracy
@@ -340,7 +342,7 @@ def storeCSV(locations):
             
             #If my accuracy is lower than 11 (Most of them are 10-5), add the point to the table
             if currentAccuracy <= 11: 
-                if VERBOSE: print("9: else statement: appending")
+                if VERBOSE: print("   9: else statement: appending SHOULD NEVER SEE THIS")
                 file.append(temp)
         
     #Close large annex file that we've been writing to

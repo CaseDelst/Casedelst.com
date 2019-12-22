@@ -1,6 +1,6 @@
-#NOTE TO SELF: To push to heroku: "heroku login" then "git push heroku master"
-
-#To set AWS Keys https://devcenter.heroku.com/articles/s3
+#NOTE To push to heroku: "heroku login" then "git push heroku master"
+#NOTE Before first run, you have to set AWS environment variables for id and key
+      #To set AWS Keys https://devcenter.heroku.com/articles/s3
 
 from flask import Flask, render_template, url_for, jsonify, request, send_from_directory
 import dataManager 
@@ -11,7 +11,7 @@ import time
 import requests
 import s3fs
 
-DEV = False
+DEV = True
 
 app = Flask(__name__, static_url_path='')
 
