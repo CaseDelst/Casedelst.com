@@ -477,7 +477,7 @@ def createKMLFiles():
         file = list(csv.reader(history))
 
     #Line String takes an array of tuples: [(lat, long), (lat, long)]
-    print('Entering KML File Loop')
+    print('\n--Entering KML File Loop--\n')
 
     pastActivity = 'None'
     dayCounter = 0
@@ -486,15 +486,17 @@ def createKMLFiles():
     yearCounter = 0
     allCounter = 0
 
-    for i, row in tqdm.tqdm(enumerate(file)):
+    for i, row in enumerate(file): #tqdm.tqdm
 
         if i == 0: 
             continue
-
+        
+        if VERBOSE: print(i, ':')
         
         #UTC
         timeVal = float(row[0])
-        
+        if VERBOSE: print('  timeVal: ', timeVal)
+
         #This will either grab the first or only activty icon
         activity = str(row[5].split(',')[0])
         if activity in  {None, ''}: activity = 'None'
@@ -510,7 +512,8 @@ def createKMLFiles():
         
         #Get timezone name of current location
         timezoneName = tf.timezone_at(lng=float(long), lat=float(lat))
-    
+        if VERBOSE: print('  Time Zone Name:', timezoneName)
+
         #Make a naive timezone object from timestamp
         #UTC Object
         utcmoment_naive = datetime.fromtimestamp(timeVal)
@@ -524,10 +527,12 @@ def createKMLFiles():
 
         #Creates the string from our declared format, in our local time
         timeString = localDateTime.strftime(localFormat)
+        if VERBOSE: print('  localTimeString:', timeString)
         
         #Gets the local timezone information 
         localTimeVal = datetime.now(pytz.timezone(timezoneName))
-        
+        if VERBOSE: print('  localTimeVal:', localTimeVal)
+
         #This line takes the UTC moment from the file, and makes it local time, which we then compare to UTC...
         #timeVal = timeVal + localTimeVal.utcoffset().total_seconds()
         
@@ -562,7 +567,9 @@ def createKMLFiles():
         pointDescription = ' '
 
         #Add all points that fit into each category into the respective summary KML file
+        if VERBOSE: print('  DAY: (time.time() - timeVal <= day):', time.time(), '-', timeVal, '<=', day)
         if time.time() - timeVal <= day:
+            if VERBOSE: print('    Adding day date to KML')
             dayCoorArr.append((long, lat, int(row[2])))
             pnt = dayDoc.newpoint(name=timeString, 
                             description=pointDescription, 

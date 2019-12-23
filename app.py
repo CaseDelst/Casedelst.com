@@ -11,7 +11,7 @@ import time
 import requests
 import s3fs
 
-DEV = True
+DEV = False
 
 app = Flask(__name__, static_url_path='')
 
