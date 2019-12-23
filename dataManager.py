@@ -15,7 +15,7 @@ import boto3
 import s3fs
 import os
 
-VERBOSE = True
+VERBOSE = False
 RE_SORT = False
 
 #Store the CSV Data from the POST submit
