@@ -719,7 +719,7 @@ def createKMLRange(fromVal, toVal, filename):
 
         # UTC
         timeVal = float(row[0])
-        
+
         if timeVal < fromVal or timeVal > toVal:
             continue
 
@@ -799,7 +799,7 @@ def createKMLRange(fromVal, toVal, filename):
 
     rangeLine.style = styleDict['line']
 
-    with open(filename, 'w') as f:
+    with open('data/' + filename, 'w') as f:
         f.write(rangeKML.kml())
 
 # Converts the timestamp from whatever format into unix

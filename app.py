@@ -50,6 +50,11 @@ def index():
 def serve_static(path):
     return send_from_directory('static', path)
 
+# Serves files from my website
+@app.route("/serve/data/<path:path>")
+def serve_data(path):
+    return send_from_directory('data', path)
+
 
 @app.route("/about")
 def about():
