@@ -189,7 +189,7 @@ def locationRange():
     fileName = str(fromValue) + str(toValue) + '.kml'
 
     if not os.path.isfile(fileName):
-        print(fileName + '.kml not found, creating new file')
+        print(fileName + ' not found, creating new file')
         dataManager.createKMLRange(fromValue, toValue, fileName)
 
     return (fileName, 200)
