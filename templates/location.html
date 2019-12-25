@@ -7,31 +7,48 @@
     <!-- JUMBOTRON -->
     <div class="jumbotron" style="padding-top: calc(50px + 1%); padding-bottom: 5px">
         <h1 class="display-4">Travel History</h1>
-        <div style="padding:5px">
+        <div style="padding-top:5px; padding-bottom:15px">
         
-                <a href='/location/all'>
-                    <button type="button" class="location-button">A</button>
-                </a>
-                
-                <a href='/location/year'>
-                    <button type="button" class="location-button">Y</button>
-                </a>
+            <a href='/location/all'>
+                <button type="button" class="location-button">A</button>
+            </a>
+            
+            <a href='/location/year'>
+                <button type="button" class="location-button">Y</button>
+            </a>
+    
+            <a href='/location/month'>
+                <button type="button" class="location-button">M</button>
+            </a>
+    
+            <a href='/location/week'>
+                <button type="button" class="location-button">W</button>
+            </a>
+    
+            <a href='/location/day'>
+                <button type="button" class="location-button">D</button>
+            </a>
         
-                <a href='/location/month'>
-                    <button type="button" class="location-button">M</button>
-                </a>
+        </div>      
+        <div style="max-width: 85%;">
+            <input type="text" class="js-range-slider" name="my_range" value="" />
+        </div>
         
-                <a href='/location/week'>
-                    <button type="button" class="location-button">W</button>
-                </a>
         
-                <a href='/location/day'>
-                    <button type="button" class="location-button">D</button>
-                </a>
-        
-            </div>        <hr class="my-4">
+        <div style="padding-top: 5px"><p>-- Slider dates are in PST --</p></div>
+
+        <input type="button" class="location-button" onClick="onSubmit()" id="range_button" value="Submit"/>
+
+        <p id="user-response" style="padding: 10px"></p>
+
+        <hr class="my-4">
+              
         <p>As of now, you have 5 options: All, Year, Month, Week and Day</p>
-        <p>The ability to specify a range of values and create custom ranges is coming soon. . .</p>
+        <p>The ability to specify a range of values and create custom ranges is coming soon. . .</p> 
+    
+
+
+
     </div>
     <!--
     <a href='/location/refresh'>
@@ -39,6 +56,78 @@
     </a>
     -->
 
+<script type = "text/javascript">
+
+    
+    var lang = "en-US";
+    var firstDate = "2019-07-12T22:30:16Z"
+
+    //timeValues[0] = firstTime
+    //timeValues[1] = lastTime
+    //timeValues[2] = fromTime
+    //timeValues[3] = toTime
+    var timeValues = JSON.parse({{ timeValues | tojson }})
+    var currentData;
+
+    function setTimeValues(timeObj){
+        timeValues = timeObj;
+    }
+    
+    function dateToTS (date) {
+        return date.valueOf();
+    }
+        
+    function tsToDate (ts) {
+        var d = new Date(ts);
+
+        return d.toLocaleDateString(lang, {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+    }
+
+    function onSubmit(){
+        
+        document.getElementById("user-response").innerHTML = "Please wait to be redirected to your generated data.";
+        
+        var xhr = new XMLHttpRequest();
+        var responseVal;
+        xhr.open("POST", "location/range", true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({'1': currentData.from, '2': currentData.to}));
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                responseVal = xhr.responseText
+                window.location = 'location/range/display/' + responseVal
+                
+            }
+        };
+
+        document.getElementById("user-response").innerHTML = xhr.responseText;
+
+
+    }
+    
+    $(".js-range-slider").ionRangeSlider({
+        skin: "round",
+        type: "double",
+        grid: true,
+        min: parseInt(timeValues[0]),
+        max: parseInt(timeValues[1]),
+        from: parseInt(timeValues[2]),
+        to: parseInt(timeValues[3]),
+        prettify: tsToDate,
+        onChange: function (data) {
+            currentData = data
+        },
+        onStart: function (data) {
+            currentData = data
+        }
+    });
+
+</script>
     
 
 </center>
