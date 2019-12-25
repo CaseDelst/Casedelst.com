@@ -16,7 +16,7 @@ import random
 import os
 
 DEV = False
-DEBUG = True
+DEBUG = False
 
 
 app = Flask(__name__, static_url_path='')
@@ -189,7 +189,7 @@ def locationRange():
     fileName = str(fromValue) + str(toValue) + '.kml'
 
     if not os.path.isfile(fileName):
-        print(fileName + ' not found, creating new file')
+        print('\n--', fileName, 'not found, creating new file--')
         dataManager.createKMLRange(fromValue, toValue, fileName)
 
     return (fileName, 200)
@@ -197,7 +197,7 @@ def locationRange():
 # Displayer of the file made in locationRange
 @app.route("/location/range/display/<filename>")
 def locationRangeDisplay(filename):
-    return render_template('location_range.html', fileName=filename)
+    return render_template('location_range.html', filename=filename)
 
 # Displays the all kml file
 @app.route("/location/all")
@@ -299,14 +299,22 @@ def create_archive_urls():
 
         responseObj = requests.get('http://api.openweathermap.org/data/2.5/weather?lat=' + str(
             archiveLatitude) + '&lon=' + str(archiveLongtitude) + '&APPID=' + str(archiveWeatherAPIkey))
+        
+        print('http://api.openweathermap.org/data/2.5/weather?lat=' + str(archiveLatitude) + '&lon=' + str(archiveLongtitude) + '&APPID=' + str(archiveWeatherAPIkey))
+        
+        print(responseObj)
+        
         response = responseObj.json()
 
         # If response is not an error code, rely on new data
         if response['cod'] != '404' and response['cod'] != '401' and response['cod'] != '429' and response['cod'] != '400':
 
-            archiveWeather = response['weather'][0]['main'] + ',' + \
-                response['weather'][0]['description'] + \
-                ',' + str(response['wind']['speed'])
+            weatherDict = response.get('weather', None)
+
+            if weatherDict:
+                archiveWeather = weatherDict[0]['main'] + ',' + \
+                                 weatherDict[0]['description'] + ',' + \
+                                 str(response['wind']['speed'])
 
             archiveTemperature = float(response['main']['temp'])
 

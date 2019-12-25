@@ -29,10 +29,17 @@
           center: {lat: 41.876, lng: -87.624}
         });
 
-        var ctaLayer = new google.maps.KmlLayer({
-          url: 'http://casedelst.com/serve/data/' + '{{filename}}' + '?ver=' +(new Date()).getTime(),
-          map: map
-        });
+      var url1 = 'http://casedelst.com/serve/data/'
+      var filename = '{{filename}}'
+      var antiCache = ('?ver=').concat((new Date()).getTime())
+      
+
+      var finalURL = url1.concat(filename, antiCache)
+      console.log(finalURL)
+      var ctaLayer = new google.maps.KmlLayer({
+        url: finalURL,
+        map: map
+      });
 
       }
     </script>
