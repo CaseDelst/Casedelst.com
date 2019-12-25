@@ -101,13 +101,8 @@
             if (xhr.readyState == 4 && xhr.status == 200) {
                 responseVal = xhr.responseText
                 window.location = 'location/range/display/' + responseVal
-                
             }
         };
-
-        document.getElementById("user-response").innerHTML = xhr.responseText;
-
-
     }
     
     $(".js-range-slider").ionRangeSlider({
