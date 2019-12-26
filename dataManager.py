@@ -81,7 +81,6 @@ def storeCSV(locations):
         archiveAltitude = archiveVals.readline().strip('\n')
         archiveActivity = archiveVals.readline().strip('\n')
         archiveSpeed = archiveVals.readline().strip('\n')
-        archiveWeatherAPIkey = archiveVals.readline().strip('\n')
 
     if len(file) >= 2:
 
@@ -398,8 +397,7 @@ def storeCSV(locations):
         f.write(str(archiveAltitude) + '\n')
         f.write(str(archiveActivity) + '\n')
         f.write(str(archiveSpeed) + '\n')
-        f.write(str(archiveWeatherAPIkey) + '\n')
-
+        
 # Make the KML Files based on the most recent data recieved
 
 

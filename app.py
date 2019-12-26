@@ -286,7 +286,6 @@ def create_archive_urls():
         archiveAltitude = archiveVals.readline().strip('\n')
         archiveActivity = archiveVals.readline().strip('\n')
         archiveSpeed = archiveVals.readline().strip('\n')
-        archiveWeatherAPIkey = archiveVals.readline().strip('\n')
 
     # Location
     archive['Location'] = archiveLocation
@@ -298,16 +297,15 @@ def create_archive_urls():
         print('Calling WeatherMap API')
 
         responseObj = requests.get('http://api.openweathermap.org/data/2.5/weather?lat=' + str(
-            archiveLatitude) + '&lon=' + str(archiveLongtitude) + '&APPID=' + str(archiveWeatherAPIkey))
+            archiveLatitude) + '&lon=' + str(archiveLongtitude) + '&APPID=' + '1eff0fee19ecf6766369ff253358f72b')
         
-        print('http://api.openweathermap.org/data/2.5/weather?lat=' + str(archiveLatitude) + '&lon=' + str(archiveLongtitude) + '&APPID=' + str(archiveWeatherAPIkey))
-        
-        print(responseObj)
+        #print('http://api.openweathermap.org/data/2.5/weather?lat=' + str(archiveLatitude) + '&lon=' + str(archiveLongtitude) + '&APPID=' + str(archiveWeatherAPIkey))
+        #print(responseObj)
         
         response = responseObj.json()
 
         # If response is not an error code, rely on new data
-        if response['cod'] != '404' and response['cod'] != '401' and response['cod'] != '429' and response['cod'] != '400':
+        if response['cod'] != 404 and response['cod'] != 401 and response['cod'] != 429 and response['cod'] != 400:
 
             weatherDict = response.get('weather', None)
 
@@ -458,7 +456,6 @@ def create_archive_urls():
         f.write(str(archiveAltitude) + '\n')
         f.write(str(archiveActivity) + '\n')
         f.write(str(archiveSpeed) + '\n')
-        f.write(str(archiveWeatherAPIkey) + '\n')
 
     # Returns the filled dictionary with all images and text needed for the info
     return archive
