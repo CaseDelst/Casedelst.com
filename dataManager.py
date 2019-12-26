@@ -397,7 +397,7 @@ def storeCSV(locations):
         f.write(str(archiveAltitude) + '\n')
         f.write(str(archiveActivity) + '\n')
         f.write(str(archiveSpeed) + '\n')
-        
+
 # Make the KML Files based on the most recent data recieved
 
 
@@ -533,7 +533,7 @@ def createKMLFiles():
             print('  DAY: (time.time() - timeVal <= day):',
                   time.time(), '-', timeVal, '<=', day)
         
-        if time.time() - timeVal <= day:
+        if time.time() - timeVal < day:
             if VERBOSE:
                 print('    Adding day date to KML')
             dayCoorArr.append((long, lat, int(row[2])))
