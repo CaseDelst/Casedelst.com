@@ -101,7 +101,7 @@ def storeCSV(locations):
         timeDate = entry['properties'].get('timestamp')
 
         # Convert UTC time to timestamp
-        dt = datetime.strptime(timeDate[:-1], "%Y-%m-%dT%H:%M:%S")
+        dt = datetime.strptime(timeDate[:-1], '%Y-%m-%dT%H:%M:%S')
         timezone = timeDate[-1:]
 
         # Gets the timestamp and timezone from method, this is UTC
@@ -126,7 +126,7 @@ def storeCSV(locations):
         # If it doesn't have a point tag, skip the point
         except (KeyError) as e:
             if VERBOSE:
-                print("   2: Key Error in Geometry, continuing")
+                print('   2: Key Error in Geometry, continuing')
             continue
 
         coordinates = str(entry['geometry']['coordinates'][0]) + \
@@ -343,7 +343,7 @@ def storeCSV(locations):
             if (totalDistance <= oldAccuracy or
                     currentAccuracy >= 30):
 
-                # This replaces the last line in the file, aka the "middle" point of our 2nd to last, this one, and new line
+                # This replaces the last line in the file, aka the 'middle' point of our 2nd to last, this one, and new line
                 if VERBOSE:
                     print('   6: Distance val insufficient,',
                           totalDistance, 'or accuracy too high,', oldAccuracy)
@@ -352,7 +352,7 @@ def storeCSV(locations):
             # Else add the new val to the end of the table
             else:
                 if VERBOSE:
-                    print("   7: appending val")
+                    print('   7: appending val')
                 file.append(temp)
 
         # If the size is less than 2, so we can't do 3 point analysis
@@ -362,7 +362,7 @@ def storeCSV(locations):
             if wifi and stationaryBool:
                 if VERBOSE:
                     print(
-                        "   8: else statement: wifi and stationary SHOULD NEVER SEE THIS")
+                        '   8: else statement: wifi and stationary SHOULD NEVER SEE THIS')
                 continue
 
             # Get accuracy
@@ -371,19 +371,19 @@ def storeCSV(locations):
             # If my accuracy is lower than 11 (Most of them are 10-5), add the point to the table
             if currentAccuracy <= 11:
                 if VERBOSE:
-                    print("   9: else statement: appending SHOULD NEVER SEE THIS")
+                    print('   9: else statement: appending SHOULD NEVER SEE THIS')
                 file.append(temp)
 
     # Close large annex file that we've been writing to
     raw_history.close()
 
     # Writes all of filtered history to new file in bucket
-    with fs.open(f"flaskbucketcd/data/history.csv", 'w', newline='') as f:
+    with fs.open(f'flaskbucketcd/data/history.csv', 'w', newline='') as f:
         csvWriter = csv.writer(f, delimiter=',')
         csvWriter.writerows(file)
 
     # Write the last used time value to the file for the next use
-    with fs.open(f"flaskbucketcd/data/archiveCurrentVals.txt", 'w') as f:
+    with fs.open(f'flaskbucketcd/data/archiveCurrentVals.txt', 'w') as f:
         f.write(str(archiveTimeVal) + '\n')
         f.write(str(archiveLatitude) + '\n')
         f.write(str(archiveLongtitude) + '\n')
@@ -505,7 +505,7 @@ def createKMLFiles():
 
         # Make an aware timezone object
         utcmoment = utcmoment_naive.replace(tzinfo=pytz.utc)
-        localFormat = "%Y-%m-%d %H:%M:%S"
+        localFormat = '%Y-%m-%d %H:%M:%S'
 
         # Transfers the timezone from utc to local object
         localDateTime = utcmoment.astimezone(pytz.timezone(timezoneName))
@@ -608,49 +608,49 @@ def createKMLFiles():
 
     # ----------------------------------------------------------------------------------
 
-    dayLine = dayKML.newlinestring(name="Day Path",
-                                   description="My travels of the current day",
+    dayLine = dayKML.newlinestring(name='Day Path',
+                                   description='My travels of the current day',
                                    coords=dayCoorArr,
-                                   extrude="1")
+                                   extrude='1')
     dayLine.style = styleDict['line']
 
-    weekLine = weekKML.newlinestring(name="Week Path",
-                                     description="My travels of the current week",
+    weekLine = weekKML.newlinestring(name='Week Path',
+                                     description='My travels of the current week',
                                      coords=weekCoorArr,
-                                     extrude="1")
+                                     extrude='1')
     weekLine.style = styleDict['line']
 
-    monthLine = monthKML.newlinestring(name="Month Path",
-                                       description="My travels of the current month",
+    monthLine = monthKML.newlinestring(name='Month Path',
+                                       description='My travels of the current month',
                                        coords=monthCoorArr,
-                                       extrude="1")
+                                       extrude='1')
     monthLine.style = styleDict['line']
 
-    yearLine = yearKML.newlinestring(name="Year Path",
-                                     description="My travels of the current year",
+    yearLine = yearKML.newlinestring(name='Year Path',
+                                     description='My travels of the current year',
                                      coords=yearCoorArr,
-                                     extrude="1")
+                                     extrude='1')
     yearLine.style = styleDict['line']
 
-    allLine = allKML.newlinestring(name="All Time Path",
-                                   description="My travels since I've been tracking them",
+    allLine = allKML.newlinestring(name='All Time Path',
+                                   description='My travels since I\'ve been tracking them',
                                    coords=allCoorArr,
-                                   extrude="1")
+                                   extrude='1')
     allLine.style = styleDict['line']
 
-    with fs.open(f"flaskbucketcd/data/day.kml", 'w') as f:
+    with fs.open(f'flaskbucketcd/data/day.kml', 'w') as f:
         f.write(dayKML.kml())
 
-    with fs.open(f"flaskbucketcd/data/week.kml", 'w') as f:
+    with fs.open(f'flaskbucketcd/data/week.kml', 'w') as f:
         f.write(weekKML.kml())
 
-    with fs.open(f"flaskbucketcd/data/month.kml", 'w') as f:
+    with fs.open(f'flaskbucketcd/data/month.kml', 'w') as f:
         f.write(monthKML.kml())
 
-    with fs.open(f"flaskbucketcd/data/year.kml", 'w') as f:
+    with fs.open(f'flaskbucketcd/data/year.kml', 'w') as f:
         f.write(yearKML.kml())
 
-    with fs.open(f"flaskbucketcd/data/all.kml", 'w') as f:
+    with fs.open(f'flaskbucketcd/data/all.kml', 'w') as f:
         f.write(allKML.kml())
 
 # Make the KML Files based on the most recent data recieved
@@ -752,7 +752,7 @@ def createKMLRange(fromVal, toVal, filename):
 
         # Make an aware timezone object
         utcmoment = utcmoment_naive.replace(tzinfo=pytz.utc)
-        localFormat = "%Y-%m-%d %H:%M:%S"
+        localFormat = '%Y-%m-%d %H:%M:%S'
 
         # Transfers the timezone from utc to local object
         localDateTime = utcmoment.astimezone(pytz.timezone(timezoneName))
@@ -790,10 +790,10 @@ def createKMLRange(fromVal, toVal, filename):
                 pnt.style = styleDict[activity]
             rangeCounter += 1
 
-    rangeLine = rangeKML.newlinestring(name="Range Path",
-                                   description="My travels from the range you specified",
+    rangeLine = rangeKML.newlinestring(name='Range Path',
+                                   description='My travels from the range you specified',
                                    coords=rangeCoorArr,
-                                   extrude="1")
+                                   extrude='1')
 
     rangeLine.style = styleDict['line']
 
@@ -861,10 +861,61 @@ def createStyleDict():
     return styleDict
 
 
+def makeRawPathKML():
+
+    # Mount Filesystem
+    fs = s3fs.S3FileSystem(anon=False)
+
+    # Define a new KML creator, and summary array
+    rawKML = simplekml.Kml()
+    rawDoc = rawKML.newdocument(name='Raw Summary')
+    rawCoorArr = []
+
+    file = [[]]
+
+    # Grab the files from aws
+    with fs.open('s3://flaskbucketcd/data/raw_history.csv', 'r') as history:
+        file = list(csv.reader(history))
+
+    #Loop through the entire raw_history file
+    for i, row in tqdm.tqdm(enumerate(file)):  # tqdm.tqdm
+
+        if i == 0:
+            continue
+
+        if VERBOSE:
+            print(i, ':')
+
+        long = str(round(float(row[1].split(',')[0]), 7))
+        lat = str(round(float(row[1].split(',')[1]), 7))
+        altitude = row[2]
+
+        if altitude in {'None', None}:
+            altitude = -1000
+        else:
+            altitude = int(altitude)
+
+        rawCoorArr.append((long, lat, altitude))
+
+
+    rawLine = rawKML.newlinestring(name='Raw Path',
+                                   description='Raw data path',
+                                   coords=rawCoorArr,
+                                   extrude='1')
+
+    lineStyle = simplekml.Style()
+    lineStyle.linestyle.color = 'af00ffff'
+    lineStyle.linestyle.width = 4
+
+    rawLine.style = lineStyle
+
+    with open('raw.kml', 'w') as f:
+        f.write(rawKML.kml())
+
 def convertTimestamps(time, timeFormat):
 
     if timeFormat == 'ISO8601':
-        dt = datetime.strptime(time[:-1], "%Y-%m-%dT%H:%M:%S")
+        dt = datetime.strptime(time[:-1], '%Y-%m-%dT%H:%M:%S')
         dt = dt.timestamp()
 
         timezone = time[-1:]
