@@ -19,8 +19,6 @@ RE_SORT = False
 # Store the CSV Data from the POST submit
 # IN: JSON formatted location data
 # OUT: NO RETURN, updated location history file
-
-
 def storeCSV(locations):
 
     bucket_name = 'flaskbucketcd'
@@ -91,7 +89,7 @@ def storeCSV(locations):
     i = 0
 
     # Loop through values of array inside locations (dictionaries)
-    for entry in locations:  # tqdm.tqdm():
+    for entry in tqdm.tqdm(locations):  # tqdm.tqdm():
         i += 1
         if VERBOSE:
             print('\n', i)
@@ -398,8 +396,6 @@ def storeCSV(locations):
         f.write(str(archiveActivity) + '\n')
         f.write(str(archiveSpeed) + '\n')
 
-# Make the KML Files based on the most recent data recieved
-
 
 def createKMLFiles():
 
@@ -446,6 +442,8 @@ def createKMLFiles():
     week = 604800
     day = 86400
 
+    currentTime = time.time()
+
     # Read the csv
 
     # AWS
@@ -457,8 +455,56 @@ def createKMLFiles():
     with fs.open('s3://flaskbucketcd/data/history.csv', 'r') as history:
         file = list(csv.reader(history))
 
+    allSize = 0
+    yearSize = 0
+    monthSize = 0
+    weekSize = 0
+    daySize = 0
+
+
+    print('\n--Entering KML Count Loop--\n')
+
+    #Count how many of each category are in the file 
+    for row in file:
+
+        try:
+            timeVal = float(row[0])
+        except ValueError:
+            continue
+
+        timeDifference = currentTime - timeVal
+
+        allSize += 1
+
+        if timeDifference < year:
+            yearSize += 1
+
+        if timeDifference < month:
+            monthSize += 1
+
+        if timeDifference < week:
+            weekSize += 1
+
+        if timeDifference < day:
+            daySize += 1
+
+    #At this point we have the total size of each raw kml time bracket
+
+    dayDiluter = int(daySize / 5500) + 1
+    weekDiluter = int(weekSize / 5500) + 1
+    monthDiluter = int(monthSize / 5500) + 1
+    yearDiluter = int(yearSize / 5500) + 1
+    allDiluter = int(allSize / 5500) + 1
+
+    if VERBOSE: print(dayDiluter)
+    if VERBOSE: print(weekDiluter)
+    if VERBOSE: print(monthDiluter)
+    if VERBOSE: print(yearDiluter)
+    if VERBOSE: print(allDiluter)
+
+
     # Line String takes an array of tuples: [(lat, long), (lat, long)]
-    print('\n--Entering KML File Loop--\n')
+    print('\n--Entering KML Write Loop--\n')
 
     pastActivity = 'None'
     dayCounter = 0
@@ -467,7 +513,7 @@ def createKMLFiles():
     yearCounter = 0
     allCounter = 0
 
-    for i, row in enumerate(file):  # tqdm.tqdm
+    for i, row in tqdm.tqdm(enumerate(file)):  # tqdm.tqdm
 
         if i == 0:
             continue
@@ -533,7 +579,7 @@ def createKMLFiles():
             print('  DAY: (time.time() - timeVal <= day):',
                   time.time(), '-', timeVal, '<=', day)
         
-        if time.time() - timeVal < day:
+        if currentTime - timeVal < day and i % dayDiluter == 0:
             if VERBOSE:
                 print('    Adding day date to KML')
             dayCoorArr.append((long, lat, int(row[2])))
@@ -549,7 +595,7 @@ def createKMLFiles():
                 pnt.style = styleDict[activity]
             dayCounter += 1
 
-        if time.time() - timeVal <= week:
+        if currentTime - timeVal <= week and i % weekDiluter == 0:
             weekCoorArr.append((long, lat, int(row[2])))
             pnt = weekDoc.newpoint(name=timeString,
                                    description=pointDescription,
@@ -563,7 +609,7 @@ def createKMLFiles():
                 pnt.style = styleDict[activity]
             weekCounter += 1
 
-        if time.time() - timeVal <= month:
+        if currentTime - timeVal <= month and i % monthDiluter == 0:
             monthCoorArr.append((long, lat, int(row[2])))
             pnt = monthDoc.newpoint(name=timeString,
                                     description=pointDescription,
@@ -577,7 +623,7 @@ def createKMLFiles():
                 pnt.style = styleDict[activity]
             monthCounter += 1
 
-        if time.time() - timeVal <= year and i % 7 == 0:
+        if currentTime - timeVal <= year and i % yearDiluter == 0:
             yearCoorArr.append((long, lat, int(row[2])))
             pnt = yearDoc.newpoint(name=timeString,
                                    description=pointDescription,
@@ -591,7 +637,7 @@ def createKMLFiles():
                 pnt.style = styleDict[activity]
             yearCounter += 1
 
-        if i % 10 == 0:
+        if i % allDiluter == 0:
             allCoorArr.append((long, lat, int(row[2])))
             pnt = allDoc.newpoint(name=timeString,
                                   description=pointDescription,
@@ -653,9 +699,8 @@ def createKMLFiles():
     with fs.open(f'flaskbucketcd/data/all.kml', 'w') as f:
         f.write(allKML.kml())
 
+
 # Make the KML Files based on the most recent data recieved
-
-
 def createKMLRange(fromVal, toVal, filename):
 
     # NOTE:
@@ -800,9 +845,6 @@ def createKMLRange(fromVal, toVal, filename):
     with open('data/' + filename, 'w') as f:
         f.write(rangeKML.kml())
 
-# Converts the timestamp from whatever format into unix
-# IN: Time, String of Format
-# OUT: Unix Timestamp in UTC, timezone
 
 # Helper function for the KML functions
 def createStyleDict():
@@ -912,6 +954,10 @@ def makeRawPathKML():
     with open('raw.kml', 'w') as f:
         f.write(rawKML.kml())
 
+
+# Converts the timestamp from whatever format into unix
+# IN: Time, String of Format
+# OUT: Unix Timestamp in UTC, timezone
 def convertTimestamps(time, timeFormat):
 
     if timeFormat == 'ISO8601':
@@ -925,8 +971,6 @@ def convertTimestamps(time, timeFormat):
         return 'Time Zone Currently Not Supported by dataManager.py:convertTimestamps()'
 
 # TODO: see if I can make this useful
-
-
 def massStoreCSV(locations):
     # Instantiates a pandas dataframe
 
