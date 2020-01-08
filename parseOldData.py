@@ -58,6 +58,6 @@ for row in tqdm.tqdm(file):
 
     totalList.append(tempList)
 
-#Once all data has been populated into a list, feed it into the filter to fill out the history file
+#Once all data has been populated into a list, feed it into the filter to fill out the history fill
 dataManager.storeCSV(totalList)
 #dataManager.createKMLFiles()

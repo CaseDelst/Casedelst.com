@@ -579,7 +579,7 @@ def createKMLFiles():
             print('  DAY: (time.time() - timeVal <= day):',
                   time.time(), '-', timeVal, '<=', day)
         
-        if currentTime - timeVal < day and i % dayDiluter == 0:
+        if currentTime - timeVal <= day and i % dayDiluter == 0:
             if VERBOSE:
                 print('    Adding day date to KML')
             dayCoorArr.append((long, lat, int(row[2])))
