@@ -513,7 +513,7 @@ def createKMLFiles():
     yearCounter = 0
     allCounter = 0
 
-    for i, row in tqdm.tqdm(enumerate(file)):  # tqdm.tqdm
+    for i, row in enumerate(file):  # tqdm.tqdm
 
         if i == 0:
             continue
@@ -755,7 +755,7 @@ def createKMLRange(fromVal, toVal, filename):
     pastActivity = 'None'
     rangeCounter = 0
 
-    for i, row in enumerate(file):  # tqdm.tqdm
+    for i, row in file:  # tqdm.tqdm
 
         if i == 0:
             continue
