@@ -14,6 +14,9 @@ import json
 import string
 import random
 import os
+#from apscheduler.schedulers.blocking import BlockingScheduler
+
+#sched = BlockingScheduler()
 
 DEV = False
 DEBUG = False
@@ -88,7 +91,8 @@ def blog():
     signature = url_for('static', filename='signature.png')
     cruzhacks = url_for('static', filename='cruzhacks.png')
     FitByte = url_for('static', filename='fitbit.png')
-    return render_template('blog.html', archive=archive, title='Blog', signature=signature, cruzhacks=cruzhacks, FitByte=FitByte)
+    website_location = url_for('static', filename='location_blog.png')
+    return render_template('blog.html', archive=archive, title='Blog', signature=signature, website_location=website_location, cruzhacks=cruzhacks, FitByte=FitByte)
 
 
 @app.route("/blog/cruzhacks")
@@ -107,6 +111,14 @@ def fitbyte():
 
     signature = url_for('static', filename='signature.png')
     return render_template('fitbyte.html', archive=archive, title='FitByte', signature=signature)
+
+@app.route("/blog/website_location")
+def locationTracking():
+
+    archive = create_archive_urls()
+
+    signature = url_for('static', filename='signature.png')
+    return render_template('website_location.html', archive=archive, title='Casedelst.com', signature=signature)
 
 
 @app.route("/portfolio")
@@ -220,6 +232,7 @@ def locationWeek():
     return render_template('location_week.html', title='Week Location')
 
 # Displays the day kml file
+#@sched.scheduled_job('interval', minutes=5)
 @app.route("/location/day")
 def locationDay():
     return render_template('location_day.html', title='Day Location')

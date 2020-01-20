@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <!-- JUMBOTRON -->
+    <div style="padding-bottom: 5%; padding-top: calc(50px + 5%)"class="jumbotron-fluid">
+      <h1 class="display-4">Location Tracking</h1>
+      <p class="lead">My process and thinking behind my website location tracking app</p>
+      <hr class="my-4">
+      <p style="padding:15px">
+        Creating a self-documenting history of my life has been a fascination I've had for the past 2 years.  Until now
+        I had no idea how to implement such an idea, or how that would look from an engineering standpoint.  For
+        the longest time, I was intimidated out of the attempt of learning everything I had to to make my vision into a reality, 
+        but I can finally say that I conquered the intimidation and created exactly what I set out to.  
+        
+        <h3 class="mb-1">The Goal</h3>
+            <ol>
+                <li>Create an automated location database that stores my location and speed, altitude, etc.</li>
+                <li>Display it in a friendly, understandable way with a neat Google Maps API map</li>
+                <li>Make it accurate within the limitations of filesize and point density that exist with KML files</li>
+            </ol> 
+    
+        <h3 class="mb-1">The Build Process</h3>
+            I started this project by designing what I call the "Raw History" database file that would store every datapoint
+            ever sent to my server from my phone.  This recorded the timestamp, coordinates, altitude, data point type, speed, 
+            motion type, battery level, battery state (charging/not charging), accuracy (GPS), wifi and timezone. This file at
+            this point in time (January 2020) is 110 MB large.  Obviously, I cannot display every single one of the 1.2 million 
+            datapoints I have stored, as it would simply crash whatever was trying to render that.  This was a problem that I fixed
+            by creating a sort of filter algorithm that fed into my "Valuable History" file.  I implemented basic filters, such as one 
+            that would exclude any points with bad GPS accuracy, or another that threw away points that are missing key information such
+            as speed, motion type, or altitude.  A large advancement happened when I realized that I didn't need a similar level of
+            accuracy for every motion type.  This led to an adaptive filter that took into account my current speed, and my motion type.
+            For example, I would only take a point that was 50m away from the original point if I was driving at 25mph, and 100m if I was 
+            driving at 50mph, and similarly for walking and biking, with smaller respective multipliers on the distances.  This made a drive
+            to the grocery store that was previously 5-10 thousand data points shrink into just 100, with very minimal accuracy loss. 
+            After that, feeling motivated, I noticed that I had a massive amount of data points of me being stationary in a building, or at home.
+            The best solution I could come up with for this problem was a point averaging system that took into account the distance since 
+            the last point, if I am connected to wifi, if I am stationary or not, and my current speed.  If these variables combined in a way
+            that makes it clear that I am not moving and that any more data points are just excessive, I average them into one point.  This effectively 
+            shrinks a 2 hour homework session (1k datapoint timeframe) into a 1 or 2 point representation that is highly accurate location wise. 
+
+            <br> <br>
+
+            Even with all of this filtering, my filtered dataset is still almost 5MB, which is still a factor of at least 20x smaller, but still
+            not small enough to display in a 2.5MB limited KML file using the Google Maps KML API.  This leads to one more simple yet surprisingly effective
+            way of displaying data in Day, Week, Month, Year, and All formats.  This last filter involved knowing the amount of data points that would fit in a 
+            2.5MB file, which it turns out is about 6700.  So in order to display the correct amount of points, I divide the number of points in the time range by 6700 
+            to get an even divisor, and simply throw out every n points so that no matter how big the data set, it will still be able to 
+            be displayed by my website.  
+
+            <br> <br>
+
+            My last challenge I set for myself was to make a date range slider that would work for any amount of users at the same time.  I did this by taking the 
+            Epoch time of the start and ending date, saved them and made a specific KML file that only included points from 12am the beginning date to 11:59pm ending date. 
+            I then named the file the combination of the two epochs, giving it a unique name that is reproduceable.  The website then feeds that specifically named file to 
+            the Maps API and displays the range data.  If the file is already made, the server recognizes that and simply serves the file without remaking it.  This works without
+            creating a huge amount of storage, as Heroku (my hosting service) has an ephemeral storage system, which means that when it's dynos are restarted, all changes to the
+            file system since the deploy are deleted.  This makes for a neat temporary storage system perfect for my application, that when used in parallel with S3, creates a complex
+            and efficient storage solution.     
+
+
+        <br><br>
+
+        <h3 class="mb-1">What I learned</h3>
+            
+            I learned all about networking, and optimization in python regarding reads and writes from python.  The whole problem of geographic
+            relevance was also very interesting, as trying to identify points that are important for data integrity is challenging.  I also learned
+            the importance of writing code for a remote server setting, and making checks and balances that ensured that the website didn't crash
+            every time I got an unexpected 'None' or blank key value.  This was also my first time using a database such as AWS S3, and learned a lot 
+            about how to use that in a workflow efficiently without over-calling it and charging myself a lot of money.  
+
+        <br><br>
+
+        This project was invaluable in terms of lessons learned and goals accomplished. 
+
+        <br><br>
+
+        <h3 class="mb-1">Thanks For Reading!</h3>
+
+      <p class="lead">
+      </p>
+    </div>
+
+{% endblock content %}
