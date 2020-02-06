@@ -249,7 +249,6 @@ def kmlrefresh():
     dataManager.createKMLFiles()
     return redirect(url_for('location'))
 
-
 # Helper function for the status bar in every page
 # Creates all the resources for the live display
 def create_archive_urls():
