@@ -249,6 +249,15 @@ def kmlrefresh():
     dataManager.createKMLFiles()
     return redirect(url_for('location'))
 
+
+@app.route("/collinhurst")
+def collinhurst():
+
+    collin = url_for('static', filename='collin.png')
+    ponytoy = url_for('static', filename='ponytoy.jpg')
+    return render_template('collin_homepage.html', collinhurst=collin, ponytoy=ponytoy)
+
+
 # Helper function for the status bar in every page
 # Creates all the resources for the live display
 def create_archive_urls():
@@ -495,4 +504,4 @@ if __name__ == '__main__':
     if DEBUG:
         app.run(debug=True)
     else:
-        app.run(debug=False)
+        app.run(debug=True)
