@@ -253,7 +253,7 @@ def kmlrefresh():
 @app.route("/collinhurst")
 def collinhurst():
 
-    collin = url_for('static', filename='collin.png')
+    collin = url_for('static', filename='collin2.png')
     ponytoy = url_for('static', filename='ponytoy.jpg')
     return render_template('collin_homepage.html', collinhurst=collin, ponytoy=ponytoy)
 
